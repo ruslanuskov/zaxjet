@@ -1,0 +1,124 @@
+@use 'sass:list';
+@use 'sass:map';
+@use '../utils' as *;
+
+html {
+  font-size: $font-size;
+}
+body {
+  font: 400 list.slash(1.8rem, 1.5) map.get($fonts, montserrat);
+  letter-spacing: normal;
+  background: var(--backgrond);
+  color: var(--text-color);
+  @include up(md) {
+    font-size: 2rem;
+  }
+}
+b,
+strong {
+  font-weight: 600;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font: {
+    family: map.get($fonts, montserrat);
+    weight: 600;
+  }
+  color: var(--text-color);
+}
+h1,
+.h1 {
+  font-size: 6rem;
+  line-height: 1;
+}
+h2,
+.h2 {
+  font-size: 3.4rem;
+  line-height: 1.4;
+  @include up(md) {
+    font-size: 4.6rem;
+    line-height: 1;
+  }
+}
+h3,
+.h3 {
+  font-size: 2.5rem;
+  line-height: 1.4;
+  @include up(md) {
+    font-size: 2.8rem;
+  }
+}
+h4,
+.h4 {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+h5,
+.h5 {
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+h6,
+.h6 {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+input,
+textarea {
+  color: var(--text-color);
+  @include placeholder {
+    color: var(--text-color);
+    opacity: 0.4;
+  }
+  @include autofill {
+    -webkit-text-fill-color: var(--text-color);
+  }
+}
+._cover,
+._contain {
+  @include img-fit;
+}
+._cover {
+  object-fit: cover;
+}
+._contain {
+  object-fit: contain;
+}
+._centering {
+  @include img-centering;
+}
+.container {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  width: 100%;
+  max-width: 146rem;
+  min-width: 36rem;
+  flex: none;
+  @each $bp, $size in $indents {
+    @if map.get($media, $bp) and $bp != 'sm' {
+      @include up($bp) {
+        padding: {
+          left: $size;
+          right: $size;
+        }
+      }
+    } @else {
+      padding: {
+        left: $size;
+        right: $size;
+      }
+    }
+  }
+}

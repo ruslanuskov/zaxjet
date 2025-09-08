@@ -1,0 +1,4 @@
+mixin svg(data)
+  if data
+    svg&attributes(attributes)
+      use(xlink:href=`${devmode ? '' : 'images/svgsprite.svg'}#${data}`)

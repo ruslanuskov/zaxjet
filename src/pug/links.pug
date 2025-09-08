@@ -1,0 +1,19 @@
+extends ./common/wrapper
+
+block config
+  -
+    var links = [
+      {
+        page: 'index',
+        title: 'Главная',
+      },
+    ];
+
+block content
+  if links
+    .container(style="padding-top: 8rem; padding-bottom: 8rem;")
+      ul
+        each item in links
+          - var { page, title } = item;
+          li
+            a(href=`${page || 'index'}.html`)!=title

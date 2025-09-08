@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../data' as *;
+
+@mixin up($name) {
+  $size: map.get($media, $name);
+
+  @media (min-width: $size) {
+    @content;
+  }
+}

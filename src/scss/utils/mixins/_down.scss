@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../data' as *;
+
+@mixin down($name) {
+  $size: map.get($media, $name) - 1;
+
+  @media (max-width: $size) {
+    @content;
+  }
+}

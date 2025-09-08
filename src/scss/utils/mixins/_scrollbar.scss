@@ -1,0 +1,23 @@
+@mixin scrollbar {
+  @supports (selector(::-webkit-scrollbar)) {
+    &::-webkit-scrollbar {
+      width: 0.8rem;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f0f0f0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #cdcdcd;
+      &:hover {
+        background-color: #a6a6a6;
+      }
+    }
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+  }
+  @supports not (selector(::-webkit-scrollbar)) {
+    scrollbar-width: thin;
+    scrollbar-color: #cdcdcd;
+  }
+}

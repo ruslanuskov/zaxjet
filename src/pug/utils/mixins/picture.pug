@@ -1,0 +1,38 @@
+mixin picture(data)
+  if data
+    - var { single, multi } = data;
+    picture
+      if single
+        - var { path, sizes } = single;
+        - var srcset = devmode ? path : path.split('.').slice(0, -1).join('.') + '.webp';
+
+        each size, screen in sizes
+          - var [width, height] = size;
+          source(
+            type=!devmode ? 'image/webp' : undefined
+            srcset=`${srcset} 1x, ${srcset} 2x`
+            media=(screen != '_0') ? `(min-width: ${screen.slice(1)}px)` : undefined
+            width=width
+            height=height
+          )
+
+        - var [width, height] = sizes._0 || [undefined, undefined]
+        +img(path)(width=width height=height)&attributes(attributes)
+
+      else
+
+        each item, screen in multi
+          - var { path, sizes } = item;
+          - var srcset = devmode ? path : path.split('.').slice(0, -1).join('.') + '.webp';
+          - var [width, height] = sizes;
+
+          source(
+            type=!devmode ? 'image/webp' : undefined
+            srcset=`${srcset} 1x, ${srcset} 2x`
+            media=(screen != '_0') ? `(min-width: ${screen.slice(1)}px)` : undefined
+            width=width
+            height=height
+          )
+
+          if screen == '_0'
+            +img(path)(width=width height=height)&attributes(attributes)

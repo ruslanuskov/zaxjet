@@ -1,0 +1,29 @@
+$montserrat: 'Montserrat';
+$fonts: (
+  montserrat: (
+    $montserrat,
+    sans-serif,
+  ),
+);
+
+$font-size: 10px;
+
+$duration: 200ms;
+$timing-fn: ease;
+
+$z-index: 1000;
+
+$media: (
+  sm: 0,
+  md: 768px,
+  lg: 1280px,
+  xl: 1600px,
+);
+
+$indents: (
+  sm: 1.2rem,
+  md: 3.6rem,
+  lg: 8.2rem,
+);
+
+$sizes: ();

@@ -1,0 +1,16 @@
+@use 'sass:list';
+@use '../data' as *;
+
+@mixin transition($props, $timing-dur: $duration, $delay: 0s) {
+  $list: ();
+
+  @each $prop in $props {
+    $list: list.append(
+      $list,
+      ($prop $timing-dur $timing-fn $delay),
+      $separator: comma
+    );
+  }
+
+  transition: $list;
+}
