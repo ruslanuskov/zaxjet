@@ -64,8 +64,12 @@ export default defineConfig({
               params: {
                 overrides: {
                   removeUselessStrokeAndFill: false,
+                  cleanupIds: false,
                 },
               },
+            },
+            {
+              prefixIds: false,
             },
           ],
         }),
