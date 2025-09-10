@@ -1,0 +1,147 @@
+@use '../utils' as *;
+
+.footer {
+  background: var(--black);
+  &__container {
+    padding: {
+      top: 6.1rem;
+      bottom: 4rem;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem 0;
+    padding: 0 1.2rem;
+    @include up(md) {
+      gap: 4rem 0;
+      padding: 0;
+    }
+    @include up(lg) {
+      gap: 0;
+    }
+  }
+  &__contacts {
+    display: grid;
+    gap: 2rem 0;
+    @include up(md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3.95rem 0;
+    }
+  }
+  &__logo {
+    width: 10.9rem;
+    height: 1.8rem;
+    @include up(md) {
+      width: 14.1rem;
+      height: 2.2rem;
+    }
+  }
+  &__logo + * {
+    margin-top: 3rem;
+    @include up(md) {
+      margin-top: 0;
+    }
+  }
+  &__city {
+    font-size: 1.6rem;
+    color: var(--white);
+    @include up(md) {
+      text-align: right;
+    }
+  }
+  &__connect {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    @include up(md) {
+      flex-direction: row;
+      align-items: center;
+    }
+    @include up(lg) {
+      gap: 2rem;
+    }
+    @include up(xl) {
+      gap: 2rem;
+    }
+    .connect__networks {
+      gap: 2rem;
+      order: 2;
+      @include up(md) {
+        order: 1;
+      }
+    }
+    .connect__telephone {
+      order: 1;
+      @include up(md) {
+        order: 2;
+      }
+    }
+  }
+  &__email {
+    flex: none;
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    font-size: 1.6rem;
+    @include transition(color);
+    @include up(md) {
+      justify-content: flex-end;
+    }
+    @include hover {
+      color: var(--link-hover);
+    }
+    &-icon {
+      flex: none;
+      width: 2.4rem;
+      height: 2.4rem;
+      display: none;
+      @include up(md) {
+        display: block;
+      }
+    }
+    &-text {
+      display: block;
+    }
+  }
+  &__info {
+    flex-direction: column;
+    display: flex;
+    gap: 5rem 0;
+    @include up(md) {
+      gap: 4rem 0;
+    }
+  }
+  &__socials {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    &-item {
+      flex: none;
+    }
+    &-link {
+      display: block;
+    }
+    &-icon {
+      width: fit-content;
+      width: 5.3rem;
+      height: 3.6rem;
+      border-radius: 0.3rem;
+      box-shadow: 0 8px 24px 0 rgba(129, 135, 189, 0.15);
+      &._rutube {
+        width: 12.5rem;
+      }
+    }
+  }
+  &__copyright {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--white);
+    @include up(md) {
+      font-size: 1.6rem;
+    }
+  }
+}

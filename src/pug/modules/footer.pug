@@ -1,0 +1,74 @@
+-
+  var logo = {
+    url: '/',
+    img: {
+      path: 'images/light-logo.svg',
+      width: 141,
+      height: 22,
+    },
+  };
+
+-
+  var connect = {
+    networks: [
+      {
+        url: '#',
+        icon: 'whatsapp',
+        target: '_blank',
+      },
+      {
+        url: '#',
+        icon: 'telegram',
+        target: '_blank',
+      },
+    ],
+    telephone: {
+      url: 'tel:+79911758377',
+      label: '+7 (991) 175-83-77',
+    },
+  };
+
+-
+  var socials = [
+    {
+      url: '#',
+      icon: 'rutube',
+      target: '_blank',
+      modificators: '_rutube',
+    },
+    {
+      url: '#',
+      icon: 'youtube',
+      target: '_blank',
+      modificators: '_youtube',
+    },
+    {
+      url: '#',
+      icon: 'vk',
+      target: '_blank',
+      modificators: '_vk',
+    },
+  ];
+
+footer.footer
+  .container.footer__container
+    .footer__content
+      .footer__contacts
+        if logo
+          +logo(logo).footer__logo
+        .footer__city г. Москва
+        if connect
+          +connect(connect).footer__connect._light
+        a.footer__email(href="mailto:ask@zaxjet.com")
+          +svg('email').footer__email-icon
+          span.footer__email-label ask@zaxjet.com
+      .footer__info
+        if socials
+          ul.footer__socials
+            each item in socials
+              - var { url, icon, target, modificators } = item;
+              li.footer__socials-item
+                a.footer__socials-link(href=`${url || '#'}` target=target)
+                  if icon
+                    +svg(icon).footer__socials-icon(class=modificators)
+        p.footer__copyright © ZaxJet 2025 Все права защищены
