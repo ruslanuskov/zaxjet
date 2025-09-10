@@ -1,0 +1,8 @@
+@use '../utils' as *;
+
+.logo {
+  flex: none;
+  display: block;
+  width: fit-content;
+  position: relative;
+}

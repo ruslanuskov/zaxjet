@@ -1,0 +1,59 @@
+@use '../utils' as *;
+
+.connect {
+  $root: &;
+
+  &,
+  &__networks {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+    @include up(lg) {
+      gap: 1.4rem;
+    }
+    @include up(xl) {
+      gap: 1.6rem;
+    }
+  }
+  &__networks {
+    &-item {
+      flex: none;
+    }
+    &-link {
+      display: block;
+      @include transition(color);
+    }
+    &-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+  &__telephone {
+    font-size: 1.6rem;
+    flex: none;
+    line-height: 1;
+    font-weight: 500;
+    display: block;
+    width: fit-content;
+    position: relative;
+    @include transition(color);
+  }
+  &._light {
+    #{$root}__networks-link,
+    #{$root}__telephone {
+      color: var(--white);
+      @include hover {
+        color: var(--link-hover);
+      }
+    }
+  }
+  &._dark {
+    #{$root}__networks-link,
+    #{$root}__telephone {
+      color: var(--text-color);
+      @include hover {
+        color: var(--link-hover);
+      }
+    }
+  }
+}

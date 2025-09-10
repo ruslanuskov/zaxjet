@@ -1,0 +1,98 @@
+-
+  var logo = {
+    url: '/',
+    img: {
+      path: 'images/light-logo.svg',
+      width: 141,
+      height: 22,
+    },
+  };
+
+-
+  var nav = [
+    {
+      label: 'Как собрать аквабайк',
+    },
+    {
+      label: 'Каталог моделей',
+    },
+    {
+      label: 'Мотор и запчасти',
+    },
+    {
+      label: 'О нас',
+    },
+    {
+      label: 'Частые вопросы',
+      modificators: '_hidden',
+    },
+  ];
+
+-
+  var connect = {
+    networks: [
+      {
+        url: '#',
+        icon: 'telegram',
+        target: '_blank',
+      },
+      {
+        url: '#',
+        icon: 'whatsapp',
+        target: '_blank',
+      },
+    ],
+    telephone: {
+      url: 'tel:+79911758377',
+      label: '+7 (991) 175-83-77',
+    },
+  };
+
+-
+  var links = [
+    {
+      icon: 'basket',
+      count: '6',
+      modificators: '_basket',
+    },
+    {
+      icon: 'question',
+      modificators: '_question',
+    },
+  ];
+
+header.header
+  .header__panel
+    .container.header__container
+      if nav || content
+        buttton.header__nav-btn.js-mobinav-btn(type="button")
+          span
+          span
+          span
+      if logo
+        +logo(logo).header__logo._light
+      if nav || connect
+        .header__content.js-mobinav#mobinav
+          if nav
+            h6.h3.header__label Меню
+            nav.header__nav
+              ul.header__nav-list
+                each item, idx in nav
+                  - var { label, modificators } = item;
+                  li.header__nav-item(class=`${modificators || ''}` + (idx === 0 ? `${modificators ? ' ' : ''}_active` : ''))
+                    a.header__nav-link(href="#")
+                      span!=label
+          if connect
+            +connect(connect).header__mobile-connect._dark
+      if connect
+        +connect(connect).header__connect._light
+      if links
+        ul.header__links
+          each item in links
+            - var { icon, count, modificators } = item;
+            li.header__links-item(class=`${modificators || ''}` + (count > 0 ? `${modificators ? ' ' : ''}_active` : ''))
+              a.header__links-element(href="#")
+                if icon
+                  +svg(icon).header__links-icon
+                if count
+                  .header__links-count!=count

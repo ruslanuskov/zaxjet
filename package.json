@@ -43,6 +43,7 @@
     "vituum": "^1.2.0"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
     "lodash": "^4.17.21"
   }
 }

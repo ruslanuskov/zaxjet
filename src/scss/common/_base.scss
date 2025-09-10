@@ -104,7 +104,7 @@ textarea {
   }
   width: 100%;
   max-width: 146rem;
-  min-width: 36rem;
+  min-width: 32rem;
   flex: none;
   @each $bp, $size in $indents {
     @if map.get($media, $bp) and $bp != 'sm' {

@@ -4,6 +4,7 @@
   position: relative;
   overflow: clip;
   min-height: 100%;
+  padding-right: var(--fancybox-scrollbar-compensate);
   &__content {
     flex: 1 0 auto;
   }
