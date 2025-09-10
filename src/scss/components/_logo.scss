@@ -4,5 +4,11 @@
   flex: none;
   display: block;
   width: fit-content;
-  position: relative;
+  &__icon {
+    width: 100%;
+    height: 100%;
+  }
+  &._light {
+    color: var(--white);
+  }
 }

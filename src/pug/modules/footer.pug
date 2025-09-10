@@ -1,11 +1,7 @@
 -
   var logo = {
     url: '/',
-    img: {
-      path: 'images/light-logo.svg',
-      width: 141,
-      height: 22,
-    },
+    icon: 'logo',
   };
 
 -
@@ -55,7 +51,7 @@ footer.footer
     .footer__content
       .footer__contacts
         if logo
-          +logo(logo).footer__logo
+          +logo(logo)._light.footer__logo
         .footer__city г. Москва
         if connect
           +connect(connect).footer__connect._light

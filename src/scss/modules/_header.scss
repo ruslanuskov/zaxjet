@@ -24,7 +24,7 @@
     left: 0;
     top: 0;
     padding-right: var(--fancybox-scrollbar-compensate);
-    width: 100%;
+    width: calc(100% + var(--fancybox-scrollbar-compensate, 0));
   }
   &__container {
     display: flex;
@@ -32,10 +32,7 @@
     justify-content: space-between;
     gap: 0 4rem;
     @include up(lg) {
-      gap: 0 2.46rem;
-    }
-    @include up(xl) {
-      gap: 0 4.9rem;
+      gap: 0;
     }
   }
   &__nav-btn {
@@ -134,16 +131,13 @@
       background: none;
       box-shadow: none;
       overflow: visible;
-      display: flex !important;
-      justify-content: center;
-      flex-direction: row;
+      display: block !important;
       width: auto;
       max-height: none;
       top: 0.1rem;
       position: relative;
       padding: 0;
       z-index: auto;
-      flex: 1 1 auto;
     }
   }
   &__label {
@@ -226,9 +220,12 @@
   }
   &__connect {
     display: none;
-    margin-left: auto;
     @include up(md) {
       display: flex;
+      margin-left: auto;
+    }
+    @include up(lg) {
+      margin-left: 0;
     }
   }
   &__links {
@@ -253,6 +250,11 @@
           height: 2.1rem;
         }
       }
+      &._active {
+        #{$root}__links-count {
+          display: block;
+        }
+      }
     }
     &-element {
       display: flex;
@@ -275,6 +277,7 @@
       font-weight: 500;
       position: relative;
       top: 0.3rem;
+      display: none;
     }
   }
 }
