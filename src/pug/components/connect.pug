@@ -1,0 +1,15 @@
+mixin connect(data)
+  if data
+    - var { networks, telephone } = data;
+    .connect&attributes(attributes)
+      if networks
+        ul.connect__networks
+          each item in networks
+            - var { url, icon, target } = item;
+            li.connect__networks-item
+              a.connect__networks-link(href=`${url || '#'}` target=target)
+                if icon
+                  +svg(icon).connect__networks-icon
+      if telephone
+        - var { url, label } = telephone;
+        #{url ? 'a' : 'div'}.connect__telephone(href=url)!=label

@@ -7,9 +7,6 @@
     @include hover {
       color: var(--link-hover);
     }
-    &:active {
-      color: var(--blue);
-    }
   }
   p {
     margin: 0;

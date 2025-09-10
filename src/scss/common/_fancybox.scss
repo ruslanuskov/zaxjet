@@ -1,0 +1,48 @@
+@forward '~/@fancyapps/ui/dist/fancybox/fancybox';
+@use '../utils' as *;
+
+html {
+  &.with-fancybox {
+    body {
+      &.hide-scrollbar {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.fancybox {
+  $root: &;
+
+  &__container {
+    --fancybox-bg: rgba(0, 0, 0, 0.25);
+    &._mobinav {
+      z-index: $z-index - 1;
+      @include up(lg) {
+        visibility: hidden !important;
+      }
+      #{$root}__slide {
+        padding: 0;
+        overflow: visible;
+      }
+    }
+    &[aria-hidden='false'] {
+      #{$root}__backdrop {
+        animation: $duration $timing-fn backwards f-fadeIn;
+      }
+    }
+    &[aria-hidden='true'] {
+      #{$root}__backdrop {
+        animation: $duration $timing-fn forwards f-fadeOut;
+      }
+    }
+  }
+  &__content {
+    padding: 0;
+  }
+}
+.f-fadeIn {
+  animation: $duration $timing-fn 0s both f-fadeIn;
+}
+.f-fadeOut {
+  animation: $duration $timing-fn 0s both f-fadeOut;
+}

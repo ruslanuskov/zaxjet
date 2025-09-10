@@ -1,0 +1,8 @@
+@keyframes f-slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

@@ -1,0 +1,8 @@
+mixin logo(data)
+  if data
+    - var { url, img } = data;
+    #{url ? 'a' : 'span'}.logo(href=url)&attributes(attributes)
+      if img
+        - var { path, width, height } = img;
+        +img(path)(width=width height=height)._contain.logo__img
+

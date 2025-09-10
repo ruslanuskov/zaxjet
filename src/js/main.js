@@ -1,4 +1,5 @@
 import { throttle } from 'lodash';
+import MobinavClass from './classes/mobinav';
 import {
   MEDIA_SM,
   MEDIA_MD,
@@ -23,7 +24,9 @@ class MainClass {
   init() {
     this.changeMediaQuery();
 
-    setTimeout(() => {}, 0);
+    setTimeout(() => {
+      MobinavClass.init();
+    }, 0);
   }
 
   changeMediaQuery() {
