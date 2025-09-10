@@ -2,7 +2,7 @@ extends ./common/wrapper
 
 block config
   -
-    var links = [
+    var pages = [
       {
         page: 'index',
         title: 'Главная',
@@ -10,10 +10,10 @@ block config
     ];
 
 block content
-  if links
+  if pages
     .container(style="padding-top: 8rem; padding-bottom: 8rem;")
       ul
-        each item in links
+        each item in pages
           - var { page, title } = item;
           li
             a(href=`${page || 'index'}.html`)!=title
