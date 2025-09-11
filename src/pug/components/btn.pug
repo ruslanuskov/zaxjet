@@ -1,0 +1,10 @@
+mixin btn(data)
+  if data
+    - var { tag, label, icons } = data;
+    #{tag || 'button'}.btn&attributes(attributes)
+      if icons.left
+        +svg(icons.left).btn__icon._left
+      if label
+        span.btn__text!=label
+      if icons.right
+        +svg(icons.right).btn__icon._right

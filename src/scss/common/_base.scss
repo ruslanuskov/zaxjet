@@ -97,6 +97,16 @@ textarea {
 ._centering {
   @include img-centering;
 }
+._link-hover {
+  @include hover {
+    &:not(:active) {
+      color: var(--link-hover) !important;
+    }
+  }
+  &:active {
+    color: var(--blue) !important;
+  }
+}
 .container {
   margin: {
     left: auto;

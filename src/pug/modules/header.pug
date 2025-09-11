@@ -76,7 +76,7 @@ header.header
                 each item, idx in nav
                   - var { label, modificators } = item;
                   li.header__nav-item(class=`${modificators || ''}` + (idx === 0 ? `${modificators ? ' ' : ''}_active` : ''))
-                    a.header__nav-link(href="#")
+                    a.header__nav-link._link-hover(href="#")
                       span!=label
           if connect
             +connect(connect).header__mobile-connect._dark
@@ -87,7 +87,7 @@ header.header
           each item in links
             - var { icon, count, modificators } = item;
             li.header__links-item(class=`${modificators || ''}` + (count > 0 ? `${modificators ? ' ' : ''}_active` : ''))
-              a.header__links-element(href="#")
+              a.header__links-element._link-hover(href="#")
                 if icon
                   +svg(icon).header__links-icon
                 if count

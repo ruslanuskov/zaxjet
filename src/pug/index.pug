@@ -1,4 +1,86 @@
 extends ./common/wrapper
+include ./modules/models
+
+block config
+  -
+    var models = {
+      logo: {
+        icon: 'logo',
+      },
+      text: 'новый бренд стоячих гидроциклов, кастомная постройка с учётом современных требований райдеров и возможностей тюнинга.',
+      title: {
+        tag: 'h3',
+        label: 'Модели ZaxJet',
+        attrs: {
+          class: 'h2',
+        },
+      },
+      cards: [
+        {
+          picture: {
+            single: {
+              path: 'images/models/1.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [426, 183],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: 'RidePro',
+          price: 'от 930 000 р.',
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/models/2.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [426, 183],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: '2Style',
+          price: 'от 1 050 000 р.',
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/models/3.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [426, 183],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: '2StylePro',
+          price: 'от 1 050 000 р.',
+        },
+      ],
+      btn: {
+        options: {
+          tag: 'a',
+          label: 'Все модели',
+          icons: {
+            right: 'chevron-right',
+          },
+        },
+        attrs: {
+          href: '#',
+        },
+      },
+    };
 
 block content
-
+  +models(models)

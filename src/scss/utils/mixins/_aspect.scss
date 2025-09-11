@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use './clearfix' as *;
 
 @mixin aspect($width, $height) {
   aspect-ratio: math.div($width, $height);

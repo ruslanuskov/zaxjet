@@ -1,0 +1,13 @@
+mixin model-card(data)
+  if data
+    - var { picture, name, price } = data;
+    a.model-card(href="#")&attributes(attributes)
+      if picture
+        .model-card__picture
+          +picture(picture)._contain
+      if name || price
+        .model-card__content
+          if name
+            h6.model-card__name!=name
+          if price
+            .model-card__price!=price
