@@ -91,9 +91,6 @@
       justify-content: flex-end;
       margin-left: auto;
     }
-    @include hover {
-      color: var(--link-hover);
-    }
     &-icon {
       flex: none;
       width: 2.4rem;

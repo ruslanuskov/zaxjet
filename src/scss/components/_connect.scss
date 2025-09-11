@@ -42,18 +42,12 @@
     #{$root}__networks-link,
     #{$root}__telephone {
       color: var(--white);
-      @include hover {
-        color: var(--link-hover);
-      }
     }
   }
   &._dark {
     #{$root}__networks-link,
     #{$root}__telephone {
       color: var(--text-color);
-      @include hover {
-        color: var(--link-hover);
-      }
     }
   }
 }

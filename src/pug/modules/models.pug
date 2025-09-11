@@ -1,0 +1,26 @@
+mixin models(data)
+  if data
+    - var { logo, text, title, cards, btn } = data;
+    section.models&attributes(attributes)
+      .container.models__container
+        if logo || text
+          .models__header
+            if logo
+              +logo(logo)._dark.models__logo
+            if text
+              p.models__text!=text
+        if title || cards || btn
+          .models__info
+            if title
+              - var { tag, label, attrs } = title;
+              #{tag || 'h3'}.models__title&attributes(attrs)!=label
+            if cards || btn
+              .models__content
+                if cards
+                  .models__listing
+                    each item in cards
+                      .models__listing-item
+                        +model-card(item)
+                if btn
+                  - var { options, attrs } = btn;
+                  +btn(options)._outline-primary.models__btn&attributes(attrs)

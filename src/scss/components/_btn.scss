@@ -1,0 +1,60 @@
+@use '../utils' as *;
+
+.btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: fit-content;
+  gap: 0 0.8rem;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 500;
+  @include transition((color, opacity, border-color, background-color));
+  &:not(._text) {
+    border: 0.1rem solid transparent;
+    border-radius: 1rem;
+  }
+  &:not(._text, ._text-button) {
+    padding: 1.5rem 3.2rem;
+  }
+  &__icon {
+    flex: none;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  &__text {
+    display: block;
+  }
+  &._outline-primary {
+    border-color: var(--text-color);
+    color: var(--text-color);
+    background-color: transparent;
+  }
+  @include hover {
+    &:not(:disabled, :active, ._disabled) {
+      &._outline-primary {
+        border-color: transparent;
+        color: var(--white);
+        background-color: rgba(16, 16, 18, 0.9);
+      }
+    }
+  }
+  &:active {
+    &:not(:disabled, ._disabled) {
+      &._outline-primary {
+        border-color: transparent;
+        color: var(--white);
+        background-color: rgba(16, 16, 18, 0.85);
+      }
+    }
+  }
+  &:disabled,
+  &._disabled {
+    cursor: not-allowed;
+    &._outline-primary {
+      opacity: 0.3;
+    }
+  }
+}

@@ -1,0 +1,94 @@
+@use '../utils' as *;
+
+.model-card {
+  $root: &;
+
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  width: 100%;
+  row-gap: 0.95rem;
+  padding: 2.8rem 0 1.8rem;
+  @include up(md) {
+    row-gap: 2rem;
+    padding: 3rem 0 2rem;
+  }
+  @include up(lg) {
+    row-gap: 2rem;
+  }
+  @include hover {
+    #{$root}__picture {
+      img {
+        transform: scale(1.05);
+      }
+    }
+    &:not(:active) {
+      #{$root}__name,
+      #{$root}__price {
+        color: var(--link-hover);
+      }
+    }
+  }
+  &:active {
+    #{$root}__name,
+    #{$root}__price {
+      color: var(--blue);
+    }
+  }
+  &__picture {
+    width: 100%;
+    position: relative;
+    @include aspect(295, 127);
+    @include up(md) {
+      @include aspect(406, 157);
+    }
+    @include up(lg) {
+      @include aspect(366, 157);
+    }
+    @include up(xl) {
+      @include aspect(406, 157);
+    }
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      @include transition(transform);
+    }
+  }
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0 4rem;
+    @include up(md) {
+      gap: 0 2rem;
+      justify-content: flex-end;
+      padding: {
+        left: 2rem;
+        right: 2rem;
+      }
+    }
+  }
+  &__name {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-weight: 600;
+    @include transition(color);
+    @include up(md) {
+      line-height: 1.2;
+      font-size: 2rem;
+      padding: 0.25rem 0;
+      flex: 1 1 auto;
+    }
+  }
+  &__price {
+    flex: none;
+    font-size: 1.6rem;
+    font-weight: 500;
+    @include transition(color);
+    @include up(md) {
+      font-size: 2rem;
+    }
+  }
+}

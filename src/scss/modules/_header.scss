@@ -63,8 +63,15 @@
       }
     }
     @include hover {
+      &:not(:active) {
+        span {
+          background-color: var(--link-hover);
+        }
+      }
+    }
+    &:active {
       span {
-        background-color: var(--link-hover);
+        background-color: var(--blue);
       }
     }
     &._active {
@@ -199,9 +206,6 @@
         padding: 0;
         color: var(--white);
       }
-      @include hover {
-        color: var(--link-hover);
-      }
       span {
         display: block;
         border-bottom: 0.1rem solid #e7e7e7;
@@ -262,9 +266,6 @@
       gap: 0 0.3rem;
       color: var(--white);
       @include transition(color);
-      @include hover {
-        color: var(--link-hover);
-      }
     }
     &-icon {
       flex: none;
