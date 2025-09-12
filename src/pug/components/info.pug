@@ -1,0 +1,5 @@
+mixin info(data)
+  if data
+    - var { icon = 'info', text } = data;
+    button.info._link-hover(type="button")&attributes(attributes)
+      +svg(icon).info__icon

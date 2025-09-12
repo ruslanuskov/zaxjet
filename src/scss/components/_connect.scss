@@ -21,7 +21,6 @@
     }
     &-link {
       display: block;
-      @include transition(color);
     }
     &-icon {
       width: 2.4rem;
@@ -36,7 +35,6 @@
     display: block;
     width: fit-content;
     position: relative;
-    @include transition(color);
   }
   &._light {
     #{$root}__networks-link,
