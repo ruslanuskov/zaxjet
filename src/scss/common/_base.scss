@@ -98,6 +98,7 @@ textarea {
   @include img-centering;
 }
 ._link-hover {
+  @include transition(color);
   @include hover {
     &:not(:active) {
       color: var(--link-hover) !important;

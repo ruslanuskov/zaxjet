@@ -1,5 +1,6 @@
 extends ./common/wrapper
 include ./modules/models
+include ./modules/short-catalog
 
 block config
   -
@@ -82,5 +83,136 @@ block config
       },
     };
 
+  -
+    var shortCatalog = {
+      title: {
+        tag: 'h3',
+        label: 'Магазин запчастей',
+        attrs: {
+          class: 'h2',
+        },
+      },
+      cards: [
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/1.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          info: {
+            text: '<div>под заказ</div><a href="#">подробнее</a>',
+          },
+          prices: {
+            current: '18 000 р.',
+          },
+        },
+        {
+          sale: '-20%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/2.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Задний кронштейн аккумулятора',
+          prices: {
+            current: '14 400 р.',
+            old: '18 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/3.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Чин-пад видовой карбон',
+          counter: {
+            count: 3,
+          },
+          prices: {
+            current: '38 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/4.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Чин-пад стеклоткань',
+          prices: {
+            current: '17 000 р.',
+          },
+        },
+        {
+          sale: '-15%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/5.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          prices: {
+            current: '32 300 р.',
+            old: '38 000 р.',
+          },
+        },
+      ],
+      btn: {
+        options: {
+          tag: 'a',
+          label: 'Все запчасти',
+          icons: {
+            right: 'chevron-right',
+          },
+        },
+        attrs: {
+          href: '#',
+        },
+      },
+    };
+
 block content
   +models(models)
+  +short-catalog(shortCatalog)

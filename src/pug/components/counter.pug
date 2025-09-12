@@ -1,0 +1,9 @@
+mixin counter(data)
+  if data
+    - var { count, min = 1, max = 999, name = 'counter' } = data;
+    .counter&attributes(attributes)
+      input.counter__input(type="number" name=name value=count autocompole="off" min=min max=max)
+      button.counter__btn._minus(type="button")
+        +svg('minus').counter__icon
+      button.counter__btn._plus(type="button")
+        +svg('plus').counter__icon

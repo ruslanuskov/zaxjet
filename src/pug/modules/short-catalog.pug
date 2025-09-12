@@ -1,0 +1,18 @@
+mixin short-catalog(data)
+  if data
+    - var { title, cards, btn } = data;
+    section.short-catalog&attributes(attributes)
+      .container.short-catalog__container
+        if title
+          - var { tag, label, attrs } = title;
+          #{tag || 'h3'}.short-catalog__title&attributes(attrs)!=label
+        if cards || btn
+          .short-catalog__content
+            if cards
+              .short-catalog__listing
+                each item in cards
+                  .short-catalog__listing-item
+                    +product-card(item)
+            if btn
+              - var { options, attrs } = btn;
+              +btn(options)._outline-primary.short-catalog__btn&attributes(attrs)

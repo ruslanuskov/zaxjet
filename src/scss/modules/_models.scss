@@ -120,7 +120,6 @@
     }
     @include up(lg) {
       flex-direction: row;
-      align-items: flex-start;
       padding: 0;
       margin: 0 -0.45rem;
       flex-wrap: wrap;
@@ -130,6 +129,7 @@
     }
     &-item {
       flex: none;
+      width: 100%;
       @include up(lg) {
         padding: 0 0.45rem;
         width: math.div(100%, 3);

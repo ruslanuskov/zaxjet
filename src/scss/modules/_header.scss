@@ -196,7 +196,6 @@
       line-height: 1;
       font-weight: 500;
       color: var(--text-color);
-      @include transition(color);
       @include up(md) {
         margin: 0 -#{map.get($indents, md)};
         padding: 0 map.get($indents, md);
@@ -265,7 +264,6 @@
       align-items: center;
       gap: 0 0.3rem;
       color: var(--white);
-      @include transition(color);
     }
     &-icon {
       flex: none;

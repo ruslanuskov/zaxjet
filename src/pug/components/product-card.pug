@@ -1,0 +1,37 @@
+mixin product-card(data)
+  if data
+    - var { sale, picture, name, info, counter, prices } = data;
+    .product-card&attributes(attributes)
+      if sale || picture || name
+        a.product-card__content(href="#")
+          if sale || picture
+            .product-card__picture
+              if sale
+                span.product-card__sale!=sale
+              if picture
+                +picture(picture)._contain
+          if name
+            h6.product-card__name!=name
+        .product-card__footer
+          if info || prices
+            - var { current, old } = prices;
+            .product-card__prices
+              if current
+                span.product-card__prices-current!=current
+              if old
+                span.product-card__prices-old!=old
+              if info
+                +info(info).product-card__info
+          .product-card__controls
+            if counter
+              .product-card__counter
+                +counter(counter)._small
+              +btn({
+                icons: {
+                  left: 'basket',
+                },
+              })(type="button" class="_secondary product-card__btn _short")
+            else
+              +btn({
+                label: 'В корзину',
+              })(type="button" class="_primary product-card__btn _full")
