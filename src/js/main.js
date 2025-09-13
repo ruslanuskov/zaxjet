@@ -1,5 +1,6 @@
 import { throttle } from 'lodash';
 import MobinavClass from './classes/mobinav';
+import CounterClass from './classes/counter';
 import {
   MEDIA_SM,
   MEDIA_MD,
@@ -26,6 +27,7 @@ class MainClass {
 
     setTimeout(() => {
       MobinavClass.init();
+      CounterClass.init();
     }, 0);
   }
 

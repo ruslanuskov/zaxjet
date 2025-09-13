@@ -84,6 +84,8 @@
     &-old {
       line-height: 1;
       font-weight: 500;
+      display: block;
+      width: fit-content;
     }
     &-current {
       font-size: 2rem;
