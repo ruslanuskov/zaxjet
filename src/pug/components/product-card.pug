@@ -30,7 +30,7 @@ mixin product-card(data)
                 icons: {
                   left: 'basket',
                 },
-              })(type="button" class="_secondary product-card__btn _short")
+              })(type="button" class="_secondary product-card__btn _short" data-tippy-content="перейти в корзину")
             else
               +btn({
                 label: 'В корзину',
