@@ -1,6 +1,7 @@
 extends ./common/wrapper
 include ./modules/models
 include ./modules/short-catalog
+include ./modules/separator
 
 block config
   -
@@ -213,6 +214,28 @@ block config
       },
     };
 
+  -
+    var separator = {
+      picture: {
+        single: {
+          path: 'images/separator/1.jpg',
+          sizes: {
+            _1600: [1920, 168],
+            _1280: [1599, 168],
+            _1024: [1279, 101],
+            _768: [1023, 101],
+            _400: [767, 104],
+            _0: [399, 137],
+          },
+        },
+      },
+      logo: {
+        icon: 'logo',
+      },
+      text: 'это путь RidePerformance',
+    };
+
 block content
   +models(models)
   +short-catalog(shortCatalog)
+  +separator(separator)
