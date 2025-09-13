@@ -1,0 +1,22 @@
+mixin billboard(data)
+  if data
+    - var { picture, video, subtitle, title, btn } = data;
+    section.billboard&attributes(attributes)
+      if picture
+        +picture(picture)._cover
+      if video || subtitle || title || btn
+        .container.billboard__container
+          if video
+            a.billboard__play(href=video data-fancybox data-type="iframe")
+              +svg('play').billboard__play-icon
+          .billboard__content
+            if subtitle || title
+              .billboard__info
+                if subtitle
+                  h6.billboard__subtitle!=subtitle
+                if title
+                  - var { tag, label } = title;
+                  #{tag || 'h1'}.billboard__title!=label
+            if btn
+              - var { options, attrs } = btn;
+              +btn(options)._primary.billboard__btn&attributes(attrs)

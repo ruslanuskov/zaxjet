@@ -1,3 +1,4 @@
+@use 'sass:map';
 @forward '~/@fancyapps/ui/dist/fancybox/fancybox';
 @use '../utils' as *;
 
@@ -36,8 +37,33 @@ html {
       }
     }
   }
+  &__slide {
+    @each $bp, $size in $indents {
+      @if map.get($media, $bp) and $bp != 'sm' {
+        @include up($bp) {
+          padding: {
+            left: $size;
+            right: $size;
+          }
+        }
+      } @else {
+        padding: {
+          left: $size;
+          right: $size;
+        }
+      }
+    }
+  }
   &__content {
     padding: 0;
+    .is-compact &,
+    .has-iframe & {
+      height: auto !important;
+    }
+  }
+  &__iframe {
+    height: auto;
+    @include aspect(16, 9);
   }
 }
 .f-fadeIn {

@@ -1,4 +1,5 @@
 import { throttle } from 'lodash';
+import ModalsClass from './classes/modals';
 import MobinavClass from './classes/mobinav';
 import CounterClass from './classes/counter';
 import TooltipClass from './classes/toottip';
@@ -27,6 +28,7 @@ class MainClass {
     this.changeMediaQuery();
 
     setTimeout(() => {
+      ModalsClass.init();
       MobinavClass.init();
       CounterClass.init();
       TooltipClass.init();

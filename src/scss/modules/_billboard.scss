@@ -1,0 +1,160 @@
+@use 'sass:map';
+@use '../utils' as *;
+
+.billboard {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  @each $bp, $size in map.get($sizes, header) {
+    @if map.get($media, $bp) and $bp != 'sm' {
+      @include up($bp) {
+        height: calc(100svh - $size);
+      }
+    } @else {
+      height: calc(100svh - $size);
+    }
+  }
+  min-height: 50.3rem;
+  @include up(md) {
+    min-height: 82.7rem;
+  }
+  @include up(lg) {
+    min-height: 67.3rem;
+  }
+  @include up(xl) {
+    min-height: 101rem;
+  }
+  picture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 49.99%,
+      rgba(13, 21, 53, 0.5) 94.71%
+    );
+    z-index: 1;
+  }
+  &__container {
+    height: 100%;
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  &__play {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 6.4rem;
+    height: 6.4rem;
+    z-index: 1;
+    transform: translateY(-6.6rem);
+    color: var(--text-color);
+    @include transition(color);
+    @include up(md) {
+      width: 8.6rem;
+      height: 8.6rem;
+      transform: translateY(-9.1rem);
+    }
+    @include up(lg) {
+      width: 10.6rem;
+      height: 10.6rem;
+      transform: translateY(-4rem);
+    }
+    @include hover {
+      &:not(:active) {
+        color: var(--black);
+      }
+    }
+    &:active {
+      color: rgba(16, 16, 18, 0.8);
+    }
+    &-icon {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__content,
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+  &__content {
+    row-gap: 1.9rem;
+    padding: {
+      top: 4rem;
+      bottom: 4rem;
+    }
+    @include up(md) {
+      row-gap: 2.9rem;
+      padding: 11rem 10.1%;
+    }
+    @include up(lg) {
+      padding: 11.6rem 8.5%;
+    }
+    @include up(xl) {
+      padding: {
+        top: 22.1rem;
+        bottom: 22.1rem;
+      }
+    }
+  }
+  &__info {
+    @include up(md) {
+      row-gap: 1.1rem;
+    }
+  }
+  &__subtitle {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--white);
+    @include up(md) {
+      font-size: 2rem;
+    }
+  }
+  &__title {
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--white);
+    text-transform: uppercase;
+    @include up(md) {
+      font-size: 4.6rem;
+      line-height: 1;
+    }
+    @include up(lg) {
+      font-size: 6rem;
+    }
+  }
+  &__btn {
+    width: 100%;
+    @include up(md) {
+      width: fit-content;
+      min-width: 26rem;
+    }
+  }
+}

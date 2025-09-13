@@ -1,6 +1,21 @@
 import { Fancybox } from '@fancyapps/ui';
 
+const FANCYBOX_SELECTOR = '[data-fancybox]';
+
 export default class ModalsClass {
+  static init() {
+    this.initDefaultModals();
+  }
+
+  static initDefaultModals() {
+    Fancybox.bind(FANCYBOX_SELECTOR, {
+      Hash: false,
+      showClass: 'f-fadeIn',
+      hideClass: 'f-fadeOut',
+      closeExisting: true,
+    });
+  }
+
   static showModal(content, options = {}) {
     if (!content) return;
 
