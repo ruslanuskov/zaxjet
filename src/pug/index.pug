@@ -1,9 +1,42 @@
 extends ./common/wrapper
+include ./modules/billboard
 include ./modules/models
 include ./modules/short-catalog
 include ./modules/separator
 
 block config
+  -
+    var billboard = {
+      picture: {
+        single: {
+          path: 'images/billboard/1.jpg',
+          sizes: {
+            _1600: [1920, 1010],
+            _1280: [1599, 673],
+            _1024: [1279, 827],
+            _768: [1023, 827],
+            _400: [767, 503],
+            _0: [399, 503],
+          },
+        },
+      },
+      video: 'https://rutube.ru/play/embed/60d70fc6fe787b9ccae256cd8f83620f',
+      subtitle: 'Новинка!',
+      title: {
+        tag: 'h1',
+        label: 'Корпус Ridepro',
+      },
+      btn: {
+        options: {
+          tag: 'a',
+          label: 'Выбрать',
+        },
+        attrs: {
+          href: '#',
+        },
+      },
+    };
+
   -
     var models = {
       logo: {
@@ -236,6 +269,7 @@ block config
     };
 
 block content
+  +billboard(billboard)
   +models(models)
   +short-catalog(shortCatalog)
   +separator(separator)
