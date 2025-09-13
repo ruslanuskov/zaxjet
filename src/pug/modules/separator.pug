@@ -1,0 +1,15 @@
+mixin separator(data)
+  if data
+    - var { picture, logo, text } = data;
+    section.separator&attributes(attributes)
+      if picture
+        +picture(picture)._cover
+      if logo || text
+        .separator__container.container
+          .separator__content
+            if logo
+              +logo(logo)._light.separator__logo
+            if logo && text
+              .separator__line
+            if text
+              p.separator__text!=text

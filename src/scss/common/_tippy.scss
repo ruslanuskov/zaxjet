@@ -49,6 +49,7 @@
 .tippy-arrow {
   color: var(--white);
   z-index: 2;
+  pointer-events: none;
   &::before,
   &::after {
     content: '';
