@@ -1,0 +1,65 @@
+@forward '~/tippy.js/dist/tippy';
+@use '../utils' as *;
+
+.tippy-box {
+  background: none;
+  border-radius: 0;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  line-height: 1.2;
+  font-weight: 400;
+  text-align: center;
+  &[data-placement^='top'] {
+    & > .tippy-arrow {
+      &::before {
+        bottom: -0.6rem;
+      }
+      &:after {
+        bottom: -0.5rem;
+      }
+      &::before,
+      &:after {
+        left: 0;
+        border-width: 0.7rem 0.7rem 0;
+        border-top-color: initial;
+        transform-origin: center top;
+      }
+    }
+  }
+}
+.tippy-content {
+  max-width: 11.9rem;
+  padding: 0.5rem 1rem;
+  border: 0.1rem solid #888889;
+  border-radius: 1rem;
+  background-color: var(--white);
+  border-radius: 1rem;
+  a {
+    color: var(--link);
+    @include hover {
+      &:not(:active) {
+        color: var(--link-hover);
+      }
+    }
+    &:active {
+      color: var(--blue);
+    }
+  }
+}
+.tippy-arrow {
+  color: var(--white);
+  z-index: 2;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-color: transparent;
+    border-style: solid;
+  }
+  &::before {
+    color: #888889;
+  }
+  &::after {
+    color: var(--white);
+  }
+}

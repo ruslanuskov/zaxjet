@@ -1,5 +1,7 @@
 mixin info(data)
   if data
     - var { icon = 'info', text } = data;
-    button.info._link-hover(type="button")&attributes(attributes)
+    button.info._link-hover(type="button" class=text ? 'js-info' : '')&attributes(attributes)
       +svg(icon).info__icon
+      if text
+        .info__text.js-info-text!=text
