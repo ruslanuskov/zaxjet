@@ -1,0 +1,19 @@
+mixin gallery(data)
+  if data
+    - var { title, text, cards } = data;
+    .gallery&attributes(attributes)
+      if title || text
+        .gallery__content
+          if title
+            - var { tag, label } = title;
+            #{tag || 'h4'}.h3.gallery__title!=label
+          if text
+            .rte.gallery__text!=text
+      if cards
+        ul.gallery__list&attributes(attributes)
+          each item in cards
+            - var { url, picture } = item;
+            li.gallery__list-item
+              #{url ? 'a' : 'div'}.gallery__list-content(href=url data-fancybox=url ? 'gallery' : undefined)
+                if picture
+                  +picture(picture)._cover

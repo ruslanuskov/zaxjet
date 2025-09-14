@@ -4,6 +4,7 @@ include ./modules/models
 include ./modules/short-catalog
 include ./modules/smallboard
 include ./modules/separator
+include ./modules/about
 
 block config
   -
@@ -301,9 +302,121 @@ block config
       },
     };
 
+  -
+    var about = {
+      header: {
+        title: {
+          tag: 'h3',
+          label: 'Ride<wbr>Performance',
+        },
+        text: 'RidePerformance — философия ZaxJet, основанная на удовольствии от катания и управляемости.',
+      },
+      listing: {
+        title: {
+          tag: 'h4',
+          label: 'Это:',
+        },
+        list: [
+          'Вес гидроцикла, обеспечивающий манёвренность',
+          'Качество сборки и продуманная компоновка',
+          'Грамотно настроенный мотор',
+          'Эргономика и стиль, создающие эффект кастомного мотоцикла',
+        ],
+      },
+      brands: {
+        title: {
+          tag: 'h4',
+          label: 'Дилеры и представители ZaxJet',
+        },
+        cards: [
+          {
+            icon: 'location',
+            name: 'JetCamp Москва',
+          },
+          {
+            icon: 'location',
+            name: 'Давид Джалагония <br>(JetCamp Сочи)',
+          },
+          {
+            icon: 'location',
+            name: 'Alimax Station <br>(Колян Соколян)',
+          },
+          {
+            icon: 'location',
+            name: 'Давид Джологуа <br>(райдер, представитель)',
+          },
+          {
+            icon: 'location',
+            name: 'Маша Бехер <br>(райдер, представитель)',
+          },
+        ],
+      },
+      gallery: {
+        title: {
+          tag: 'h4',
+          label: 'ZaxJet — это будущее',
+        },
+        text: `
+          <p>ZaxJet — это будущее серийных стоячих гидроциклов, разработанных на базе кастомных решений.</p>
+          <p>В отличие от крупных производителей, ZaxJet создаёт модели, ориентируясь на потребности любителей и профессиональных райдеров.</p>
+        `,
+        cards: [
+          {
+            url: 'images/about/gallery/1.jpg',
+            picture: {
+              single: {
+                path: 'images/about/gallery/1.jpg',
+                sizes: {
+                  _1600: [855, 1134],
+                  _1280: [855, 1139],
+                  _1024: [797, 1070],
+                  _768: [628, 839],
+                  _400: [743, 983],
+                  _0: [375, 496],
+                },
+              },
+            },
+          },
+          {
+            url: 'images/about/gallery/2.jpg',
+            picture: {
+              single: {
+                path: 'images/about/gallery/2.jpg',
+                sizes: {
+                  _1600: [417, 541],
+                  _1280: [421, 546],
+                  _1024: [397, 516],
+                  _768: [310, 403],
+                  _400: [743, 964],
+                  _0: [375, 487],
+                },
+              },
+            },
+          },
+          {
+            url: 'images/about/gallery/3.jpg',
+            picture: {
+              single: {
+                path: 'images/about/gallery/3.jpg',
+                sizes: {
+                  _1600: [417, 569],
+                  _1280: [421, 574],
+                  _1024: [397, 543],
+                  _768: [310, 424],
+                  _400: [743, 1014],
+                  _0: [375, 512],
+                },
+              },
+            },
+          },
+        ],
+      },
+    };
+
 block content
   +billboard(billboard)
   +models(models)
   +short-catalog(shortCatalog)
   +smallboard(smallboard)
   +separator(separator)
+  +about(about)

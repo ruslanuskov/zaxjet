@@ -1,0 +1,43 @@
+@use '../utils' as *;
+
+.listing {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.1rem;
+  @include up(md) {
+    row-gap: 3.1rem;
+  }
+  &__title {
+    padding-left: 4.9rem;
+    @include up(md) {
+      padding-left: 0;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    @include up(md) {
+      row-gap: 2.38rem;
+    }
+  }
+  &__item {
+    position: relative;
+    padding-left: 4.9rem;
+    &::before {
+      content: '';
+      display: block;
+      width: 3.4rem;
+      height: 3.4rem;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -1.8rem;
+      background: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzQgMzUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIzLjMxMTYgMTEuMDYxQzIzLjYxMSAxMC43NzYxIDI0LjAwOTMgMTAuNjE4NSAyNC40MjI2IDEwLjYyMTZDMjQuODM1OSAxMC42MjQ4IDI1LjIzMTggMTAuNzg4MyAyNS41MjY4IDExLjA3NzhDMjUuODIxOCAxMS4zNjczIDI1Ljk5MjggMTEuNzYgMjYuMDAzOCAxMi4xNzMyQzI2LjAxNDcgMTIuNTg2NCAyNS44NjQ3IDEyLjk4NzYgMjUuNTg1NCAxMy4yOTIzTDE3LjEwNjYgMjMuODk2QzE2Ljk2MDkgMjQuMDUzMSAxNi43ODQ5IDI0LjE3OTEgMTYuNTg5MyAyNC4yNjY2QzE2LjM5MzcgMjQuMzU0IDE2LjE4MjQgMjQuNDAxMiAxNS45NjgyIDI0LjQwNTFDMTUuNzUzOSAyNC40MDkxIDE1LjU0MTEgMjQuMzY5OCAxNS4zNDI0IDI0LjI4OTdDMTUuMTQzNyAyNC4yMDk1IDE0Ljk2MzIgMjQuMDkwMSAxNC44MTE2IDIzLjkzODVMOS4xODg5IDE4LjMxNThDOS4wMzIzMSAxOC4xNjk5IDguOTA2NzIgMTcuOTkzOSA4LjgxOTYxIDE3Ljc5ODRDOC43MzI1IDE3LjYwMjkgOC42ODU2NiAxNy4zOTE5IDguNjgxODkgMTcuMTc3OUM4LjY3ODExIDE2Ljk2MzkgOC43MTc0OCAxNi43NTEzIDguNzk3NjQgMTYuNTUyOUM4Ljg3Nzc5IDE2LjM1NDQgOC45OTcxIDE2LjE3NDIgOS4xNDg0NCAxNi4wMjI4QzkuMjk5NzggMTUuODcxNSA5LjQ4MDA1IDE1Ljc1MjIgOS42Nzg1IDE1LjY3MkM5Ljg3Njk1IDE1LjU5MTkgMTAuMDg5NSAxNS41NTI1IDEwLjMwMzUgMTUuNTU2M0MxMC41MTc1IDE1LjU2MDEgMTAuNzI4NSAxNS42MDY5IDEwLjkyNCAxNS42OTRDMTEuMTE5NSAxNS43ODExIDExLjI5NTUgMTUuOTA2NyAxMS40NDE0IDE2LjA2MzNMMTUuODkxMSAyMC41MTA5TDIzLjI3MTMgMTEuMTA3OEMyMy4yODQ2IDExLjA5MTQgMjMuMjk4NyAxMS4wNzU4IDIzLjMxMzggMTEuMDYxSDIzLjMxMTZaIiBmaWxsPSIjMjEyNTI5Ii8+PC9zdmc+')
+        left top / 100% 100% no-repeat;
+      @include up(md) {
+        margin-top: -1.7rem;
+      }
+    }
+  }
+}

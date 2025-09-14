@@ -1,0 +1,12 @@
+mixin listing(data)
+  if data
+    - var { title, list } = data;
+    .listing&attributes(attributes)
+      if title
+        - var { tag, label } = title;
+        #{tag || 'h4'}.h3.listing__title!=label
+      if list
+        ul.listing__list
+          each item in list
+            li.listing__item
+              !=item
