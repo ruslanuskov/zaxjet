@@ -1,6 +1,9 @@
 @use '../utils' as *;
 
 .rte {
+  & > *:last-child {
+    margin-bottom: 0 !important;
+  }
   a {
     color: var(--link);
     @include transition(color);
@@ -14,7 +17,10 @@
     }
   }
   p {
-    margin: 0;
+    margin: 0 0 3rem;
+    @include up(md) {
+      margin-bottom: 2.5rem;
+    }
   }
   ul,
   ol {

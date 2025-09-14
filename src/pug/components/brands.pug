@@ -1,0 +1,17 @@
+mixin brands(data)
+  if data
+    - var { title, cards } = data;
+    .brands&attributes(attributes)
+      if title
+        - var { tag, label } = title;
+        #{tag || 'h4'}.h3.brands__title!=label
+      if cards
+        .brands__content
+          each item in cards
+            - var { icon, name } = item;
+            .brands__item
+              a.brands__card(href="#")
+                if icon
+                  +svg(icon).brands__card-icon
+                if name
+                  h6.brands__card-name!=name

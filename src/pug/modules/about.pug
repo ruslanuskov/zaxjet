@@ -1,0 +1,22 @@
+mixin about(data)
+  if data
+    - var { header, listing, brands, gallery } = data;
+    section.about&attributes(attributes)
+      .container.about__container
+        if header
+          - var { title, text } = header;
+          .about__header
+            if title
+              - var { tag, label } = title;
+              #{tag || 'h3'}.h2.about__title!=label
+            if text
+              p.about__text!=text
+        if listing || brands || gallery
+          .about__content
+            if listing
+              +listing(listing).about__listing
+            if brands
+              +brands(brands).about__brands
+            if gallery
+              +gallery(gallery).about__gallery
+

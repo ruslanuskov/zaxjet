@@ -1,0 +1,102 @@
+@use 'sass:math';
+@use '../utils' as *;
+
+.brands {
+  $root: &;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  &__title {
+    text-align: center;
+    @include up(md) {
+      text-align: left;
+    }
+  }
+  &__content {
+    row-gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    @include up(md) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      row-gap: 3rem;
+      margin: 0 -1.2rem;
+    }
+  }
+  &__item {
+    display: flex;
+    width: 100%;
+    @include up(md) {
+      padding: 0 1.2rem;
+      width: 50%;
+    }
+    &:nth-child(5n + 1) {
+      @include up(md) {
+        width: 100%;
+      }
+      #{$root}__card-name {
+        br {
+          @include up(md) {
+            display: none;
+          }
+        }
+      }
+    }
+    &:nth-child(5n + 1),
+    &:nth-child(5n + 2),
+    &:nth-child(5n + 3) {
+      @include up(lg) {
+        width: math.div(100%, 3);
+      }
+      #{$root}__card-name {
+        br {
+          @include up(lg) {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  &__card {
+    flex: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--white);
+    box-shadow: 0 8px 24px 0 rgba(129, 135, 189, 0.15);
+    border-radius: 1rem;
+    padding: 2rem 10%;
+    justify-content: center;
+    @include up(md) {
+      flex-direction: row;
+      min-height: 11.3rem;
+      padding: 2rem 4% 2.2rem;
+    }
+    &-icon {
+      flex: none;
+      width: 3.2rem;
+      height: 3.2rem;
+      color: var(--blue);
+    }
+    &-name {
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 1.5;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      @include up(md) {
+        font-size: 2rem;
+      }
+      br {
+        @include up(lg) {
+          display: none;
+        }
+      }
+    }
+  }
+}

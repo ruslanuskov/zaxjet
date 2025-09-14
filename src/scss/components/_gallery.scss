@@ -1,0 +1,87 @@
+@use '../utils' as *;
+
+.gallery {
+  $root: &;
+
+  row-gap: 4rem;
+  &,
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+  &__content {
+    row-gap: 3.1rem;
+    @include up(md) {
+      row-gap: 2.8rem;
+    }
+    @include up(lg) {
+      padding-right: 26.7%;
+    }
+    @include up(xl) {
+      row-gap: 2.8rem;
+      padding-right: 36.8%;
+    }
+  }
+  &__title {
+    text-align: center;
+    margin: 0 5%;
+    @include up(md) {
+      text-align: left;
+      margin: 0;
+    }
+  }
+  &__list {
+    display: grid;
+    gap: 1.85rem;
+    @include up(md) {
+      grid-template-columns: 66% 1fr;
+      gap: 1.2rem 1.3rem;
+    }
+    @include up(lg) {
+      gap: 1.8rem 2rem;
+    }
+    @include up(xl) {
+      gap: 2.4rem;
+    }
+    &-item {
+      width: 100%;
+      display: flex;
+      &:nth-child(3n + 1) {
+        @include up(md) {
+          grid-row: span 2;
+        }
+        #{$root}__list-content {
+          @include aspect(856, 1132);
+        }
+      }
+      &:nth-child(3) {
+        #{$root}__list-content {
+          @include aspect(416, 568);
+        }
+      }
+    }
+    &-content {
+      flex: none;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      display: block;
+      border-radius: 1rem;
+      @include aspect(416, 540);
+      picture {
+        width: 100%;
+        height: 100%;
+      }
+      img {
+        @include transition(transform);
+      }
+      &[data-fancybox] {
+        @include hover {
+          img {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}

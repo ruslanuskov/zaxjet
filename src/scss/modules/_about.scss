@@ -1,0 +1,55 @@
+@use '../utils' as *;
+
+.about {
+  padding: {
+    top: 6.2rem;
+    bottom: 6rem;
+  }
+  @include up(md) {
+    padding: {
+      top: 8rem;
+      bottom: 8rem;
+    }
+  }
+  &__container,
+  &__header,
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+  &__container {
+    row-gap: 5.8rem;
+    @include up(md) {
+      row-gap: 6.05rem;
+    }
+  }
+  &__header {
+    row-gap: 3rem;
+    align-items: center;
+  }
+  &__title {
+    text-align: center;
+  }
+  &__text {
+    text-align: center;
+    @include up(md) {
+      margin: 0 8%;
+    }
+    @include up(lg) {
+      margin: 0 19%;
+    }
+    @include up(xl) {
+      margin: 0 23%;
+    }
+  }
+  &__content {
+    row-gap: 8rem;
+  }
+  &__brands {
+    * + & {
+      @include up(lg) {
+        margin-top: 0.4rem;
+      }
+    }
+  }
+}
