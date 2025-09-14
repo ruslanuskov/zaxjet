@@ -2,6 +2,7 @@ extends ./common/wrapper
 include ./modules/billboard
 include ./modules/models
 include ./modules/short-catalog
+include ./modules/smallboard
 include ./modules/separator
 
 block config
@@ -268,8 +269,41 @@ block config
       text: 'это путь RidePerformance',
     };
 
+  -
+    var smallboard = {
+      picture: {
+        multi: {
+          _1600: {
+            path: 'images/smallboard/1xl.jpg',
+            sizes: [1296, 627],
+          },
+          _1280: {
+            path: 'images/smallboard/1lg.jpg',
+            sizes: [1296, 627],
+          },
+          _1024: {
+            path: 'images/smallboard/1md.jpg',
+            sizes: [1207, 584],
+          },
+          _768: {
+            path: 'images/smallboard/1md.jpg',
+            sizes: [951, 460],
+          },
+          _400: {
+            path: 'images/smallboard/1sm.jpg',
+            sizes: [743, 966],
+          },
+          _0: {
+            path: 'images/smallboard/1sm.jpg',
+            sizes: [375, 488],
+          },
+        },
+      },
+    };
+
 block content
   +billboard(billboard)
   +models(models)
   +short-catalog(shortCatalog)
+  +smallboard(smallboard)
   +separator(separator)

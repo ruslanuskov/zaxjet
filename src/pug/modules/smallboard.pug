@@ -1,0 +1,8 @@
+mixin smallboard(data)
+  if data
+    - var { picture } = data;
+    section.smallboard&attributes(attributes)
+      .container
+        a.smallboard__content(href="#")
+          if picture
+            +picture(picture)
