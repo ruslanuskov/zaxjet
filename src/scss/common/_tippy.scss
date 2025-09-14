@@ -26,6 +26,23 @@
       }
     }
   }
+  &[data-placement^='bottom'] {
+    & > .tippy-arrow {
+      &::before {
+        top: -0.6rem;
+      }
+      &:after {
+        top: -0.5rem;
+      }
+      &::before,
+      &:after {
+        left: 0;
+        border-width: 0 0.7rem 0.7rem;
+        border-bottom-color: initial;
+        transform-origin: center bottom;
+      }
+    }
+  }
 }
 .tippy-content {
   max-width: 11.9rem;

@@ -1,0 +1,21 @@
+@use '../utils' as *;
+
+.smallboard {
+  padding: 8rem 0;
+  @include up(lg) {
+    padding: 12rem 0;
+  }
+  &__content {
+    overflow: hidden;
+    box-shadow: 0 8px 24px 0 rgba(11, 36, 103, 0.3);
+    border-radius: 1rem;
+    display: block;
+    picture {
+      width: 100%;
+    }
+    img {
+      max-width: none;
+      width: 100%;
+    }
+  }
+}
