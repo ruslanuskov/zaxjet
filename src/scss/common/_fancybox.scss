@@ -56,8 +56,8 @@ html {
   }
   &__content {
     padding: 0;
-    .is-compact &,
-    .has-iframe & {
+    .is-compact &:not(._mobinav &),
+    .has-iframe &:not(._mobinav &) {
       height: auto !important;
     }
   }
