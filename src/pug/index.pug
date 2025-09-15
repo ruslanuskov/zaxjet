@@ -7,6 +7,7 @@ include ./modules/separator
 include ./modules/about
 include ./modules/benefits
 include ./modules/use
+include ./modules/feedback
 
 block config
   -
@@ -566,6 +567,38 @@ block config
       },
     };
 
+  -
+    var feedback = {
+      title: {
+        tag: 'h3',
+        label: 'Свяжитесь с нами',
+      },
+      text: 'Поможем разобраться и выбрать то, что вам нужно.',
+      telephone: {
+        url: 'tel:+79911758377',
+        label: '+7 (991) 175-83-77',
+      },
+      networks: [
+        {
+          url: '#',
+          icon: 'feed-telegram',
+          target: '_blank',
+          label: 'Telegram',
+        },
+        {
+          url: '#',
+          icon: 'feed-whatsapp',
+          target: '_blank',
+          label: 'WhatsApp',
+        },
+        {
+          url: 'mailto:ask@zaxjet.com',
+          icon: 'feed-email',
+          label: 'ask@zaxjet.com',
+        },
+      ],
+    };
+
 block content
   +billboard(billboard)
   +models(models)
@@ -575,3 +608,4 @@ block content
   +about(about)
   +benefits(benefits)
   +use(use)
+  +feedback(feedback)

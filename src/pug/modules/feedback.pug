@@ -1,0 +1,26 @@
+mixin feedback(data)
+  if data
+    - var { title, text, telephone, networks } = data;
+    section.feedback&attributes(attributes)
+      .container.feedback__container
+        if title || text || telephone
+          .feedback__content
+            if title
+              - var { tag, label } = title;
+              #{tag || 'h3'}.feedback__title!=label
+            if text
+              p.feedback__text!=text
+            if telephone
+              - var { url, label } = telephone;
+              #{url ? 'a' : 'div'}.feedback__telephone(href=url class=url ? '_link-hover' : '')!=label
+        if networks
+          .feedback__networks
+            ul.feedback__networks-list
+              each item in networks
+                - var { url, icon, target, label } = item;
+                li.feedback__networks-item
+                  a.feedback__networks-link._link-hover(href=`${url || '#'}` target=target)
+                    if icon
+                      +svg(icon).feedback__networks-icon
+                    if label
+                      .feedback__networks-label!=label
