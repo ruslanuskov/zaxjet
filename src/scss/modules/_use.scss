@@ -1,0 +1,179 @@
+@use '../utils' as *;
+
+.use {
+  $root: &;
+
+  padding: {
+    top: 6rem;
+    bottom: 6rem;
+  }
+  &__container,
+  &__info,
+  &__section,
+  &__footer {
+    display: flex;
+    flex-direction: column;
+  }
+  &__container {
+    row-gap: 4rem;
+    @include up(md) {
+      row-gap: 6rem;
+    }
+  }
+  &__title {
+    text-align: center;
+  }
+  &__info {
+    row-gap: 6rem;
+    @include up(md) {
+      row-gap: 7.93rem;
+    }
+    @include up(xl) {
+      row-gap: 8.02rem;
+    }
+  }
+  &__section {
+    gap: 4rem;
+    @include up(lg) {
+      flex-direction: row;
+    }
+    &._reverse {
+      #{$root}__picture {
+        @include up(md) {
+          margin: 0;
+        }
+        @include up(lg) {
+          order: 2;
+          width: 48.75%;
+        }
+        @include up(xl) {
+          width: 48.45%;
+        }
+        picture {
+          @include aspect(296, 336);
+          @include up(md) {
+            @include aspect(696, 478);
+          }
+          @include up(lg) {
+            @include aspect(544, 508);
+          }
+          @include up(xl) {
+            @include aspect(628, 538);
+          }
+        }
+      }
+      #{$root}__content {
+        @include up(md) {
+          margin: 0 10.8%;
+        }
+        @include up(lg) {
+          order: 1;
+          margin: 0;
+        }
+        @include up(xl) {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+  &__picture {
+    display: flex;
+    flex: none;
+    @include up(md) {
+      margin: 0 16.4%;
+    }
+    @include up(lg) {
+      margin: 0;
+      width: 41.8%;
+    }
+    @include up(xl) {
+      width: 48.5%;
+    }
+    picture {
+      flex: none;
+      overflow: hidden;
+      border-radius: 1rem;
+      width: 100%;
+      height: 100%;
+      flex: none;
+      @include aspect(296, 274);
+      @include up(md) {
+        @include aspect(468, 274);
+      }
+      @include up(lg) {
+        @include aspect(466, 273);
+      }
+    }
+  }
+  &__content {
+    @include up(md) {
+      margin: 0 8.5%;
+    }
+    @include up(lg) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1 1 auto;
+      margin: 0;
+    }
+    @include up(xl) {
+      padding-right: 2%;
+    }
+  }
+  &__text {
+    font-size: 1.8rem;
+    @include up(xl) {
+      font-size: 2rem;
+    }
+    &.rte p {
+      margin-bottom: 3.1rem;
+      @include up(xl) {
+        margin-bottom: 2.5rem;
+      }
+    }
+  }
+  &__footer {
+    align-items: center;
+    row-gap: 4rem;
+  }
+  &__subtext {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.5;
+    width: 100%;
+    text-align: center;
+    @include up(md) {
+      font-size: 2rem;
+      padding: 0 10%;
+    }
+    @include up(lg) {
+      padding: 0 25%;
+    }
+    @include up(xl) {
+      padding: 0 28%;
+    }
+    br {
+      display: none;
+      @include up(md) {
+        display: block;
+      }
+    }
+  }
+  &__btn {
+    font-size: 1.6rem;
+    width: 100%;
+    @include up(md) {
+      width: fit-content;
+      font-size: 2rem;
+    }
+    &:not(._text, ._text-button) {
+      padding: 1.5rem 2.4rem;
+      @include up(md) {
+        padding: {
+          left: 3.2rem;
+          right: 3.2rem;
+        }
+      }
+    }
+  }
+}

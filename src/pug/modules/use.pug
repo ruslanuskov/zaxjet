@@ -1,0 +1,30 @@
+mixin use(data)
+  if data
+    - var { title, content, subtext, btn } = data;
+    section.use&attributes(attributes)
+      .container.use__container
+        if title
+          - var { tag, label } = title;
+          #{tag || 'h3'}.h2.use__title!=label
+        if content || subtext || btn
+          .use__info
+            if content
+              each section, idx in content
+                - var { picture, text, listing } = section;
+                .use__section(class=(idx % 2 !== 0) ? '_reverse' : '')
+                  if picture
+                    .use__picture
+                      +picture(picture)._cover
+                  if text || listing
+                    .use__content
+                      if text
+                        .rte.use__text!=text
+                      if listing
+                        +listing(listing)._rocket
+            if subtext || btn
+              .use__footer
+                if subtext
+                  h6.use__subtext!=subtext
+                if btn
+                  - var { options, attrs } = btn;
+                  +btn(options)._outline-primary.use__btn&attributes(attrs)
