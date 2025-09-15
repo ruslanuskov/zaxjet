@@ -5,6 +5,7 @@ include ./modules/short-catalog
 include ./modules/smallboard
 include ./modules/separator
 include ./modules/about
+include ./modules/benefits
 
 block config
   -
@@ -413,6 +414,92 @@ block config
       },
     };
 
+  -
+    var benefits = {
+      title: {
+        tag: 'h3',
+        label: 'Преимущества ZaxJet',
+      },
+      cards: [
+        [
+          {
+            img: {
+              path: 'images/benefits/1.svg',
+              width: 130,
+              height: 130,
+            },
+            title: 'Индивидуальная сборка',
+            text: 'ZaxJet — это не серийный продукт. Мы собираем каждый гидроцикл под райдера: мотор, тюнинг, комплектация — всё под конкретную задачу.',
+          },
+          {
+            img: {
+              path: 'images/benefits/2.svg',
+              width: 130,
+              height: 130,
+            },
+            title: 'Лёгкие и прочные корпуса',
+            text: 'Используем T700 углеткань + прочнейшее связующее. Работаем на фрезерованных мастер-моделях. Это уровень, недоступный большинству азиатских брендов.',
+          },
+          {
+            img: {
+              path: 'images/benefits/3.svg',
+              width: 130,
+              height: 130,
+            },
+            title: 'Совместимость с популярными моторами',
+            text: 'Подходит под Yamaha 2Т и собственный мотор JC. Удобно настраивать, легко ремонтировать, нет проблем с доступностью запчастей.',
+          },
+          {
+            img: {
+              path: 'images/benefits/4.svg',
+              width: 130,
+              height: 130,
+            },
+            title: 'Запчасти в наличии',
+            text: 'Магазин с полным ассортиментом: комплектующие для ZaxJet и Yamaha SuperJet 2Т (до 2018 года). Всё — здесь и сейчас.',
+          },
+        ],
+        [
+          {
+            img: {
+              path: 'images/benefits/5.svg',
+              width: 130,
+              height: 130,
+            },
+            title: 'Сеть дилеров и партнёрский сервис',
+            text: 'JetCamp Москва и JetCamp Сочи — официальные дилеры. Помощь и ремонт доступны также у наших партнёров по всей России.',
+          },
+          {
+            img: {
+              path: 'images/benefits/6.svg',
+              width: 130,
+              height: 130,
+            },
+            title: 'Производство в Москве',
+            text: 'Можно отремонтировать, перекрасить, восстановить корпус, заменить наклейки. С импортными — не решаемо. Ни сервиса, ни наклеек, ни доступа к матрицам.',
+          },
+          {
+            img: {
+              path: 'images/benefits/7.svg',
+              width: 130,
+              height: 130,
+            },
+            title: 'Сделано райдерами',
+            text: 'ZaxJet — результат работы кастомных мастерских и фестивалей JetCamp. Мы строим технику, на которой сами катаемся.',
+          },
+          {
+            img: {
+              path: 'images/benefits/8.svg',
+              width: 130,
+              height: 130,
+            },
+            title: 'Официальная работа',
+            text: 'Мы — резиденты «Сколково». Работаем по безналу, с документами. Покупая ZaxJet, ты поддерживаешь российскую экономику.',
+          },
+        ],
+      ],
+    };
+
 block content
   +billboard(billboard)
   +models(models)
@@ -420,3 +507,4 @@ block content
   +smallboard(smallboard)
   +separator(separator)
   +about(about)
+  +benefits(benefits)

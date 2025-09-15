@@ -1,0 +1,86 @@
+@use 'sass:map';
+@use '../utils' as *;
+
+.benefits {
+  padding: {
+    top: 4.1rem;
+    bottom: 4rem;
+  }
+  @include up(md) {
+    padding: {
+      top: 6rem;
+      bottom: 6rem;
+    }
+  }
+  &__container,
+  &__content,
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+  &__container {
+    row-gap: 4rem;
+    @include up(md) {
+      row-gap: 6rem;
+    }
+  }
+  &__title {
+    text-align: center;
+  }
+  &__content {
+    row-gap: 6rem;
+  }
+  &__section {
+    margin: 0 -#{map.get($indents, sm)};
+    padding: 0 map.get($indents, sm);
+    @include up(md) {
+      margin: 0;
+      padding: 0 6rem;
+    }
+    @include up(lg) {
+      padding: 0 4rem;
+    }
+    &:first-child {
+      background: var(--white);
+      border-radius: 2rem;
+      box-shadow: 0 8px 24px 0 rgba(129, 135, 189, 0.15);
+      padding: {
+        top: 7rem;
+        bottom: 7rem;
+      }
+      .benefit-card__title {
+        @include up(lg) {
+          margin: -0.7rem 0 -0.95rem;
+        }
+        @include up(xl) {
+          margin: 0;
+        }
+      }
+    }
+  }
+  &__list {
+    row-gap: 8rem;
+    @include up(md) {
+      row-gap: 9rem;
+    }
+    @include up(lg) {
+      row-gap: 10.2rem;
+      margin: 0 -1.2rem;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    @include up(xl) {
+      margin: 0 -3.8rem;
+    }
+  }
+  &__card {
+    @include up(lg) {
+      padding: 0 1.2rem;
+      width: 50%;
+    }
+    @include up(xl) {
+      padding: 0 3.8rem;
+    }
+  }
+}

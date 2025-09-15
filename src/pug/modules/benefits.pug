@@ -1,0 +1,15 @@
+mixin benefits(data)
+  if data
+    - var { title, cards } = data;
+    section.benefits&attributes(attributes)
+      .container.benefits__container
+        if title
+          - var { tag, label } = title;
+          #{tag || 'h3'}.h2.benefits__title!=label
+        if cards
+          .benefits__content
+            each section in cards
+              .benefits__section
+                .benefits__list
+                  each item in section
+                    +benefit-card(item).benefits__card

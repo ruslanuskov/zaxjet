@@ -1,0 +1,14 @@
+mixin benefit-card(data)
+  if data
+    - var { img, title, text } = data;
+    .benefit-card&attributes(attributes)
+      if img
+        - var { path, width, height } = img;
+        .benefit-card__img
+          +img(path)(width=width height=height class="_contain")
+      if title || text
+        .benefit-card__content
+          if title
+            h6.benefit-card__title!=title
+          if text
+            p.benefit-card__text!=text
