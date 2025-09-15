@@ -1,0 +1,123 @@
+@use 'sass:math';
+@use '../utils' as *;
+
+.feedback {
+  padding: {
+    top: 4rem;
+    bottom: 7.9rem;
+  }
+  @include up(md) {
+    padding: {
+      top: 6rem;
+      bottom: 12rem;
+    }
+  }
+  &__container,
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+  &__container {
+    row-gap: 6rem;
+    @include up(lg) {
+      row-gap: 5.8rem;
+    }
+  }
+  &__content {
+    row-gap: 4rem;
+    align-items: center;
+  }
+  &__title {
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.4;
+    font-size: 2.8rem;
+    @include up(md) {
+      font-size: 4.6rem;
+      line-height: 1;
+    }
+  }
+  &__text {
+    font-size: 2rem;
+    text-align: center;
+  }
+  &__telephone {
+    text-align: center;
+    font-size: 2.8rem;
+    line-height: 1.4;
+    font-weight: 600;
+    display: block;
+    width: fit-content;
+    color: var(--text-color);
+  }
+  &__networks {
+    padding: 0 16.1%;
+    @include up(md) {
+      padding: 0;
+    }
+    @include up(lg) {
+      padding: 0 3.4%;
+    }
+    @include up(xl) {
+      padding: 0;
+    }
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 6rem;
+      @include up(md) {
+        row-gap: 4.8rem;
+        margin: 0 -2.4rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      @include up(lg) {
+        margin: 0 -4rem;
+      }
+    }
+    &-item {
+      display: flex;
+      flex: none;
+      width: 100%;
+      @include up(md) {
+        width: math.div(100%, 3);
+        padding: 0 2.4rem;
+      }
+      @include up(lg) {
+        width: 25%;
+        padding: 0 4rem;
+      }
+      @include up(xl) {
+        width: 20.36%;
+      }
+    }
+    &-link {
+      display: flex;
+      flex-direction: column;
+      flex: none;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      row-gap: 2rem;
+      background: var(--white);
+      box-shadow: 0 8px 24px 0 rgba(129, 135, 189, 0.15);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      color: var(--text-color);
+      min-height: 22rem;
+    }
+    &-icon {
+      flex: none;
+      width: 6.4rem;
+      height: 6.4rem;
+    }
+    &-label {
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 1.5;
+      text-align: center;
+      color: inherit;
+    }
+  }
+}
