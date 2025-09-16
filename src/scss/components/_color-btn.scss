@@ -1,0 +1,37 @@
+@use '../utils' as *;
+
+.color-btn {
+  flex: none;
+  display: flex;
+  width: 100%;
+  input {
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+  }
+  &__content {
+    display: block;
+    flex: none;
+    height: 100%;
+    width: 100%;
+    background: var(--white);
+    border: 0.1rem solid rgba(16, 16, 18, 0.15);
+    border-radius: 1rem;
+    padding: 0.2rem;
+    cursor: pointer;
+    input:disabled + & {
+      cursor: not-allowed;
+    }
+  }
+  &__picture {
+    width: 100%;
+    display: block;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    @include aspect(65, 49);
+    @include up(md) {
+      @include aspect(84, 49);
+    }
+  }
+}

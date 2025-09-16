@@ -1,0 +1,8 @@
+mixin breadcrumbs(data)
+  if data
+    .breadcrumbs&attributes(attributes)
+      each item, idx in data
+        - var last = idx == (data.length - 1);
+        #{!last ? 'a' : 'div'}.breadcrumbs__element(href=!last ? '#' : undefined class=!last ? '_link' : '')!=item
+        if !last
+          span.breadcrumbs__separator /

@@ -1,0 +1,10 @@
+mixin color-btn(data)
+  if data
+    - var { img } = data;
+    label.color-btn&attributes(attributes)
+      input(type="radio" value="")&attributes(attributes)
+      span.color-btn__content
+        if img
+          - var { path, width, height } = img;
+          span.color-btn__picture
+            +img(path)(width=width height=height class="_cover")

@@ -1,0 +1,73 @@
+mixin detail(data)
+  if data
+    - var { breadcrumbs, gallery, content } = data;
+    section.detail._content&attributes(attributes)
+      .container.detail__container
+        if breadcrumbs
+          +breadcrumbs(breadcrumbs)
+        if gallery || content
+          .detail__info
+            if gallery
+              .detail__gallery
+            if content
+              - var { title, code, settings, status, prices, error, counter } = content;
+              .detail__content
+                if title
+                  h1.h3.detail__title!=title
+                if code
+                  .detail__code!=code
+                if settings
+                  .detail__settings
+                    each section in settings
+                      - var { title, cards } = section;
+                      .detail__settings-section
+                        if title
+                          h5.detail__settings-title!=title
+                        if cards
+                          .detail__settings-content
+                            each subsection in cards
+                              - var { subtitle, type, list } = subsection;
+                              .detail__settings-subsection
+                                if subtitle
+                                  h6.detail__settings-subtitle!=subtitle
+                                if list
+                                  ul.detail__settings-list(class=`_${type}`)
+                                    each item in list
+                                      - var { attrs = {}, ...options } = item;
+                                      if type === 'materials'
+                                        li.detail__settings-item
+                                          +material-btn(options)&attributes(attrs)
+                                      else if type === 'colors'
+                                        li.detail__settings-item
+                                          +color-btn(options)&attributes(attrs)
+                                      else
+                                        li.detail__settings-item
+                                          +setting-btn(options)&attributes(attrs)
+                .detail__footer
+                  if status
+                    +status(status)
+                  .detail__footer-content
+                    if prices
+                      - var { current, old } = prices;
+                      .detail__prices
+                        if current
+                          span.detail__prices-current!=current
+                        if old
+                          span.detail__prices-old!=old
+                    .detail__controls
+                      .detail__controls-content
+                        if counter
+                          .detail__counter
+                            +counter(counter)
+                          +btn({
+                            icons: {
+                              left: 'basket',
+                            },
+                          })(type="button" class="_secondary detail__btn _short" data-tippy-content="перейти в корзину")
+                        else
+                          +btn({
+                            label: 'Добавить в корзину',
+                          })(type="button" disabled=error class="_primary detail__btn _full")
+                      if error
+                        .detail__error!=error
+

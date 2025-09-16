@@ -1,0 +1,8 @@
+mixin status(data)
+  if data
+    - var { modificators, icon, label } = data;
+    .status(class=modificators)&attributes(attributes)
+      if icon
+        +svg(icon).status__icon
+      if label
+        span.status__text!=label

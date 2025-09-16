@@ -1,0 +1,38 @@
+@use '../utils' as *;
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-color);
+  gap: 0.6rem 1.05rem;
+  @include up(md) {
+    font-size: 1.6rem;
+  }
+  & > * {
+    opacity: 0.3;
+  }
+  &__element {
+    display: block;
+    &._link {
+      color: var(--text-color);
+      @include transition((opacity, color));
+      @include hover {
+        &:not(:active) {
+          opacity: 1;
+          color: var(--link-hover);
+        }
+      }
+      &:active {
+        opacity: 1;
+        color: var(--blue);
+      }
+    }
+  }
+  &__separator {
+    display: block;
+    flex: none;
+  }
+}

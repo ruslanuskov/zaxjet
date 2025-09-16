@@ -1,0 +1,278 @@
+extends ./common/wrapper
+include ./modules/detail
+
+block config
+  - var title = 'Корпус для гидроцикла RidePro 4.1';
+
+  -
+    var detail = {
+      breadcrumbs: [
+        'Главная',
+        'Каталог моделей',
+        title,
+      ],
+      gallery: {
+
+      },
+      content: {
+        title,
+        code: 'Артикул: ZJRPG41',
+        settings: [
+          {
+            title: 'Материал корпуса:',
+            cards: [
+              {
+                subtitle: 'Стеклоткань',
+                type: 'materials',
+                list: [
+                  {
+                    img: {
+                      path: 'images/detail/materials/1.jpg',
+                      width: 130,
+                      height: 60,
+                    },
+                    label: 'Любой цвет',
+                    price: '930 000',
+                    attrs: {
+                      name: 'fiberglass',
+                    },
+                  },
+                  {
+                    img: {
+                      path: 'images/detail/materials/2.jpg',
+                      width: 130,
+                      height: 60,
+                    },
+                    label: 'Крупный твилл',
+                    price: '990 000',
+                    attrs: {
+                      name: 'fiberglass',
+                    },
+                  },
+                  {
+                    img: {
+                      path: 'images/detail/materials/3.jpg',
+                      width: 130,
+                      height: 60,
+                    },
+                    label: 'Шашечка Луи',
+                    price: '990 000',
+                    attrs: {
+                      name: 'fiberglass',
+                    },
+                  },
+                  {
+                    img: {
+                      path: 'images/detail/materials/4.jpg',
+                      width: 130,
+                      height: 60,
+                    },
+                    label: 'Конструктив',
+                    price: '930 000',
+                    attrs: {
+                      name: 'fiberglass',
+                    },
+                  },
+                ],
+              },
+              {
+                subtitle: 'Карбон',
+                type: 'materials',
+                list: [
+                  {
+                    img: {
+                      path: 'images/detail/materials/1.jpg',
+                      width: 130,
+                      height: 60,
+                    },
+                    label: 'Любой цвет',
+                    price: '1 090 000',
+                    attrs: {
+                      name: 'carbon',
+                    },
+                  },
+                  {
+                    img: {
+                      path: 'images/detail/materials/2.jpg',
+                      width: 130,
+                      height: 60,
+                    },
+                    label: 'Крупный твилл',
+                    price: '1 150 000',
+                    attrs: {
+                      name: 'carbon',
+                    },
+                  },
+                  {
+                    img: {
+                      path: 'images/detail/materials/3.jpg',
+                      width: 130,
+                      height: 60,
+                    },
+                    label: 'Шашечка Луи',
+                    price: '1 150 000',
+                    attrs: {
+                      name: 'carbon',
+                    },
+                  },
+                  {
+                    img: {
+                      path: 'images/detail/materials/4.jpg',
+                      width: 130,
+                      height: 60,
+                    },
+                    label: 'Конструктив',
+                    price: '1 150 000',
+                    attrs: {
+                      name: 'carbon',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: 'Кит графики:',
+            cards: [
+              {
+                type: 'default',
+                list: [
+                  {
+                    label: 'Стандартный на выбор',
+                    attrs: {
+                      name: 'graphics',
+                    },
+                  },
+                  {
+                    label: 'Хром',
+                    price: '+25 000',
+                    attrs: {
+                      name: 'graphics',
+                    },
+                  },
+                  {
+                    label: 'Неон',
+                    price: '+15 000',
+                    attrs: {
+                      name: 'graphics',
+                    },
+                  },
+                ],
+              },
+            ],
+            checkbox: {
+              options: {
+                label: 'Разработка индивидуальных цветов графики&nbsp;&nbsp;&nbsp;<em>+10 000</em>'
+              },
+              attrs: {
+                name: 'individual',
+              },
+            },
+          },
+          {
+            title: 'Цвет матов:',
+            cards: [
+              {
+                type: 'colors',
+                list: [
+                  {
+                    img: {
+                      path: 'images/detail/colors/1.jpg',
+                      width: 84,
+                      height: 49,
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                  {
+                    img: {
+                      path: 'images/detail/colors/2.jpg',
+                      width: 84,
+                      height: 49,
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                  {
+                    img: {
+                      path: 'images/detail/colors/3.jpg',
+                      width: 84,
+                      height: 49,
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                  {
+                    img: {
+                      path: 'images/detail/colors/4.jpg',
+                      width: 84,
+                      height: 49,
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                  {
+                    img: {
+                      path: 'images/detail/colors/5.jpg',
+                      width: 84,
+                      height: 49,
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                  {
+                    img: {
+                      path: 'images/detail/colors/6.jpg',
+                      width: 84,
+                      height: 49,
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: 'Захваты для ног:',
+            cards: [
+              {
+                type: 'default',
+                list: [
+                  {
+                    label: 'RRP',
+                    attrs: {
+                      name: 'captures',
+                    },
+                  },
+                  {
+                    label: 'WAMILTON',
+                    attrs: {
+                      name: 'captures',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        status: {
+          modificators: '_to-order',
+          icon: 'info',
+          label: 'Под заказ',
+        },
+        prices: {
+          current: 'от 930 000 р.',
+        },
+        error: 'Выберите параметры',
+      },
+    };
+
+block content
+  +detail(detail)
