@@ -1,0 +1,18 @@
+mixin material-btn(data)
+  if data
+    - var { img, label, price } = data;
+    label.material-btn
+      input(type="radio" value="")&attributes(attributes)
+      if img || label || price
+        span.material-btn__content
+          if img
+            - var { path, width, height } = img;
+            span.material-btn__picture
+              +img(path)(width=width height=height class="_cover")
+          if label || price
+            span.material-btn__info
+              if label
+                span.material-btn__label!=label
+              if price
+                span.material-btn__price!=price
+

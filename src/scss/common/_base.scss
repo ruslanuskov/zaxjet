@@ -108,6 +108,15 @@ textarea {
     color: var(--blue) !important;
   }
 }
+._content {
+  padding: {
+    top: 6.1rem;
+    bottom: 6rem;
+  }
+  @include up(md) {
+    padding-top: 8.1rem;
+  }
+}
 .container {
   margin: {
     left: auto;

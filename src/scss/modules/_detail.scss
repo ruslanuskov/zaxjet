@@ -1,0 +1,326 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../utils' as *;
+
+.detail {
+  $root: &;
+
+  &__container,
+  &__info,
+  &__content,
+  &__settings,
+  &__footer {
+    display: flex;
+    flex-direction: column;
+  }
+  &__container {
+    row-gap: 4rem;
+    @include up(md) {
+      row-gap: 6rem;
+    }
+  }
+  &__info {
+    gap: 6rem 0;
+    @include up(md) {
+      gap: 7.62rem 0;
+    }
+    @include up(lg) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0 6.1rem;
+    }
+    @include up(xl) {
+      gap: 0 3.8rem;
+    }
+  }
+  &__gallery {
+    flex: none;
+    width: 100%;
+    height: 49.7rem;
+    @include up(md) {
+      height: 78.6rem;
+    }
+    @include up(lg) {
+      width: 40.4%;
+      height: 74.2rem;
+    }
+    @include up(xl) {
+      height: 84.7rem;
+      width: 48%;
+    }
+  }
+  &__content {
+    flex: 1 1 auto;
+    row-gap: 1.95rem;
+    @include up(md) {
+      padding: 0 3rem;
+    }
+    @include up(lg) {
+      padding: 0;
+    }
+  }
+  &__title {
+    font-size: 2.8rem;
+  }
+  &__code {
+    font-size: 1.6rem;
+    opacity: 0.4;
+  }
+  &__settings {
+    row-gap: 4rem;
+    &-title {
+      font-size: 2rem;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    &-title + &-content {
+      margin-top: 2rem;
+    }
+    &-subsection + &-subsection {
+      margin-top: 2rem;
+    }
+    &-subtitle {
+      font-size: 1.6rem;
+      line-height: 1.5;
+      font-weight: 500;
+      @include up(md) {
+        font-size: 2rem;
+      }
+    }
+    &-subtitle + &-list {
+      padding-top: 1.55rem;
+      @include up(md) {
+        padding-top: 1rem;
+      }
+    }
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 1rem;
+      margin: 0 -0.5rem;
+      &._materials,
+      &._colors {
+        row-gap: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: visible;
+        margin: 0 -#{map.get($indents, sm)};
+        scrollbar-width: none;
+        @include up(md) {
+          flex-wrap: wrap;
+          overflow: visible;
+        }
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+      &._materials {
+        @include up(md) {
+          margin: 0 -0.865rem;
+          row-gap: 1.73rem;
+        }
+        @include up(lg) {
+          margin: 0 -0.335rem;
+          row-gap: 0.67rem;
+        }
+        @include up(xl) {
+          margin: 0 -0.865rem;
+          row-gap: 1.73rem;
+        }
+        #{$root}__settings-item {
+          @include up(md) {
+            padding: 0 0.865rem;
+            width: math.div(100%, 4);
+          }
+          @include up(lg) {
+            padding: 0 0.335rem;
+          }
+          @include up(xl) {
+            padding: 0 0.865rem;
+          }
+          &:first-child {
+            padding-left: map.get($indents, sm);
+            @include up(md) {
+              padding-left: 0.865rem;
+            }
+            @include up(lg) {
+              padding-left: 0.335rem;
+            }
+            @include up(xl) {
+              padding-left: 0.865rem;
+            }
+          }
+          &:last-child {
+            padding-right: map.get($indents, sm);
+            @include up(md) {
+              padding-right: 0.865rem;
+            }
+            @include up(lg) {
+              padding-right: 0.335rem;
+            }
+            @include up(xl) {
+              padding-right: 0.865rem;
+            }
+          }
+        }
+      }
+      &._colors {
+        @include up(md) {
+          margin: 0 -0.96rem;
+          row-gap: 1.92rem;
+        }
+        @include up(lg) {
+          margin: 0 -0.64rem;
+          row-gap: 1.28rem;
+        }
+        @include up(xl) {
+          margin: 0 -0.79rem;
+          row-gap: 1.58rem;
+        }
+        #{$root}__settings-item {
+          padding: 0 0.8rem;
+          @include up(md) {
+            padding: 0 0.96rem;
+            width: math.div(100%, 6);
+          }
+          @include up(lg) {
+            padding: 0 0.64rem;
+          }
+          @include up(xl) {
+            padding: 0 0.79rem;
+          }
+          &:first-child {
+            padding-left: map.get($indents, sm);
+            @include up(md) {
+              padding-left: 0.96rem;
+            }
+            @include up(lg) {
+              padding-left: 0.64rem;
+            }
+            @include up(xl) {
+              padding-left: 0.79rem;
+            }
+          }
+          &:last-child {
+            padding-right: map.get($indents, sm);
+            @include up(md) {
+              padding-right: 0.96rem;
+            }
+            @include up(lg) {
+              padding-right: 0.64rem;
+            }
+            @include up(xl) {
+              padding-right: 0.79rem;
+            }
+          }
+        }
+      }
+    }
+    &-item {
+      display: flex;
+      flex: none;
+      padding: 0 0.5rem;
+      .material-btn {
+        width: 10.4rem;
+        @include up(md) {
+          width: 100%;
+        }
+      }
+      .color-btn {
+        width: 7.1rem;
+        @include up(md) {
+          width: 100%;
+        }
+      }
+    }
+  }
+  &__footer {
+    row-gap: 1.9rem;
+    align-items: center;
+    @include up(md) {
+      align-items: flex-start;
+    }
+    * + & {
+      margin-top: 3rem;
+    }
+    &-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      @include up(md) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-end;
+      }
+    }
+  }
+  &__prices {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem 2rem;
+    justify-content: center;
+    @include up(md) {
+      flex: 1 1 auto;
+      min-height: 5.2rem;
+      justify-content: flex-start;
+    }
+    &-current,
+    &-old {
+      font-weight: 500;
+      display: block;
+      width: fit-content;
+      text-align: center;
+      @include up(md) {
+        text-align: left;
+      }
+    }
+    &-current {
+      font-size: 2rem;
+    }
+    &-old {
+      font-size: 1.6rem;
+      opacity: 0.5;
+      text-decoration: line-through;
+      line-height: 1;
+    }
+  }
+  &__controls {
+    width: 100%;
+    flex: none;
+    @include up(md) {
+      width: 30.6rem;
+    }
+    &-content {
+      display: flex;
+      gap: 0.4rem;
+    }
+  }
+  &__counter {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+  &__btn {
+    height: 5.2rem;
+    padding: {
+      top: 0;
+      bottom: 0;
+    }
+    width: 100%;
+    &._short {
+      width: 9.8rem;
+      border-radius: 0.8rem;
+    }
+  }
+  &__error {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--red);
+    * + & {
+      margin-top: 0.6rem;
+    }
+  }
+}

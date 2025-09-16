@@ -1,0 +1,22 @@
+@use '../utils' as *;
+
+.status {
+  display: flex;
+  align-items: center;
+  column-gap: 0.8rem;
+  font-size: 1.6rem;
+  width: fit-content;
+  font-weight: 500;
+  &._to-order {
+    color: var(--link);
+  }
+  &._success {
+    color: var(--green);
+  }
+  &__icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    position: relative;
+    top: -0.1rem;
+  }
+}
