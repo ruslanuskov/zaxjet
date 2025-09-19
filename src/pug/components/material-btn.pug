@@ -1,8 +1,8 @@
 mixin material-btn(data)
   if data
-    - var { img, label, price } = data;
-    label.material-btn
-      input(type="radio" value="")&attributes(attributes)
+    - var { modificators, img, label, price } = data;
+    label.material-btn(class=modificators)
+      input.js-setting-input(type="radio" value="")&attributes(attributes)
       if img || label || price
         span.material-btn__content
           if img

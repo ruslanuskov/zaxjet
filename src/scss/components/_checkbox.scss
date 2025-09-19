@@ -1,0 +1,155 @@
+@use '../utils' as *;
+
+.checkbox {
+  $root: &;
+
+  display: block;
+  width: fit-content;
+  input {
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+    &[type='checkbox'] {
+      & + #{$root}__content {
+        #{$root}__marker {
+          border-radius: 0.4rem;
+          svg {
+            width: 1.8rem;
+            height: 1.8rem;
+            color: var(--white);
+            margin: -0.9rem 0 0 -0.9rem;
+          }
+        }
+      }
+      &:not(:disabled) {
+        &:checked {
+          & + #{$root}__content {
+            #{$root}__marker {
+              background-color: var(--blue);
+              opacity: 1;
+              border-color: var(--blue);
+              @include hover {
+                opacity: 0.8;
+              }
+              svg {
+                color: var(--white);
+              }
+            }
+          }
+        }
+      }
+      &:disabled {
+        & + #{$root}__content {
+          #{$root}__marker {
+            background-color: var(--black);
+          }
+        }
+      }
+    }
+    &[type='radio'] {
+      & + #{$root}__content {
+        #{$root}__marker {
+          border-radius: 50%;
+          &::before {
+            content: '';
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: var(--blue);
+            margin: -0.5rem 0 0 -0.5rem;
+          }
+        }
+      }
+      &:not(:disabled) {
+        &:checked {
+          & + #{$root}__content {
+            #{$root}__marker {
+              opacity: 1;
+              border-color: var(--blue);
+              @include hover {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
+      }
+      &:disabled {
+        &:not(:checked) {
+          & + #{$root}__content {
+            #{$root}__marker {
+              background-color: var(--black);
+            }
+          }
+        }
+        & + #{$root}__content {
+          #{$root}__marker {
+            &::before {
+              background-color: var(--black);
+            }
+          }
+        }
+      }
+    }
+    &:checked {
+      & + #{$root}__content {
+        #{$root}__marker {
+          &::before,
+          svg {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      }
+    }
+    &:disabled {
+      & + #{$root}__content {
+        #{$root}__marker {
+          border-color: var(--black);
+          opacity: 0.15;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    user-select: none;
+  }
+  &__marker {
+    flex: none;
+    width: 2rem;
+    position: relative;
+    height: 2rem;
+    border: 0.2rem solid var(--black);
+    opacity: 0.15;
+    display: block;
+    cursor: pointer;
+    @include transition((opacity, border-color, background-color));
+    &::before,
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      transform: scale(0);
+      @include transition(all);
+    }
+    @include hover {
+      opacity: 1;
+      border-color: var(--blue);
+    }
+  }
+  &__label {
+    display: block;
+    font-size: 1.6rem;
+    @include up(md) {
+      font-size: 2rem;
+    }
+    strong {
+      font-weight: 500;
+    }
+  }
+}
