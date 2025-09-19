@@ -3,6 +3,7 @@ import ModalsClass from './classes/modals';
 import MobinavClass from './classes/mobinav';
 import CounterClass from './classes/counter';
 import TooltipClass from './classes/toottip';
+import DetailClass from './classes/detail';
 import {
   MEDIA_SM,
   MEDIA_MD,
@@ -32,6 +33,7 @@ class MainClass {
       MobinavClass.init();
       CounterClass.init();
       TooltipClass.init();
+      DetailClass.init();
     }, 0);
   }
 

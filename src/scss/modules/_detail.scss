@@ -67,7 +67,176 @@
     opacity: 0.4;
   }
   &__settings {
-    row-gap: 4rem;
+    row-gap: 3.95rem;
+    &-section {
+      &._materials,
+      &._colors {
+        #{$root}__settings-list {
+          row-gap: 0;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          overflow-y: visible;
+          margin: 0 -#{map.get($indents, sm)};
+          scrollbar-width: none;
+          @include up(md) {
+            flex-wrap: wrap;
+            overflow: visible;
+          }
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+      &._materials {
+        #{$root}__settings-list {
+          @include up(md) {
+            margin: 0 -0.865rem;
+            row-gap: 1.73rem;
+          }
+          @include up(lg) {
+            margin: 0 -0.335rem;
+            row-gap: 0.67rem;
+          }
+          @include up(xl) {
+            margin: 0 -0.865rem;
+            row-gap: 1.73rem;
+          }
+        }
+        #{$root}__settings-item {
+          width: 35.7%;
+          @include up(md) {
+            padding: 0 0.865rem;
+            width: math.div(100%, 4);
+          }
+          @include up(lg) {
+            padding: 0 0.335rem;
+          }
+          @include up(xl) {
+            padding: 0 0.865rem;
+          }
+          &:first-child {
+            margin-left: map.get($indents, sm) - 0.5rem;
+            @include up(md) {
+              margin-left: 0;
+            }
+          }
+          &:last-child {
+            margin-right: map.get($indents, sm) - 0.5rem;
+            @include up(md) {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+      &._graphics {
+        * + & {
+          @include up(md) {
+            margin-top: 0;
+          }
+          @include up(xl) {
+            margin-top: -0.4rem;
+          }
+        }
+        #{$root}__settings-list {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          @include up(md) {
+            grid-template-columns: 34.2% 24.1% 23.6%;
+          }
+          @include up(lg) {
+            grid-template-columns: 36% 25.4% 24.8%;
+          }
+          @include up(xl) {
+            grid-template-columns: 34.3% 24.2% 23.4%;
+          }
+        }
+        #{$root}__settings-item {
+          &._full {
+            grid-column: span 2;
+            @include up(md) {
+              grid-column: auto;
+            }
+            .setting-btn__content {
+              padding: {
+                top: 1.6rem;
+                bottom: 1.6rem;
+              }
+            }
+            .setting-btn__label {
+              max-width: 11.6rem;
+              @include up(md) {
+                max-width: 21rem;
+              }
+            }
+          }
+        }
+      }
+      &._colors {
+        #{$root}__settings-list {
+          @include up(md) {
+            margin: 0 -0.96rem;
+            row-gap: 1.92rem;
+          }
+          @include up(lg) {
+            margin: 0 -0.64rem;
+            row-gap: 1.28rem;
+          }
+          @include up(xl) {
+            margin: 0 -0.79rem;
+            row-gap: 1.58rem;
+          }
+        }
+        #{$root}__settings-item {
+          padding: 0 0.8rem;
+          width: 27.2%;
+          @include up(md) {
+            padding: 0 0.96rem;
+            width: math.div(100%, 6);
+          }
+          @include up(lg) {
+            padding: 0 0.64rem;
+          }
+          @include up(xl) {
+            padding: 0 0.79rem;
+          }
+          &:first-child {
+            margin-left: map.get($indents, sm) - 0.8rem;
+            @include up(md) {
+              margin-left: 0;
+            }
+          }
+          &:last-child {
+            margin-right: map.get($indents, sm) - 0.8rem;
+            @include up(md) {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+      &._captures {
+        #{$root}__settings-list {
+          display: grid;
+          grid-template-columns: 36.2% 1fr;
+          @include up(md) {
+            display: flex;
+          }
+        }
+        #{$root}__settings-item {
+          @include up(md) {
+            width: auto;
+          }
+        }
+        .setting-btn__content {
+          padding: {
+            top: 1.3rem;
+            bottom: 1.3rem;
+          }
+          @include up(md) {
+            padding: 1rem 3.2rem;
+          }
+        }
+      }
+    }
     &-title {
       font-size: 2rem;
       line-height: 1.5;
@@ -98,139 +267,15 @@
       flex-wrap: wrap;
       row-gap: 1rem;
       margin: 0 -0.5rem;
-      &._materials,
-      &._colors {
-        row-gap: 0;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: visible;
-        margin: 0 -#{map.get($indents, sm)};
-        scrollbar-width: none;
-        @include up(md) {
-          flex-wrap: wrap;
-          overflow: visible;
-        }
-        &::-webkit-scrollbar {
-          display: none;
-        }
-      }
-      &._materials {
-        @include up(md) {
-          margin: 0 -0.865rem;
-          row-gap: 1.73rem;
-        }
-        @include up(lg) {
-          margin: 0 -0.335rem;
-          row-gap: 0.67rem;
-        }
-        @include up(xl) {
-          margin: 0 -0.865rem;
-          row-gap: 1.73rem;
-        }
-        #{$root}__settings-item {
-          @include up(md) {
-            padding: 0 0.865rem;
-            width: math.div(100%, 4);
-          }
-          @include up(lg) {
-            padding: 0 0.335rem;
-          }
-          @include up(xl) {
-            padding: 0 0.865rem;
-          }
-          &:first-child {
-            padding-left: map.get($indents, sm);
-            @include up(md) {
-              padding-left: 0.865rem;
-            }
-            @include up(lg) {
-              padding-left: 0.335rem;
-            }
-            @include up(xl) {
-              padding-left: 0.865rem;
-            }
-          }
-          &:last-child {
-            padding-right: map.get($indents, sm);
-            @include up(md) {
-              padding-right: 0.865rem;
-            }
-            @include up(lg) {
-              padding-right: 0.335rem;
-            }
-            @include up(xl) {
-              padding-right: 0.865rem;
-            }
-          }
-        }
-      }
-      &._colors {
-        @include up(md) {
-          margin: 0 -0.96rem;
-          row-gap: 1.92rem;
-        }
-        @include up(lg) {
-          margin: 0 -0.64rem;
-          row-gap: 1.28rem;
-        }
-        @include up(xl) {
-          margin: 0 -0.79rem;
-          row-gap: 1.58rem;
-        }
-        #{$root}__settings-item {
-          padding: 0 0.8rem;
-          @include up(md) {
-            padding: 0 0.96rem;
-            width: math.div(100%, 6);
-          }
-          @include up(lg) {
-            padding: 0 0.64rem;
-          }
-          @include up(xl) {
-            padding: 0 0.79rem;
-          }
-          &:first-child {
-            padding-left: map.get($indents, sm);
-            @include up(md) {
-              padding-left: 0.96rem;
-            }
-            @include up(lg) {
-              padding-left: 0.64rem;
-            }
-            @include up(xl) {
-              padding-left: 0.79rem;
-            }
-          }
-          &:last-child {
-            padding-right: map.get($indents, sm);
-            @include up(md) {
-              padding-right: 0.96rem;
-            }
-            @include up(lg) {
-              padding-right: 0.64rem;
-            }
-            @include up(xl) {
-              padding-right: 0.79rem;
-            }
-          }
-        }
-      }
     }
     &-item {
       display: flex;
       flex: none;
       padding: 0 0.5rem;
-      .material-btn {
-        width: 10.4rem;
-        @include up(md) {
-          width: 100%;
-        }
-      }
-      .color-btn {
-        width: 7.1rem;
-        @include up(md) {
-          width: 100%;
-        }
+    }
+    &-checkbox {
+      * + & {
+        margin-top: 2rem;
       }
     }
   }
@@ -241,7 +286,7 @@
       align-items: flex-start;
     }
     * + & {
-      margin-top: 3rem;
+      margin-top: 3.2rem;
     }
     &-content {
       width: 100%;

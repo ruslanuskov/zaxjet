@@ -1,8 +1,8 @@
 mixin color-btn(data)
   if data
-    - var { img } = data;
-    label.color-btn&attributes(attributes)
-      input(type="radio" value="")&attributes(attributes)
+    - var { modificators, img } = data;
+    label.color-btn(class=modificators)
+      input.js-setting-input(type="radio" value="")&attributes(attributes)
       span.color-btn__content
         if img
           - var { path, width, height } = img;

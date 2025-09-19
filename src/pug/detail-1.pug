@@ -19,6 +19,7 @@ block config
         code: 'Артикул: ZJRPG41',
         settings: [
           {
+            modificators: '_materials',
             title: 'Материал корпуса:',
             cards: [
               {
@@ -26,51 +27,59 @@ block config
                 type: 'materials',
                 list: [
                   {
-                    img: {
-                      path: 'images/detail/materials/1.jpg',
-                      width: 130,
-                      height: 60,
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/1.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Любой цвет',
+                      price: '930 000',
                     },
-                    label: 'Любой цвет',
-                    price: '930 000',
                     attrs: {
-                      name: 'fiberglass',
+                      name: 'materials',
                     },
                   },
                   {
-                    img: {
-                      path: 'images/detail/materials/2.jpg',
-                      width: 130,
-                      height: 60,
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/2.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Крупный твилл',
+                      price: '990 000',
                     },
-                    label: 'Крупный твилл',
-                    price: '990 000',
                     attrs: {
-                      name: 'fiberglass',
+                      name: 'materials',
                     },
                   },
                   {
-                    img: {
-                      path: 'images/detail/materials/3.jpg',
-                      width: 130,
-                      height: 60,
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/3.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Шашечка Луи',
+                      price: '990 000',
                     },
-                    label: 'Шашечка Луи',
-                    price: '990 000',
                     attrs: {
-                      name: 'fiberglass',
+                      name: 'materials',
                     },
                   },
                   {
-                    img: {
-                      path: 'images/detail/materials/4.jpg',
-                      width: 130,
-                      height: 60,
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/4.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Конструктив',
+                      price: '930 000',
                     },
-                    label: 'Конструктив',
-                    price: '930 000',
                     attrs: {
-                      name: 'fiberglass',
+                      name: 'materials',
                     },
                   },
                 ],
@@ -80,51 +89,59 @@ block config
                 type: 'materials',
                 list: [
                   {
-                    img: {
-                      path: 'images/detail/materials/1.jpg',
-                      width: 130,
-                      height: 60,
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/1.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Любой цвет',
+                      price: '1 090 000',
                     },
-                    label: 'Любой цвет',
-                    price: '1 090 000',
                     attrs: {
-                      name: 'carbon',
+                      name: 'materials',
                     },
                   },
                   {
-                    img: {
-                      path: 'images/detail/materials/2.jpg',
-                      width: 130,
-                      height: 60,
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/2.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Крупный твилл',
+                      price: '1 150 000',
                     },
-                    label: 'Крупный твилл',
-                    price: '1 150 000',
                     attrs: {
-                      name: 'carbon',
+                      name: 'materials',
                     },
                   },
                   {
-                    img: {
-                      path: 'images/detail/materials/3.jpg',
-                      width: 130,
-                      height: 60,
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/3.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Шашечка Луи',
+                      price: '1 150 000',
                     },
-                    label: 'Шашечка Луи',
-                    price: '1 150 000',
                     attrs: {
-                      name: 'carbon',
+                      name: 'materials',
                     },
                   },
                   {
-                    img: {
-                      path: 'images/detail/materials/4.jpg',
-                      width: 130,
-                      height: 60,
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/4.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Конструктив',
+                      price: '1 150 000',
                     },
-                    label: 'Конструктив',
-                    price: '1 150 000',
                     attrs: {
-                      name: 'carbon',
+                      name: 'materials',
                     },
                   },
                 ],
@@ -132,27 +149,35 @@ block config
             ],
           },
           {
+            modificators: '_graphics',
             title: 'Кит графики:',
             cards: [
               {
                 type: 'default',
                 list: [
                   {
-                    label: 'Стандартный на выбор',
+                    options: {
+                      modificators: '_full',
+                      label: 'Стандартный на выбор',
+                    },
                     attrs: {
                       name: 'graphics',
                     },
                   },
                   {
-                    label: 'Хром',
-                    price: '+25 000',
+                    options: {
+                      label: 'Хром',
+                      price: '+25 000',
+                    },
                     attrs: {
                       name: 'graphics',
                     },
                   },
                   {
-                    label: 'Неон',
-                    price: '+15 000',
+                    options: {
+                      label: 'Неон',
+                      price: '+15 000',
+                    },
                     attrs: {
                       name: 'graphics',
                     },
@@ -162,7 +187,7 @@ block config
             ],
             checkbox: {
               options: {
-                label: 'Разработка индивидуальных цветов графики&nbsp;&nbsp;&nbsp;<em>+10 000</em>'
+                label: 'Разработка индивидуальных цветов графики&nbsp;&nbsp;&nbsp;<strong>+10 000</strong>'
               },
               attrs: {
                 name: 'individual',
@@ -170,66 +195,79 @@ block config
             },
           },
           {
+            modificators: '_colors',
             title: 'Цвет матов:',
             cards: [
               {
                 type: 'colors',
                 list: [
                   {
-                    img: {
-                      path: 'images/detail/colors/1.jpg',
-                      width: 84,
-                      height: 49,
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/1.jpg',
+                        width: 84,
+                        height: 49,
+                      },
                     },
                     attrs: {
                       name: 'colors',
                     },
                   },
                   {
-                    img: {
-                      path: 'images/detail/colors/2.jpg',
-                      width: 84,
-                      height: 49,
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/2.jpg',
+                        width: 84,
+                        height: 49,
+                      },
                     },
                     attrs: {
                       name: 'colors',
                     },
                   },
                   {
-                    img: {
-                      path: 'images/detail/colors/3.jpg',
-                      width: 84,
-                      height: 49,
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/3.jpg',
+                        width: 84,
+                        height: 49,
+                      },
                     },
                     attrs: {
                       name: 'colors',
                     },
                   },
                   {
-                    img: {
-                      path: 'images/detail/colors/4.jpg',
-                      width: 84,
-                      height: 49,
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/4.jpg',
+                        width: 84,
+                        height: 49,
+                      },
                     },
                     attrs: {
                       name: 'colors',
                     },
                   },
                   {
-                    img: {
-                      path: 'images/detail/colors/5.jpg',
-                      width: 84,
-                      height: 49,
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/5.jpg',
+                        width: 84,
+                        height: 49,
+                      },
                     },
                     attrs: {
                       name: 'colors',
                     },
                   },
                   {
-                    img: {
-                      path: 'images/detail/colors/6.jpg',
-                      width: 84,
-                      height: 49,
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/6.jpg',
+                        width: 84,
+                        height: 49,
+                      },
                     },
                     attrs: {
                       name: 'colors',
@@ -240,19 +278,24 @@ block config
             ],
           },
           {
+            modificators: '_captures',
             title: 'Захваты для ног:',
             cards: [
               {
                 type: 'default',
                 list: [
                   {
-                    label: 'RRP',
+                    options: {
+                      label: 'RRP',
+                    },
                     attrs: {
                       name: 'captures',
                     },
                   },
                   {
-                    label: 'WAMILTON',
+                    options: {
+                      label: 'WAMILTON',
+                    },
                     attrs: {
                       name: 'captures',
                     },

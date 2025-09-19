@@ -1,3 +1,11 @@
 mixin setting-btn(data)
   if data
-    label.setting-btn&attributes(attributes)
+    - var { modificators, label, price } = data;
+    label.setting-btn(class=modificators)
+      input.js-setting-input(type="radio" value="")&attributes(attributes)
+      if label || price
+        span.setting-btn__content
+          if label
+            span.setting-btn__label!=label
+          if price
+            span.setting-btn__price!=price

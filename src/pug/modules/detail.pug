@@ -11,7 +11,7 @@ mixin detail(data)
               .detail__gallery
             if content
               - var { title, code, settings, status, prices, error, counter } = content;
-              .detail__content
+              form.detail__content(action="#")
                 if title
                   h1.h3.detail__title!=title
                 if code
@@ -19,12 +19,12 @@ mixin detail(data)
                 if settings
                   .detail__settings
                     each section in settings
-                      - var { title, cards } = section;
-                      .detail__settings-section
+                      - var { modificators, title, cards, checkbox } = section;
+                      .detail__settings-section(class=modificators)
                         if title
                           h5.detail__settings-title!=title
                         if cards
-                          .detail__settings-content
+                          .detail__settings-content.js-settings-content
                             each subsection in cards
                               - var { subtitle, type, list } = subsection;
                               .detail__settings-subsection
@@ -32,17 +32,19 @@ mixin detail(data)
                                   h6.detail__settings-subtitle!=subtitle
                                 if list
                                   ul.detail__settings-list(class=`_${type}`)
-                                    each item in list
-                                      - var { attrs = {}, ...options } = item;
+                                    each item, idx in list
+                                      - var { options, attrs } = item;
+                                      -options.modificators = options.modificators ? `${options.modificators} detail__settings-item` : 'detail__settings-item';
                                       if type === 'materials'
-                                        li.detail__settings-item
-                                          +material-btn(options)&attributes(attrs)
+                                        +material-btn(options)&attributes(attrs)
                                       else if type === 'colors'
-                                        li.detail__settings-item
-                                          +color-btn(options)&attributes(attrs)
+                                        +color-btn(options)&attributes(attrs)
                                       else
-                                        li.detail__settings-item
-                                          +setting-btn(options)&attributes(attrs)
+                                        +setting-btn(options)&attributes(attrs)
+                        if checkbox
+                          - var { options, attrs } = checkbox;
+                          -options.modificators = options.modificators ? `${options.modificators} detail__settings-checkbox` : 'detail__settings-checkbox';
+                          +checkbox(options)&attributes(attrs)
                 .detail__footer
                   if status
                     +status(status)

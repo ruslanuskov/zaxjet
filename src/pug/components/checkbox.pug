@@ -1,0 +1,11 @@
+mixin checkbox(data)
+  if data
+    - var { modificators, label } = data;
+    label.checkbox(class=modificators)
+      input(type="checkbox" value="")&attributes(attributes)
+      span.checkbox__content
+        span.checkbox__marker
+          if attributes.type !== 'radio'
+            +svg('check-mark')
+        if label
+          span.checkbox__label!=label
