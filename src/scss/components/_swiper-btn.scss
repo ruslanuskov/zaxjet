@@ -1,0 +1,40 @@
+@use '../utils' as *;
+
+.swiper-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4.6rem;
+  height: 4.6rem;
+  z-index: 10;
+  display: none;
+  color: var(--text-color);
+  align-items: center;
+  justify-content: center;
+  @include transition((color, opacity));
+  &:not(:disabled, ._disabled, :active) {
+    @include hover {
+      color: var(--link-hover);
+    }
+  }
+  &:disabled,
+  &._disabled {
+    opacity: 0.3;
+  }
+  &._prev {
+    left: 0;
+  }
+  &._next {
+    right: 0;
+  }
+  &._lock {
+    display: none !important;
+  }
+  svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  .swiper-initialized & {
+    display: flex;
+  }
+}

@@ -1,0 +1,20 @@
+@forward '~/swiper/swiper';
+
+.swiper {
+  $root: &;
+
+  margin: {
+    left: 0;
+    right: 0;
+  }
+  overflow: visible;
+  &-wrapper {
+    height: auto;
+    box-sizing: border-box;
+  }
+  &-slide {
+    display: flex;
+    flex: none;
+    height: auto;
+  }
+}
