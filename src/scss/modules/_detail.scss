@@ -36,17 +36,141 @@
   &__gallery {
     flex: none;
     width: 100%;
-    height: 49.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3rem;
     @include up(md) {
-      height: 78.6rem;
+      padding: 0 8.6%;
     }
     @include up(lg) {
+      padding: 0;
       width: 40.4%;
-      height: 74.2rem;
     }
     @include up(xl) {
-      height: 84.7rem;
       width: 48%;
+    }
+    &-content {
+      width: 100%;
+      position: relative;
+      @include up(md) {
+        padding: {
+          left: 4.6rem;
+          right: 4.6rem;
+        }
+      }
+      @include up(lg) {
+        padding: 0;
+      }
+      @include up(xl) {
+        padding: {
+          left: 4.6rem;
+          right: 4.6rem;
+        }
+      }
+    }
+    &-list,
+    &-thumbs {
+      overflow: hidden;
+    }
+    &-list {
+      border-radius: 1rem;
+      .swiper {
+        position: static;
+        margin: {
+          left: -1.5rem;
+          right: -1.5rem;
+        }
+        &-slide {
+          padding: {
+            left: 1.5rem;
+            right: 1.5rem;
+          }
+        }
+      }
+      .swiper-initialized {
+        .swiper-btn {
+          display: none;
+          @include up(md) {
+            display: flex;
+          }
+          @include up(lg) {
+            display: none;
+          }
+          @include up(xl) {
+            display: flex;
+          }
+        }
+      }
+    }
+    &-picture {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      width: 100%;
+      flex: none;
+      display: block;
+      @include aspect(530, 705);
+      picture {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-thumbs {
+      margin: {
+        left: auto;
+        right: auto;
+      }
+      width: 100%;
+      max-width: 63%;
+      @include up(md) {
+        max-width: 47.4%;
+      }
+      @include up(lg) {
+        max-width: 61%;
+      }
+      @include up(xl) {
+        max-width: 44.2%;
+      }
+      .swiper {
+        margin: {
+          left: -0.4rem;
+          right: -0.4rem;
+        }
+        &-slide {
+          pointer-events: none;
+          width: math.div(100%, 3);
+          padding: {
+            left: 0.4rem;
+            right: 0.4rem;
+          }
+          &:first-of-type {
+            margin-left: auto;
+          }
+          &:last-of-type {
+            margin-right: auto;
+          }
+        }
+      }
+    }
+    &-preview {
+      pointer-events: auto;
+      border: 0.1rem solid transparent;
+      border-radius: 0.5rem;
+      padding: 0.2rem;
+      width: 100%;
+      flex: none;
+      cursor: pointer;
+      @include transition(border-color);
+      .swiper-slide-thumb-active & {
+        border-color: var(--link);
+      }
+      picture {
+        overflow: hidden;
+        width: 100%;
+        border-radius: 0.5rem;
+        @include aspect(80, 106);
+      }
     }
   }
   &__content {

@@ -8,7 +8,28 @@ mixin detail(data)
         if gallery || content
           .detail__info
             if gallery
+              - var { list, thumbs } = gallery;
               .detail__gallery
+                if list
+                  .detail__gallery-content
+                    .detail__gallery-list
+                      .swiper.js-detail-gallery
+                        .swiper-wrapper
+                          each item in list
+                            - var { url, picture } = item;
+                            .swiper-slide
+                              #{url ? 'a' : 'div'}.detail__gallery-picture(href=url data-fancybox="gallery")
+                                +picture(picture)._cover
+                        +swiper-btn
+                if thumbs
+                  .detail__gallery-thumbs
+                    .swiper.js-detail-thumbs
+                      .swiper-wrapper
+                        each item in thumbs
+                          - var { picture } = item;
+                          .swiper-slide
+                            .detail__gallery-preview
+                              +picture(picture)._cover
             if content
               - var { title, code, settings, status, prices, error, counter } = content;
               form.detail__content(action="#")

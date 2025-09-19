@@ -13,6 +13,9 @@ export default class ModalsClass {
       showClass: 'f-fadeIn',
       hideClass: 'f-fadeOut',
       closeExisting: true,
+      Images: {
+        zoom: false,
+      },
     });
   }
 
