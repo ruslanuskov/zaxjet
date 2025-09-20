@@ -40,6 +40,15 @@
   &__text {
     font-size: 2rem;
     text-align: center;
+    @include up(md) {
+      max-width: 90%;
+    }
+    @include up(lg) {
+      max-width: 56%;
+    }
+    @include up(xl) {
+      max-width: 48%;
+    }
   }
   &__telephone {
     text-align: center;

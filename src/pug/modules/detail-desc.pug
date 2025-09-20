@@ -1,0 +1,22 @@
+mixin detail-desc(data)
+  if data
+    - var { name, info } = data;
+    section.detail-desc&attributes(attributes)
+      .container.detail-desc__container.tabs(data-tabs=name)
+        ul.detail-desc__nav.tabs__nav
+          each item in info
+            - var { label } = item;
+            li.detail-desc__nav-item.tabs__nav-item
+              button.detail-desc__nav-btn.tabs__nav-btn(type="button")
+                if label
+                  span!=label
+        div.tabs__content
+          each item in info
+            - var { content, characteristics } = item;
+            .detail-desc__content.tabs__panel
+              if content
+                .detail-desc__info
+                  each desc in content
+                    .rte!=desc
+              if characteristics
+                +characteristics(characteristics).detail-desc__characteristics
