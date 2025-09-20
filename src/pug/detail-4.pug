@@ -1,0 +1,251 @@
+extends ./common/wrapper
+include ./modules/detail
+include ./modules/detail-desc
+include ./modules/short-catalog
+include ./modules/feedback
+
+block config
+  - var title = 'Водозаборная решетка алюминий';
+
+  -
+    var detail = {
+      breadcrumbs: [
+        'Главная',
+        'Мотор и запчасти',
+        'Водозаборные решетки',
+        title,
+      ],
+      gallery: {
+        sale: '-15%',
+        list: [
+          {
+            url: 'images/detail/gallery/4.jpg',
+            picture: {
+              single: {
+                path: 'images/detail/gallery/4.jpg',
+                sizes: {
+                  _1600: [530, 705],
+                  _1280: [524, 697],
+                  _1024: [907, 1206],
+                  _768: [695, 924],
+                  _400: [743, 988],
+                  _0: [375, 499],
+                },
+              },
+            },
+          },
+        ],
+        thumbs: [
+          {
+            url: 'images/detail/gallery/4.jpg',
+            picture: {
+              single: {
+                path: 'images/detail/gallery/4.jpg',
+                sizes: {
+                  _1600: [80, 106],
+                  _1280: [95, 126],
+                  _1024: [147, 194],
+                  _768: [113, 150],
+                  _400: [145, 192],
+                  _0: [67, 89],
+                },
+              },
+            },
+          },
+        ],
+      },
+      content: {
+        title,
+        code: 'Артикул: ZJRPG41',
+        text: `<p>Водозаборная решетка (WORX) Yamaha SJ – один из элементов тюнинга Yamaha SuperJet, которая потом переставляется при замене корпуса на Rickter или корпус JetCamp. На ней не стоит экономить, она лучше снабжает водомет водой и заметно ощущается при катании. Без нее не строится ни один кастомный корпус стоячего гидроцикла.</p>`,
+        characteristics: [
+          {
+            name: 'Подходит для:',
+            list: [
+              'RidePro',
+              '2Ride',
+              '2Style',
+            ],
+          },
+          {
+            name: 'Вес:',
+            value: '1200 г',
+          },
+          {
+            name: 'Размеры:',
+            value: '135 × 48 мм',
+          },
+          {
+            name: 'Материал:',
+            value: 'алюминий',
+          },
+          {
+            name: 'Бренд:',
+            value: 'JetCamp',
+          },
+        ],
+        status: {
+          modificators: '_success',
+          icon: 'check-mark',
+          label: 'Есть в наличии',
+        },
+        prices: {
+          current: '32 300 р.',
+          old: '38 000 р.',
+        },
+      },
+    };
+
+  -
+    var shortCatalog = {
+      title: {
+        tag: 'h3',
+        label: 'С этим покупают',
+        attrs: {
+          class: 'h3',
+        },
+      },
+      cards: [
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/1.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          info: {
+            text: '<div>под заказ</div><a href="#">подробнее</a>',
+          },
+          prices: {
+            current: '18 000 р.',
+          },
+        },
+        {
+          sale: '-20%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/2.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Задний кронштейн аккумулятора',
+          prices: {
+            current: '14 400 р.',
+            old: '18 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/3.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Чин-пад видовой карбон',
+          prices: {
+            current: '38 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/4.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Чин-пад стеклоткань',
+          prices: {
+            current: '17 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/6.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Захваты для ног',
+          info: {
+            text: '<div>под заказ</div><a href="#">подробнее</a>',
+          },
+          prices: {
+            current: '39 000 р.',
+          },
+        },
+      ],
+    };
+
+  -
+    var feedback = {
+      title: {
+        tag: 'h3',
+        label: 'Свяжитесь с нами',
+      },
+      text: 'Пишите нам или нашим партнёрам — подберём модель, комплектацию, рассчитаем сроки и стоимость.',
+      telephone: {
+        url: 'tel:+79911758377',
+        label: '+7 (991) 175-83-77',
+      },
+      networks: [
+        {
+          url: '#',
+          icon: 'feed-telegram',
+          target: '_blank',
+          label: 'Telegram',
+        },
+        {
+          url: '#',
+          icon: 'feed-whatsapp',
+          target: '_blank',
+          label: 'WhatsApp',
+        },
+        {
+          url: 'mailto:ask@zaxjet.com',
+          icon: 'feed-email',
+          label: 'ask@zaxjet.com',
+        },
+      ],
+    };
+
+block content
+  +detail(detail)
+  +detail-desc(detailDesc)
+  +short-catalog(shortCatalog)._inner
+  +feedback(feedback)
