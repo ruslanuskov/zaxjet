@@ -1,0 +1,14 @@
+mixin characteristics(data)
+  if data
+    ul.characteristics&attributes(attributes)
+      each item in data
+        - var { name, value, list } = item;
+        li.characteristics__item
+          if name
+            .characteristics__name!=name
+          if value
+            .characteristics__value!=value
+          else if list
+            ul.characteristics__list
+              each subitem in list
+                li.characteristics__list-item!=subitem

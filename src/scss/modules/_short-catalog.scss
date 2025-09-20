@@ -1,11 +1,49 @@
 @use '../utils' as *;
 
 .short-catalog {
+  $root: &;
+
   background: var(--white);
   box-shadow: 0 8px 24px 0 rgba(129, 135, 189, 0.15);
   padding: {
     top: 8rem;
     bottom: 8rem;
+  }
+  &._inner {
+    @include up(lg) {
+      padding: {
+        top: 6rem;
+        bottom: 6rem;
+      }
+    }
+    @include up(xl) {
+      padding: {
+        top: 8rem;
+        bottom: 8rem;
+      }
+    }
+    #{$root}__container {
+      row-gap: 7.9rem;
+    }
+    #{$root}__title {
+      font-size: 2.8rem;
+      @include up(lg) {
+        text-align: left;
+      }
+    }
+    #{$root}__content {
+      row-gap: 8.1rem;
+      @include up(xl) {
+        row-gap: 6rem;
+      }
+    }
+    #{$root}__listing {
+      &-item {
+        &:nth-child(-n + 4) {
+          display: flex;
+        }
+      }
+    }
   }
   &__container,
   &__content {

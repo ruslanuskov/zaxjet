@@ -1,0 +1,125 @@
+@use '../utils' as *;
+
+.detail-desc {
+  $root: &;
+
+  padding: {
+    top: 3rem;
+    bottom: 3rem;
+  }
+  @include up(md) {
+    padding: {
+      top: 6rem;
+      bottom: 6rem;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+    @include up(md) {
+      row-gap: 5rem;
+    }
+  }
+  &__nav {
+    display: flex;
+    width: 100%;
+    &-item {
+      flex: 1 1 auto;
+      display: flex;
+      width: 100%;
+      &:first-child {
+        #{$root}__nav-btn {
+          border-top-left-radius: 1rem;
+          border-bottom-left-radius: 1rem;
+        }
+      }
+      &:last-child {
+        #{$root}__nav-btn {
+          border-top-right-radius: 1rem;
+          border-bottom-right-radius: 1rem;
+        }
+      }
+    }
+    &-btn {
+      display: flex;
+      flex: 1 1 auto;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.7rem 1.85rem;
+      font-size: 1.6rem;
+      color: var(--text-color);
+      background: rgba(16, 16, 18, 0.07);
+      @include transition(background-color);
+      @include up(md) {
+        font-size: 2rem;
+        padding: 1.45rem 2rem;
+      }
+      &.tabs__nav-btn--active {
+        background-color: rgba(16, 16, 18, 0.04);
+      }
+      @include hover {
+        &:not(:active, .tabs__nav-btn--active) {
+          background-color: rgba(16, 16, 18, 0.1);
+        }
+      }
+      &:active:not(.tabs__nav-btn--active) {
+        background-color: rgba(16, 16, 18, 0.07);
+      }
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5rem;
+    @include up(lg) {
+      width: 85%;
+    }
+    @include up(xl) {
+      width: 73%;
+    }
+    .rte {
+      font-size: 1.8rem;
+      @include up(lg) {
+        font-size: 2rem;
+      }
+      ul {
+        li + li {
+          margin-top: 3rem;
+          @include up(lg) {
+            margin-top: 2.5rem;
+          }
+        }
+        li {
+          &::before {
+            margin: 0 0.6rem;
+            @include up(lg) {
+              margin: 0 0.7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__characteristics {
+    margin-top: -3.6rem;
+    @include up(md) {
+      margin-top: 0;
+    }
+    @include up(lg) {
+      width: 85%;
+    }
+    @include up(xl) {
+      width: 73%;
+    }
+    .characteristics__item {
+      &:first-child {
+        border-top: none;
+        @include up(md) {
+          border-top: 0.1rem solid #e7e7e7;
+        }
+      }
+    }
+  }
+}
