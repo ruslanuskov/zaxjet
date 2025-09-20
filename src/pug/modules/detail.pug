@@ -8,10 +8,12 @@ mixin detail(data)
         if gallery || content
           .detail__info
             if gallery
-              - var { list, thumbs } = gallery;
+              - var { sale, list, thumbs } = gallery;
               .detail__gallery
                 if list
                   .detail__gallery-content
+                    if sale
+                      .detail__sale!=sale
                     .detail__gallery-list
                       .swiper.js-detail-gallery
                         .swiper-wrapper
@@ -21,7 +23,7 @@ mixin detail(data)
                               #{url ? 'a' : 'div'}.detail__gallery-picture(href=url data-fancybox="gallery")
                                 +picture(picture)._cover
                         +swiper-btn
-                if thumbs
+                if thumbs && thumbs.length > 1
                   .detail__gallery-thumbs
                     .swiper.js-detail-thumbs
                       .swiper-wrapper
@@ -31,12 +33,16 @@ mixin detail(data)
                             .detail__gallery-preview
                               +picture(picture)._cover
             if content
-              - var { title, code, settings, status, prices, error, counter } = content;
+              - var { title, code, text, characteristics, settings, status, prices, error, counter } = content;
               form.detail__content(action="#")
                 if title
                   h1.h3.detail__title!=title
                 if code
                   .detail__code!=code
+                if text
+                  .detail__text.rte!=text
+                if characteristics
+                  +characteristics(characteristics).detail__characteristics
                 if settings
                   .detail__settings
                     each section in settings

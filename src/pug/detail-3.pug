@@ -1,0 +1,637 @@
+extends ./common/wrapper
+include ./modules/detail
+include ./modules/detail-desc
+include ./modules/short-catalog
+include ./modules/feedback
+
+block config
+  - var title = 'Корпус для гидроцикла RidePro 4.1';
+
+  -
+    var detail = {
+      breadcrumbs: [
+        'Главная',
+        'Каталог моделей',
+        title,
+      ],
+      gallery: {
+        list: [
+          {
+            url: 'images/detail/gallery/1.jpg',
+            picture: {
+              single: {
+                path: 'images/detail/gallery/1.jpg',
+                sizes: {
+                  _1600: [530, 705],
+                  _1280: [524, 697],
+                  _1024: [907, 1206],
+                  _768: [695, 924],
+                  _400: [743, 988],
+                  _0: [375, 499],
+                },
+              },
+            },
+          },
+          {
+            url: 'images/detail/gallery/2.jpg',
+            picture: {
+              single: {
+                path: 'images/detail/gallery/2.jpg',
+                sizes: {
+                  _1600: [530, 705],
+                  _1280: [524, 697],
+                  _1024: [907, 1206],
+                  _768: [695, 924],
+                  _400: [743, 988],
+                  _0: [375, 499],
+                },
+              },
+            },
+          },
+          {
+            url: 'images/detail/gallery/3.jpg',
+            picture: {
+              single: {
+                path: 'images/detail/gallery/3.jpg',
+                sizes: {
+                  _1600: [530, 705],
+                  _1280: [524, 697],
+                  _1024: [907, 1206],
+                  _768: [695, 924],
+                  _400: [743, 988],
+                  _0: [375, 499],
+                },
+              },
+            },
+          },
+        ],
+        thumbs: [
+          {
+            url: 'images/detail/gallery/1.jpg',
+            picture: {
+              single: {
+                path: 'images/detail/gallery/1.jpg',
+                sizes: {
+                  _1600: [80, 106],
+                  _1280: [95, 126],
+                  _1024: [147, 194],
+                  _768: [113, 150],
+                  _400: [145, 192],
+                  _0: [67, 89],
+                },
+              },
+            },
+          },
+          {
+            url: 'images/detail/gallery/2.jpg',
+            picture: {
+              single: {
+                path: 'images/detail/gallery/2.jpg',
+                sizes: {
+                  _1600: [80, 106],
+                  _1280: [95, 126],
+                  _1024: [147, 194],
+                  _768: [113, 150],
+                  _400: [145, 192],
+                  _0: [67, 89],
+                },
+              },
+            },
+          },
+          {
+            url: 'images/detail/gallery/3.jpg',
+            picture: {
+              single: {
+                path: 'images/detail/gallery/3.jpg',
+                sizes: {
+                  _1600: [80, 106],
+                  _1280: [95, 126],
+                  _1024: [147, 194],
+                  _768: [113, 150],
+                  _400: [145, 192],
+                  _0: [67, 89],
+                },
+              },
+            },
+          },
+        ],
+      },
+      content: {
+        title,
+        code: 'Артикул: ZJRPG41',
+        settings: [
+          {
+            modificators: '_materials',
+            title: 'Материал корпуса:',
+            cards: [
+              {
+                subtitle: 'Стеклоткань',
+                type: 'materials',
+                list: [
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/1.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Любой цвет',
+                      price: '930 000',
+                    },
+                    attrs: {
+                      name: 'materials',
+                    },
+                  },
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/2.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Крупный твилл',
+                      price: '990 000',
+                    },
+                    attrs: {
+                      name: 'materials',
+                    },
+                  },
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/3.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Шашечка Луи',
+                      price: '990 000',
+                    },
+                    attrs: {
+                      name: 'materials',
+                    },
+                  },
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/4.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Конструктив',
+                      price: '930 000',
+                    },
+                    attrs: {
+                      name: 'materials',
+                    },
+                  },
+                ],
+              },
+              {
+                subtitle: 'Карбон',
+                type: 'materials',
+                list: [
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/1.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Любой цвет',
+                      price: '1 090 000',
+                    },
+                    attrs: {
+                      name: 'materials',
+                    },
+                  },
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/2.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Крупный твилл',
+                      price: '1 150 000',
+                    },
+                    attrs: {
+                      name: 'materials',
+                    },
+                  },
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/3.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Шашечка Луи',
+                      price: '1 150 000',
+                    },
+                    attrs: {
+                      name: 'materials',
+                    },
+                  },
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/materials/4.jpg',
+                        width: 130,
+                        height: 60,
+                      },
+                      label: 'Конструктив',
+                      price: '1 150 000',
+                    },
+                    attrs: {
+                      name: 'materials',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            modificators: '_graphics',
+            title: 'Кит графики:',
+            cards: [
+              {
+                type: 'default',
+                list: [
+                  {
+                    options: {
+                      modificators: '_full',
+                      label: 'Стандартный на выбор',
+                    },
+                    attrs: {
+                      name: 'graphics',
+                    },
+                  },
+                  {
+                    options: {
+                      label: 'Хром',
+                      price: '+25 000',
+                    },
+                    attrs: {
+                      name: 'graphics',
+                    },
+                  },
+                  {
+                    options: {
+                      label: 'Неон',
+                      price: '+15 000',
+                    },
+                    attrs: {
+                      name: 'graphics',
+                    },
+                  },
+                ],
+              },
+            ],
+            checkbox: {
+              options: {
+                label: 'Разработка индивидуальных цветов графики&nbsp;&nbsp;&nbsp;<strong>+10 000</strong>'
+              },
+              attrs: {
+                name: 'individual',
+              },
+            },
+          },
+          {
+            modificators: '_colors',
+            title: 'Цвет матов:',
+            cards: [
+              {
+                type: 'colors',
+                list: [
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/1.jpg',
+                        width: 84,
+                        height: 49,
+                      },
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/2.jpg',
+                        width: 84,
+                        height: 49,
+                      },
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/3.jpg',
+                        width: 84,
+                        height: 49,
+                      },
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/4.jpg',
+                        width: 84,
+                        height: 49,
+                      },
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/5.jpg',
+                        width: 84,
+                        height: 49,
+                      },
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                  {
+                    options: {
+                      img: {
+                        path: 'images/detail/colors/6.jpg',
+                        width: 84,
+                        height: 49,
+                      },
+                    },
+                    attrs: {
+                      name: 'colors',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            modificators: '_captures',
+            title: 'Захваты для ног:',
+            cards: [
+              {
+                type: 'default',
+                list: [
+                  {
+                    options: {
+                      label: 'RRP',
+                    },
+                    attrs: {
+                      name: 'captures',
+                    },
+                  },
+                  {
+                    options: {
+                      label: 'WAMILTON',
+                    },
+                    attrs: {
+                      name: 'captures',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        status: {
+          modificators: '_to-order',
+          icon: 'info',
+          label: 'Под заказ',
+        },
+        prices: {
+          current: 'от 930 000 р.',
+        },
+        counter: {
+          count: 1,
+        },
+      },
+    };
+
+  -
+    var detailDesc = {
+      name: 'desc',
+      info: [
+        {
+          label: 'Описание',
+          content: [
+            `<p>Гидроцикл нового поколения, который сочетает в себе уникальный дизайн и инновационные технологические решения. Благодаря легкому корпусу и регулируемым вставкам для ног, этот гидроцикл обеспечивает простоту управления и быстрое прогрессирование, а также превосходную устойчивость и плавучесть.</p>`,
+            `<h4>Главное:</h4><ul><li>Абсолютно новый дизайн — ни на что не похож, сразу узнаваем</li><li>Просто начинать и просто прогрессировать</li><li>Дышащий капот — вентиляционные вырезы для подачи воздуха в мотор</li><li>Силиконовая подкапотная резинка — плотное и надёжное прилегание</li><li>Фиксация капота на выбор — замок или трещотка</li><li>Регулируемые по высоте вставки для ног — по типу фристайл-корпусов</li></ul>`,
+            `<h4>Технические особенности:</h4><ul><li>Резкий изгиб носа — легко закручивать вращения назад даже с пологой волны</li><li>2° изгиб по всей длине склейки — корпус всплывает, как серф-доска</li><li>Устойчивее, чем 2Ride</li><li>Лёгкий корпус — простота управления и полное ощущение связи с мотором</li><li>Брызгоотбойник — защищает лицо от воды</li><li>Увеличенное водозаборное отверстие</li><li>Совместимость с водомётами до 160 мм</li></ul>`,
+          ],
+        },
+        {
+          label: 'Характеристики',
+          characteristics: [
+            {
+              name: 'Весовая категория райдера:',
+              value: 'любая',
+            },
+            {
+              name: 'Вес корпуса:',
+              list: [
+                'Стеклоткань  44 кг',
+                'Карбон  33 кг',
+              ],
+            },
+            {
+              name: 'Размеры:',
+              value: '2135 × 748 мм',
+            },
+            {
+              name: 'Уровень райдера:',
+              list: [
+                'Уверенный',
+                'Начинающий с амбициями',
+              ],
+            },
+            {
+              name: 'Назначение:',
+              list: [
+                'Фрирайд',
+                'Эндуро',
+                'Фанрайдинг',
+              ],
+            },
+          ],
+        },
+      ],
+    };
+
+  -
+    var shortCatalog = {
+      title: {
+        tag: 'h3',
+        label: 'Комплектующие для RidePro',
+        attrs: {
+          class: 'h3',
+        },
+      },
+      cards: [
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/1.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          info: {
+            text: '<div>под заказ</div><a href="#">подробнее</a>',
+          },
+          prices: {
+            current: '18 000 р.',
+          },
+        },
+        {
+          sale: '-20%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/2.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Задний кронштейн аккумулятора',
+          prices: {
+            current: '14 400 р.',
+            old: '18 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/3.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Чин-пад видовой карбон',
+          prices: {
+            current: '38 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/4.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Чин-пад стеклоткань',
+          prices: {
+            current: '17 000 р.',
+          },
+        },
+        {
+          sale: '-15%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/5.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [192, 192],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          prices: {
+            current: '32 300 р.',
+            old: '38 000 р.',
+          },
+        },
+      ],
+      btn: {
+        options: {
+          tag: 'a',
+          label: 'Посмотреть все',
+          icons: {
+            right: 'chevron-right',
+          },
+        },
+        attrs: {
+          href: '#',
+        },
+      },
+    };
+
+  -
+    var feedback = {
+      title: {
+        tag: 'h3',
+        label: 'Свяжитесь с нами',
+      },
+      text: 'Пишите нам или нашим партнёрам — подберём модель, комплектацию, рассчитаем сроки и стоимость.',
+      telephone: {
+        url: 'tel:+79911758377',
+        label: '+7 (991) 175-83-77',
+      },
+      networks: [
+        {
+          url: '#',
+          icon: 'feed-telegram',
+          target: '_blank',
+          label: 'Telegram',
+        },
+        {
+          url: '#',
+          icon: 'feed-whatsapp',
+          target: '_blank',
+          label: 'WhatsApp',
+        },
+        {
+          url: 'mailto:ask@zaxjet.com',
+          icon: 'feed-email',
+          label: 'ask@zaxjet.com',
+        },
+      ],
+    };
+
+block content
+  +detail(detail)
+  +detail-desc(detailDesc)
+  +short-catalog(shortCatalog)._inner
+  +feedback(feedback)

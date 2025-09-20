@@ -173,6 +173,26 @@
       }
     }
   }
+  &__sale {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--orange);
+    position: absolute;
+    top: 0;
+    display: block;
+    left: 0;
+    z-index: 11;
+    @include up(md) {
+      top: 0.9rem;
+      left: 7.8rem;
+    }
+    @include up(lg) {
+      left: 3.2rem;
+    }
+    @include up(xl) {
+      left: 7.8rem;
+    }
+  }
   &__content {
     flex: 1 1 auto;
     row-gap: 1.95rem;
@@ -189,6 +209,26 @@
   &__code {
     font-size: 1.6rem;
     opacity: 0.4;
+  }
+  &__text {
+    font-size: 2rem;
+  }
+  &__characteristics {
+    .characteristics__item {
+      padding: 0.69rem 0;
+      font-size: 2rem;
+    }
+    .characteristics__name {
+      margin-right: 1.1rem;
+    }
+    .characteristics__list {
+      gap: 1rem;
+    }
+    .characteristics__list-item {
+      &::before {
+        margin: 0 1.3rem 0 1.4rem;
+      }
+    }
   }
   &__settings {
     row-gap: 3.95rem;
