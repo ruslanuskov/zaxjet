@@ -123,7 +123,6 @@ textarea {
     right: auto;
   }
   width: 100%;
-  max-width: 146rem;
   min-width: 32rem;
   flex: none;
   @each $bp, $size in $indents {
@@ -140,5 +139,8 @@ textarea {
         right: $size;
       }
     }
+  }
+  @include up(xl) {
+    max-width: 146rem;
   }
 }

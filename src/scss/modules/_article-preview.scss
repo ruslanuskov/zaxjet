@@ -1,0 +1,101 @@
+@use 'sass:map';
+@use '../utils' as *;
+
+.article-preview {
+  padding: {
+    top: 8.1rem;
+    bottom: 4rem;
+  }
+  @include up(md) {
+    padding: {
+      top: 8rem;
+      bottom: 6rem;
+    }
+  }
+  &__container,
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__container {
+    row-gap: 3rem;
+  }
+  &__header {
+    row-gap: 4rem;
+    width: 100%;
+  }
+  &__title,
+  &__subtitle {
+    text-align: center;
+  }
+  &__title {
+    font-size: 3.4rem;
+    @include up(md) {
+      font-size: 4.5rem;
+    }
+    @include up(lg) {
+      font-size: 4.6rem;
+    }
+  }
+  &__subtitle {
+    @include up(md) {
+      width: 85%;
+    }
+    @include up(lg) {
+      width: 52%;
+    }
+    @include up(xl) {
+      width: 45%;
+    }
+  }
+  &__picture {
+    overflow: hidden;
+    @include aspect(320, 414);
+    @each $bp, $size in $indents {
+      @if map.get($media, $bp) and $bp != 'sm' {
+        @include up($bp) {
+          width: calc(100% + map.get($indents, $bp) * 2);
+          margin: {
+            left: -#{map.get($indents, $bp)};
+            right: -#{map.get($indents, $bp)};
+          }
+        }
+      } @else {
+        width: calc(100% + map.get($indents, $bp) * 2);
+        margin: {
+          left: -#{map.get($indents, $bp)};
+          right: -#{map.get($indents, $bp)};
+        }
+      }
+    }
+    @include up(md) {
+      @include aspect(768, 414);
+    }
+    @include up(lg) {
+      @include aspect(1280, 688);
+    }
+    @include up(xl) {
+      width: 100%;
+      margin: 0;
+      border-radius: 1rem;
+      @include aspect(1296, 688);
+    }
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__text {
+    text-align: center;
+    @include up(md) {
+      width: 96%;
+    }
+    @include up(lg) {
+      width: 66%;
+    }
+    @include up(xl) {
+      width: 56%;
+    }
+  }
+}
