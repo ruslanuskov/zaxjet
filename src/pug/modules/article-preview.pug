@@ -1,0 +1,17 @@
+mixin article-preview(data)
+  if data
+    - var { title, subtitle, picture, text } = data;
+    section.article-preview&attributes(attributes)
+      .container.article-preview__container
+        if title || subtitle
+          .article-preview__header
+            if title
+              - var { tag, label } = title;
+              #{tag || 'h1'}.h2.article-preview__title!=label
+            if subtitle
+              h6.h4.article-preview__subtitle!=subtitle
+        if picture
+          .article-preview__picture
+            +picture(picture)._cover
+        if text
+          p.article-preview__text!=text

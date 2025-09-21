@@ -1,0 +1,29 @@
+extends ./common/wrapper
+include ./modules/article-preview
+
+block config
+  -
+    var articlePreview = {
+      title: {
+        tag: 'h1',
+        label: 'Как собрать свой аквабайк?',
+      },
+      subtitle: 'Стоячий гидроцикл: путь, который выбирают не все, но остаются надолго.',
+      picture: {
+        single: {
+          path: 'images/article-preview/1.jpg',
+          sizes: {
+            _1600: [1296, 688],
+            _1280: [1599, 859],
+            _1024: [1279, 689],
+            _768: [1023, 551],
+            _400: [767, 992],
+            _0: [399, 516],
+          },
+        },
+      },
+      text: 'Большинство знакомится с гидроциклами через прокат: сидя, летом, на отдыхе. Но настоящий интерес к катанию появляется, когда человек впервые пробует кататься стоя.',
+    };
+
+block content
+  +article-preview(articlePreview)
