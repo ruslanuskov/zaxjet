@@ -23,7 +23,7 @@ mixin detail(data)
                               #{url ? 'a' : 'div'}.detail__gallery-picture(href=url data-fancybox="gallery")
                                 +picture(picture)._cover
                         +swiper-btn
-                if thumbs && thumbs.length > 1
+                if thumbs
                   .detail__gallery-thumbs
                     .swiper.js-detail-thumbs
                       .swiper-wrapper
