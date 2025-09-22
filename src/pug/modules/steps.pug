@@ -1,0 +1,37 @@
+mixin steps(data)
+  if data
+    - var { title, content, subtext } = data;
+    section.steps&attributes(attributes)
+      .container.steps__container
+        if title
+          - var { tag, label } = title;
+          #{tag || 'h3'}.h2.steps__title!=label
+        if content
+          .steps__content
+            each section, index in content
+              - var { modificator, subtitle, text, btn, picture, listing, stages } = section;
+              .steps__section(class=index % 2 == 0 ? '_reverse' : '')
+                if subtitle
+                  h5.h3.steps__section-subtitle!=subtitle
+                if text || btn || picture || listing || stages
+                  .steps__section-content(class=modificator)
+                    if picture
+                      .steps__picture
+                        +picture(picture)._cover
+                    if text || listing || stages
+                      .steps__info
+                        if text
+                          .rte.steps__text!=text
+                        if listing
+                          +listing(listing).steps__listing
+                        if stages
+                          ul.steps__stages
+                            each item, idx in stages
+                              li.steps__stages-item
+                                .steps__stages-number!=`${idx + 1}`
+                                .steps__stages-value!=item
+                    if btn
+                      - var { options, attrs } = btn;
+                      +btn(options)&attributes(attrs).steps__btn
+        if subtext
+          p.steps__subtext!=subtext

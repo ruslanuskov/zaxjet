@@ -1,6 +1,8 @@
 extends ./common/wrapper
 include ./modules/article-preview
 include ./modules/article-content
+include ./modules/steps
+include ./modules/feedback
 
 block config
   -
@@ -181,6 +183,121 @@ block config
       },
     ];
 
+  -
+    var steps = {
+      title: {
+        tag: 'h3',
+        label: 'Этапы и стоимость',
+      },
+      content: [
+        {
+          modificator: '_with-text',
+          subtitle: 'Мы поможем',
+          text: `<p>Если вы хотите собрать собственный кастомный ZaxJet — напишите нам или нашим партнёрам. Мы поможем с выбором модели, комплектации, просчётом стоимости и сроков сборки.</p><p>Сборку можно начать с донора — Yamaha SuperJet 2Т (1999–2019). Это дешевле, но таких гидроциклов с каждым годом всё меньше. В будущем всё будет собираться с нуля.</p>`,
+          btn: {
+            options: {
+              tag: 'a',
+              label: 'Связаться',
+              icons: {
+                left: 'pen',
+              },
+            },
+            attrs: {
+              class: '_outline-primary',
+              href: '#',
+            },
+          },
+        },
+        {
+          subtitle: 'Стоимость сборки',
+          picture: {
+            single: {
+              path: 'images/steps/1.jpg',
+              sizes: {
+                _1600: [629, 359],
+                _1280: [808, 548],
+                _1024: [1207, 820],
+                _768: [951, 646],
+                _400: [743, 505],
+                _0: [375, 255],
+              },
+            },
+          },
+          listing: {
+            title: {
+              tag: 'h4',
+              label: 'Примерная стоимость сборки для новичка — от 2,5 млн ₽ ',
+            },
+            text: '<p>В неё входит:</p>',
+            list: [
+              'Донорский гидроцикл',
+              'Переборка мотора',
+              'Тюнинг',
+              'Новый корпус ZaxJet',
+              'Финальная сборка (так называемый Rebuild)',
+            ],
+          },
+        },
+        {
+          subtitle: 'Этапы',
+          picture: {
+            single: {
+              path: 'images/steps/2.jpg',
+              sizes: {
+                _1600: [730, 651],
+                _1280: [707, 639],
+                _1024: [1207, 1131],
+                _768: [951, 891],
+                _400: [743, 924],
+                _0: [375, 466],
+              },
+            },
+          },
+          stages: [
+            'Выбор и заказ корпуса <br>(30–90 дней, иногда есть в наличии)',
+            'Подбор донора — <br>Yamaha SuperJet до 2019 года, 2Т',
+            'Просчёт тюнинга, <br>переборка и сборка мотора',
+            'Полная сборка <br>гидроцикла под ключ',
+          ],
+        },
+      ],
+      subtext: 'Можно и полностью с нуля — дороже, но больше новых деталей',
+    };
+
+  -
+    var feedback = {
+      title: {
+        tag: 'h3',
+        label: 'Остались вопросы?',
+      },
+      text: 'Пишите нам или нашим партнёрам — подберём модель, комплектацию, рассчитаем сроки и стоимость.',
+      telephone: {
+        url: 'tel:+79911758377',
+        label: '+7 (991) 175-83-77',
+      },
+      networks: [
+        {
+          url: '#',
+          icon: 'feed-telegram',
+          target: '_blank',
+          label: 'Telegram',
+        },
+        {
+          url: '#',
+          icon: 'feed-whatsapp',
+          target: '_blank',
+          label: 'WhatsApp',
+        },
+        {
+          url: 'mailto:ask@zaxjet.com',
+          icon: 'feed-email',
+          label: 'ask@zaxjet.com',
+        },
+      ],
+    };
+
 block content
   +article-preview(articlePreview)
   +article-content(articleContent)
+  +steps(steps)
+  +feedback(feedback)

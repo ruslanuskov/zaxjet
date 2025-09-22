@@ -1,0 +1,223 @@
+@use '../utils' as *;
+
+.steps {
+  $root: &;
+
+  padding: {
+    top: 6rem;
+    bottom: 4rem;
+  }
+  @include up(md) {
+    padding-bottom: 6rem;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6rem;
+    @include up(md) {
+      row-gap: 6.05rem;
+    }
+  }
+  &__title {
+    text-align: center;
+    font-size: 4.6rem;
+    line-height: 1;
+  }
+  &__content,
+  &__section {
+    display: flex;
+    flex-direction: column;
+  }
+  &__content {
+    row-gap: 6rem;
+  }
+  &__section {
+    row-gap: 4rem;
+    &._reverse {
+      #{$root}__picture,
+      #{$root}__btn {
+        order: 2;
+      }
+      #{$root}__picture {
+        @include aspect(296, 368);
+        @include up(md) {
+          @include aspect(696, 652);
+        }
+        @include up(lg) {
+          width: 49.3%;
+          @include aspect(550, 652);
+        }
+        @include up(xl) {
+          width: 56.3%;
+          @include aspect(731, 652);
+        }
+        * + & {
+          margin-top: 1rem;
+          @include up(md) {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+    &-subtitle {
+      font-size: 2.8rem;
+    }
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      @include up(lg) {
+        flex-direction: row;
+      }
+    }
+    &-subtitle + &-content._with-text {
+      margin-top: -1rem;
+    }
+  }
+  &__picture {
+    flex: none;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+    position: relative;
+    @include aspect(296, 201);
+    @include up(lg) {
+      width: 56.3%;
+      @include aspect(628, 426);
+    }
+    @include up(xl) {
+      width: 48.5%;
+      @include aspect(628, 358);
+    }
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  &__info {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__listing {
+    &:not(._rocket) {
+      row-gap: 3.2rem;
+      @include up(md) {
+        row-gap: 3rem;
+      }
+      @include up(xl) {
+        row-gap: 2.2rem;
+      }
+      .listing__title {
+        padding: 0;
+      }
+      .listing__list {
+        display: block;
+        margin-bottom: -2.6rem;
+        @include up(md) {
+          margin-bottom: -2.5rem;
+          column-gap: 4.4rem;
+          column-count: 2;
+        }
+        @include up(lg) {
+          margin-bottom: -2.4rem;
+          column-gap: 0;
+          column-count: 1;
+        }
+      }
+      .listing__item {
+        padding-bottom: 2.6rem;
+        @include up(md) {
+          break-inside: avoid;
+          padding-bottom: 2.5rem;
+        }
+        @include up(lg) {
+          padding-bottom: 2.4rem;
+        }
+        &::before {
+          transform: translateY(-1.2rem);
+        }
+      }
+    }
+    .listing__title {
+      font-size: 2rem;
+      line-height: 1.5;
+    }
+  }
+  &__stages {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+    flex: 1 1 auto;
+    &-item {
+      display: flex;
+      flex: 1 1 auto;
+      align-items: center;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px 0 rgba(129, 135, 189, 0.15);
+      background: var(--white);
+      padding: 3rem;
+      gap: 0 2rem;
+      @include up(md) {
+        padding: 4rem 3.2rem 4rem 4rem;
+        gap: 0 3rem;
+      }
+    }
+    &-number {
+      line-height: 1;
+      font-size: 6rem;
+      font-weight: 600;
+      flex: none;
+      min-width: 4.1rem;
+      text-align: center;
+    }
+    &-value {
+      flex: 1 1 auto;
+      @include up(md) {
+        max-width: 65%;
+      }
+      @include up(lg) {
+        max-width: none;
+      }
+      br {
+        display: none;
+        @include up(md) {
+          display: block;
+        }
+      }
+    }
+  }
+  &__btn {
+    margin: {
+      left: auto;
+      right: auto;
+    }
+    @include up(lg) {
+      margin: auto 0;
+      flex: none;
+    }
+    * + & {
+      margin-top: 1.7rem;
+      @include up(lg) {
+        margin-left: 2.5rem;
+      }
+      @include up(xl) {
+        margin: {
+          left: 9rem;
+          right: 9.3%;
+        }
+      }
+    }
+  }
+  &__subtext {
+    text-align: center;
+    * + & {
+      margin-top: -2rem;
+      @include up(md) {
+        margin-top: 0;
+      }
+    }
+  }
+}
