@@ -1,0 +1,10 @@
+@mixin clear-aspect {
+  aspect-ratio: unset;
+
+  @supports not (aspect-ratio: unset) {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
