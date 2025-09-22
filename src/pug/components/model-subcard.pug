@@ -1,0 +1,13 @@
+mixin model-subcard(data)
+  if data
+    - var { title, text, picture } = data;
+    .model-subcard&attributes(attributes)
+      if title || text
+        .model-subcard__header
+          if title
+            h5.model-subcard__title!=title
+          if text
+            p.model-subcard__text!=text
+      if picture
+        .model-subcard__picture
+          +picture(picture)._contain

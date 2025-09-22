@@ -1,0 +1,18 @@
+mixin small-billboard(data)
+  if data
+    - var { title, text, picture, bg } = data;
+    .small-billboard&attributes(attributes)
+      if bg
+        .small-billboard__bg
+          +picture(bg)._cover
+      if title || text || picture
+        .small-billboard__content
+          if title || text
+            .small-billboard__info
+              if title
+                h6.small-billboard__title!=title
+              if text
+                p.small-billboard__text!=text
+          if picture
+            .small-billboard__picture
+              +picture(picture)._contain
