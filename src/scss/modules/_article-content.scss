@@ -1,0 +1,151 @@
+@use '../utils' as *;
+
+.article-content {
+  $root: &;
+
+  padding: {
+    top: 4rem;
+    bottom: 6rem;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5.97rem;
+  }
+  &__section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+    &-content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 3rem;
+    }
+    &._with-billboard {
+      #{$root}__info {
+        max-width: none !important;
+        width: 100%;
+        @include up(md) {
+          flex-direction: row;
+          gap: 5.9rem 2.3rem;
+        }
+      }
+      #{$root}__text {
+        .rte {
+          @include up(md) {
+            font-size: 1.8rem;
+          }
+          @include up(lg) {
+            font-size: 2rem;
+          }
+          p {
+            @include up(md) {
+              margin-bottom: 3rem;
+            }
+            @include up(lg) {
+              margin-bottom: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5.9rem 0;
+    @include up(lg) {
+      max-width: 77%;
+    }
+    @include up(xl) {
+      max-width: 66%;
+    }
+  }
+  &__text {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .rte {
+      h3 {
+        font-size: 2.8rem;
+      }
+    }
+  }
+  &__list {
+    margin-bottom: -3.05rem;
+    @include up(md) {
+      column-count: 2;
+      column-gap: 2.4rem;
+    }
+    &-item {
+      position: relative;
+      padding-left: 4.8rem;
+      font-size: 1.8rem;
+      padding-bottom: 3.05rem;
+      break-inside: avoid;
+      display: block;
+      @include up(md) {
+        font-size: 2rem;
+      }
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2.8rem;
+        height: 2.8rem;
+        background: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjggMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xNC4wMDA4IDE4LjYxMTdDMTIuNzQzMyAxOC42MTE3IDExLjUzNzQgMTguMTI1OCAxMC42NDgzIDE3LjI2MUM5Ljc1OTEyIDE2LjM5NjEgOS4yNTk2MSAxNS4yMjMxIDkuMjU5NjEgMTRDOS4yNTk2MSAxMi43NzY4IDkuNzU5MTIgMTEuNjAzOCAxMC42NDgzIDEwLjczODlDMTEuNTM3NCA5Ljg3NDA3IDEyLjc0MzMgOS4zODgxOSAxNC4wMDA4IDkuMzg4MTlDMTUuMjU4MiA5LjM4ODE5IDE2LjQ2NDEgOS44NzQwNyAxNy4zNTMyIDEwLjczODlDMTguMjQyNCAxMS42MDM4IDE4Ljc0MTkgMTIuNzc2OCAxOC43NDE5IDE0QzE4Ljc0MTkgMTUuMjIzMSAxOC4yNDI0IDE2LjM5NjEgMTcuMzUzMiAxNy4yNjFDMTYuNDY0MSAxOC4xMjU4IDE1LjI1ODIgMTguNjExNyAxNC4wMDA4IDE4LjYxMTdaTTI0LjA2NTUgMTUuMjc4MUMyNC4xMTk3IDE0Ljg1NjQgMjQuMTYwMyAxNC40MzQ4IDI0LjE2MDMgMTRDMjQuMTYwMyAxMy41NjUxIDI0LjExOTcgMTMuMTMwMyAyNC4wNjU1IDEyLjY4MjNMMjYuOTIzNyAxMC41MzQ1QzI3LjE4MTEgMTAuMzM2OSAyNy4yNDg4IDkuOTgxMTMgMjcuMDg2MyA5LjY5MTI1TDI0LjM3NzEgNS4xMzIxOUMyNC4yMTQ1IDQuODQyMzEgMjMuODQ4OCA0LjcyMzcyIDIzLjU1MDggNC44NDIzMUwyMC4xNzc4IDYuMTU5OTZDMTkuNDczNCA1LjY0NjA4IDE4Ljc0MTkgNS4xOTgwOCAxNy44ODg1IDQuODY4NjZMMTcuMzg3MyAxLjM3NjlDMTcuMzU5OCAxLjIyMTcgMTcuMjc2NyAxLjA4MDk5IDE3LjE1MjcgMC45Nzk2OThDMTcuMDI4NyAwLjg3ODQwMyAxNi44NzE5IDAuODIzMDY1IDE2LjcxIDAuODIzNDg5SDExLjI5MTVDMTAuOTUyOSAwLjgyMzQ4OSAxMC42Njg0IDEuMDYwNjcgMTAuNjE0MiAxLjM3NjlMMTAuMTEzIDQuODY4NjZDOS4yNTk2MSA1LjE5ODA4IDguNTI4MTIgNS42NDYwOCA3LjgyMzcyIDYuMTU5OTZMNC40NTA3NCA0Ljg0MjMxQzQuMTUyNzMgNC43MjM3MiAzLjc4Njk4IDQuODQyMzEgMy42MjQ0MyA1LjEzMjE5TDAuOTE1MjA2IDkuNjkxMjVDMC43MzkxMDcgOS45ODExMyAwLjgyMDM4NCAxMC4zMzY5IDEuMDc3NzYgMTAuNTM0NUwzLjkzNTk5IDEyLjY4MjNDMy44ODE4MSAxMy4xMzAzIDMuODQxMTcgMTMuNTY1MSAzLjg0MTE3IDE0QzMuODQxMTcgMTQuNDM0OCAzLjg4MTgxIDE0Ljg1NjQgMy45MzU5OSAxNS4yNzgxTDEuMDc3NzYgMTcuNDY1NEMwLjgyMDM4NCAxNy42NjMgMC43MzkxMDcgMTguMDE4OCAwLjkxNTIwNiAxOC4zMDg3TDMuNjI0NDMgMjIuODY3N0MzLjc4Njk4IDIzLjE1NzYgNC4xNTI3MyAyMy4yNjMgNC40NTA3NCAyMy4xNTc2TDcuODIzNzIgMjEuODI2OEM4LjUyODEyIDIyLjM1MzggOS4yNTk2MSAyMi44MDE4IDEwLjExMyAyMy4xMzEzTDEwLjYxNDIgMjYuNjIzQzEwLjY2ODQgMjYuOTM5MiAxMC45NTI5IDI3LjE3NjQgMTEuMjkxNSAyNy4xNzY0SDE2LjcxQzE3LjA0ODYgMjcuMTc2NCAxNy4zMzMxIDI2LjkzOTIgMTcuMzg3MyAyNi42MjNMMTcuODg4NSAyMy4xMzEzQzE4Ljc0MTkgMjIuNzg4NyAxOS40NzM0IDIyLjM1MzggMjAuMTc3OCAyMS44MjY4TDIzLjU1MDggMjMuMTU3NkMyMy44NDg4IDIzLjI2MyAyNC4yMTQ1IDIzLjE1NzYgMjQuMzc3MSAyMi44Njc3TDI3LjA4NjMgMTguMzA4N0MyNy4yNDg4IDE4LjAxODggMjcuMTgxMSAxNy42NjMgMjYuOTIzNyAxNy40NjU0TDI0LjA2NTUgMTUuMjc4MVoiIGZpbGw9IiMyMTI1MjkiLz4KPC9zdmc+Cg==')
+          left top / 100% 100% no-repeat;
+      }
+    }
+  }
+  &__billboard {
+    * + & {
+      @include up(md) {
+        width: 48.4%;
+        top: -0.1rem;
+      }
+      @include up(lg) {
+        width: 48.8%;
+      }
+      @include up(xl) {
+        width: 49%;
+      }
+    }
+  }
+  &__btn {
+    width: 100%;
+    &:not(._text, ._text-button) {
+      padding: {
+        left: 2rem;
+        right: 2rem;
+      }
+      @include up(md) {
+        padding: {
+          left: 3.1rem;
+          right: 3.1rem;
+        }
+        width: fit-content;
+      }
+    }
+    * + & {
+      margin-top: 3rem;
+    }
+  }
+  &__models {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 6rem;
+    @include up(lg) {
+      margin: 0 -2rem;
+    }
+    &-item {
+      @include up(lg) {
+        padding: 0 2rem;
+        width: 50%;
+      }
+    }
+  }
+}
