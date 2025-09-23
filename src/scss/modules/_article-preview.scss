@@ -2,6 +2,8 @@
 @use '../utils' as *;
 
 .article-preview {
+  $root: &;
+
   padding: {
     top: 8.1rem;
     bottom: 4rem;
@@ -10,6 +12,30 @@
     padding: {
       top: 8rem;
       bottom: 6rem;
+    }
+  }
+  &._inner {
+    #{$root}__container {
+      row-gap: 4rem;
+    }
+    #{$root}__title {
+      line-height: 1;
+      font-size: 4.6rem;
+      @include up(md) {
+        font-size: 4.6rem;
+      }
+    }
+    #{$root}__picture {
+      @include aspect(320, 506);
+      @include up(md) {
+        @include aspect(768, 688);
+      }
+      @include up(lg) {
+        @include aspect(1280, 688);
+      }
+      @include up(xl) {
+        @include aspect(1296, 688);
+      }
     }
   }
   &__container,
@@ -47,6 +73,11 @@
     }
     @include up(xl) {
       width: 45%;
+    }
+  }
+  &__logo-text {
+    * + & {
+      margin-top: 2rem;
     }
   }
   &__picture {

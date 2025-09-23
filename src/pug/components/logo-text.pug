@@ -1,0 +1,8 @@
+mixin logo-text(data)
+  if data
+    - var { modificators, logo, text } = data;
+    .logo-text(class=modificators)&attributes(attributes)
+      if logo
+        +logo(logo).logo-text__img
+      if text
+        p.logo-text__desc!=text

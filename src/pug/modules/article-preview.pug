@@ -1,6 +1,6 @@
 mixin article-preview(data)
   if data
-    - var { title, subtitle, picture, text } = data;
+    - var { title, subtitle, logoText, picture, text } = data;
     section.article-preview&attributes(attributes)
       .container.article-preview__container
         if title || subtitle
@@ -10,6 +10,8 @@ mixin article-preview(data)
               #{tag || 'h1'}.h2.article-preview__title!=label
             if subtitle
               h6.h4.article-preview__subtitle!=subtitle
+            if logoText
+              +logo-text(logoText).article-preview__logo-text
         if picture
           .article-preview__picture
             +picture(picture)._cover
