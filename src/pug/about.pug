@@ -1,8 +1,6 @@
 extends ./common/wrapper
-include ./modules/billboard
-include ./modules/models
-include ./modules/short-catalog
-include ./modules/smallboard
+include ./modules/article-preview
+include ./modules/article-content
 include ./modules/separator
 include ./modules/about
 include ./modules/benefits
@@ -10,249 +8,301 @@ include ./modules/use
 include ./modules/feedback
 
 block config
-  -
-    var billboard = {
-      picture: {
-        single: {
-          path: 'images/billboard/1.jpg',
-          sizes: {
-            _1600: [1920, 1010],
-            _1280: [1599, 673],
-            _1024: [1279, 827],
-            _768: [1023, 827],
-            _400: [767, 503],
-            _0: [399, 503],
-          },
-        },
-      },
-      video: 'https://rutube.ru/play/embed/60d70fc6fe787b9ccae256cd8f83620f',
-      subtitle: 'Новинка!',
-      title: {
-        tag: 'h1',
-        label: 'Корпус Ridepro',
-      },
-      btn: {
-        options: {
-          tag: 'a',
-          label: 'Выбрать',
-        },
-        attrs: {
-          href: '#',
-        },
-      },
-    };
+  - var title = 'О нас';
 
   -
-    var models = {
+    var articlePreview = {
+      title: {
+        tag: 'h1',
+        label: title,
+      },
       logoText: {
         logo: {
           icon: 'logo',
         },
         text: 'новый бренд стоячих гидроциклов, кастомная постройка с учётом современных требований райдеров и возможностей тюнинга.',
       },
-      title: {
-        tag: 'h3',
-        label: 'Модели ZaxJet',
-        attrs: {
-          class: 'h2',
-        },
-      },
-      cards: [
-        {
-          picture: {
-            single: {
-              path: 'images/models/1.png',
-              sizes: {
-                _1600: [406, 157],
-                _1280: [472, 203],
-                _1024: [705, 273],
-                _768: [555, 215],
-                _400: [743, 320],
-                _0: [375, 161],
-              },
-            },
+      picture: {
+        single: {
+          path: 'images/article-preview/2.jpg',
+          sizes: {
+            _1600: [1296, 688],
+            _1280: [1599, 859],
+            _1024: [1279, 1146],
+            _768: [1023, 916],
+            _400: [767, 1213],
+            _0: [399, 631],
           },
-          name: 'RidePro',
-          price: 'от 930 000 р.',
-        },
-        {
-          picture: {
-            single: {
-              path: 'images/models/2.png',
-              sizes: {
-                _1600: [406, 157],
-                _1280: [472, 203],
-                _1024: [705, 273],
-                _768: [555, 215],
-                _400: [743, 320],
-                _0: [375, 161],
-              },
-            },
-          },
-          name: '2Style',
-          price: 'от 1 050 000 р.',
-        },
-        {
-          picture: {
-            single: {
-              path: 'images/models/3.png',
-              sizes: {
-                _1600: [406, 157],
-                _1280: [472, 203],
-                _1024: [705, 273],
-                _768: [555, 215],
-                _400: [743, 320],
-                _0: [375, 161],
-              },
-            },
-          },
-          name: '2StylePro',
-          price: 'от 1 050 000 р.',
-        },
-      ],
-      btn: {
-        options: {
-          tag: 'a',
-          label: 'Все модели',
-          icons: {
-            right: 'chevron-right',
-          },
-        },
-        attrs: {
-          href: '#',
         },
       },
     };
 
   -
-    var shortCatalog = {
-      title: {
-        tag: 'h3',
-        label: 'Магазин запчастей',
-        attrs: {
-          class: 'h2',
+    var articleContent = [
+      {
+        title: {
+          tag: 'h3',
+          label: 'История создания ZaxJet',
+          modificators: '_center',
+        },
+        desc: [
+          {
+            content: `<h3>Как всё начиналось</h3><p>Идея создания собственного бренда родилась после работы в Yamaha Motor CIS, где стоячие гидроциклы оставались в тени сидячих моделей, а пожелания клиентов игнорировались. Это противоречие породило индустрию тюнинга — но что, если объединить всё воедино?</p>`,
+          },
+          {
+            content: `<h3>2014-2015 годы</h3><p>Путь начался с создания рынка. В 2014 году в Сочи был проведён первый фестиваль JetCamp, а уже в 2015 году он стал крупнейшим российским фестивалем стоячих гидроциклов. С тех пор фестиваль проходил в разных местах и последние годы проводится в первую неделю октября в Абхазии.</p>`,
+            figure: {
+              picture: {
+                single: {
+                  path: 'images/article-content/1.jpg',
+                  sizes: {
+                    _1600: [855, 482],
+                    _1280: [1101, 620],
+                    _1024: [1207, 836],
+                    _768: [951, 659],
+                    _400: [743, 904],
+                    _0: [375, 456],
+                  },
+                },
+              },
+              label: 'Фестиваль JatCamp в Сочи 2015',
+            },
+          },
+          {
+            content: `<h3>2016</h3><p>В 2016 году увольнение из Yamaha стало толчком к запуску проекта, задуманного на годы вперёд. Появились клубы JetCamp в Москве и Сочи. К мастерской Александра Джалагония в Сочи добавилась партнёрская мастерская JetCamp Customs в Москве.</p>`,
+            figure: {
+              picture: {
+                single: {
+                  path: 'images/article-content/2.jpg',
+                  sizes: {
+                    _1600: [855, 482],
+                    _1280: [1101, 620],
+                    _1024: [1207, 836],
+                    _768: [951, 659],
+                    _400: [743, 904],
+                    _0: [375, 456],
+                  },
+                },
+              },
+              label: 'Фото мастерской',
+            },
+          },
+          {
+            content: `<h3>2018</h3><p>В 2018 году был создан первый корпус JetCamp — разработка велась совместно с Давидом Джалагония. Алексей Коробка реализовал проект с нуля в техническом плане.</p>`,
+            figure: {
+              picture: {
+                single: {
+                  path: 'images/article-content/3.jpg',
+                  sizes: {
+                    _1600: [855, 482],
+                    _1280: [1101, 620],
+                    _1024: [1207, 836],
+                    _768: [951, 659],
+                    _400: [743, 904],
+                    _0: [375, 456],
+                  },
+                },
+              },
+              label: 'Фото первого корпуса',
+            },
+          },
+          {
+            content: `<h3>2022</h3><p>В 2022 году было запущено полноценное производство в Москве. В проект вошёл новый партнёр — серфер Никита Абрамов.</p>`,
+            figure: {
+              picture: {
+                single: {
+                  path: 'images/article-content/4.jpg',
+                  sizes: {
+                    _1600: [855, 482],
+                    _1280: [1101, 620],
+                    _1024: [1207, 836],
+                    _768: [951, 659],
+                    _400: [743, 904],
+                    _0: [375, 456],
+                  },
+                },
+              },
+              label: 'Фото производства 2022',
+            },
+          },
+        ],
+      },
+      {
+        title: {
+          tag: 'h3',
+          label: 'Модели ZaxJet',
+          modificators: '_left',
+        },
+        desc: [
+          {
+            content: `<p>Идея создания собственного бренда родилась после работы в Yamaha Motor CIS, где стоячие гидроциклы оставались в тени сидячих моделей, а пожелания клиентов игнорировались. Это противоречие породило индустрию тюнинга — но что, если объединить всё воедино?</p>`,
+          },
+          {
+            content: `<h3>2022</h3>`,
+            models: [
+              {
+                text: 'Запуск модели JetCamp под новым названием <strong>2Ride</strong>',
+                picture: {
+                  single: {
+                    path: 'images/article-content/models/5.jpg',
+                    sizes: {
+                      _1600: [628, 353],
+                      _1280: [813, 457],
+                      _1024: [1207, 681],
+                      _768: [951, 537],
+                      _400: [743, 419],
+                      _0: [375, 212],
+                    },
+                  },
+                },
+              },
+            ],
+          },
+          {
+            content: `<h3>2023</h3>`,
+            models: [
+              {
+                text: 'Выпуск модели <strong>2Style</strong>',
+                picture: {
+                  single: {
+                    path: 'images/article-content/models/3.jpg',
+                    sizes: {
+                      _1600: [628, 353],
+                      _1280: [813, 457],
+                      _1024: [1207, 681],
+                      _768: [951, 537],
+                      _400: [743, 419],
+                      _0: [375, 212],
+                    },
+                  },
+                },
+              },
+            ],
+          },
+          {
+            content: `<h3>2024</h3>`,
+            models: [
+              {
+                text: 'Выпуск <strong>2StylePRO</strong> — более короткая и агрессивная версия 2Style',
+                picture: {
+                  single: {
+                    path: 'images/article-content/models/4.jpg',
+                    sizes: {
+                      _1600: [628, 353],
+                      _1280: [813, 457],
+                      _1024: [1207, 681],
+                      _768: [951, 537],
+                      _400: [743, 419],
+                      _0: [375, 212],
+                    },
+                  },
+                },
+              },
+            ],
+          },
+          {
+            content: `<h3>2025</h3>`,
+            models: [
+              {
+                text: 'Запуск флагмана <strong>RidePro</strong>, созданного на базе фристайл-корпусов, короче и шире, чем 2Ride',
+                picture: {
+                  single: {
+                    path: 'images/article-content/models/6.jpg',
+                    sizes: {
+                      _1600: [628, 353],
+                      _1280: [813, 457],
+                      _1024: [1207, 681],
+                      _768: [951, 537],
+                      _400: [743, 419],
+                      _0: [375, 212],
+                    },
+                  },
+                },
+              },
+              {
+                text: 'Выпуск модели <strong>Duck</strong> для детей и лёгких райдеров',
+                picture: {
+                  single: {
+                    path: 'images/article-content/models/2.jpg',
+                    sizes: {
+                      _1600: [628, 353],
+                      _1280: [813, 457],
+                      _1024: [1207, 681],
+                      _768: [951, 537],
+                      _400: [743, 419],
+                      _0: [375, 212],
+                    },
+                  },
+                },
+              },
+              {
+                text: 'Первая партия <strong>моторов</strong> под брендом JC',
+                picture: {
+                  single: {
+                    path: 'images/article-content/models/7.jpg',
+                    sizes: {
+                      _1600: [628, 353],
+                      _1280: [813, 457],
+                      _1024: [1207, 681],
+                      _768: [951, 537],
+                      _400: [743, 419],
+                      _0: [375, 212],
+                    },
+                  },
+                },
+              },
+            ],
+          },
+          {
+            content: `<h3>В разработке</h3>`,
+            models: [
+              {
+                text: 'Разработка модели <strong>4Race</strong> и мотосёрфа <strong>Gsurf</strong>',
+                picture: {
+                  single: {
+                    path: 'images/article-content/models/8.jpg',
+                    sizes: {
+                      _1600: [628, 353],
+                      _1280: [813, 457],
+                      _1024: [1207, 681],
+                      _768: [951, 537],
+                      _400: [743, 419],
+                      _0: [375, 212],
+                    },
+                  },
+                },
+              },
+              {
+                text: 'План выпуска <strong>Blast</strong> — маленькой сидячей модели для фрирайда, эндуро и трюков',
+                picture: {
+                  single: {
+                    path: 'images/article-content/models/9.jpg',
+                    sizes: {
+                      _1600: [628, 353],
+                      _1280: [813, 457],
+                      _1024: [1207, 681],
+                      _768: [951, 537],
+                      _400: [743, 419],
+                      _0: [375, 212],
+                    },
+                  },
+                },
+              },
+            ],
+          },
+        ],
+        moduleBtn: {
+          options: {
+            tag: 'a',
+            label: 'Все модели ZaxJet',
+          },
+          attrs: {
+            href: '#',
+            class: '_outline-primary',
+          },
         },
       },
-      cards: [
-        {
-          picture: {
-            single: {
-              path: 'images/short-catalog/1.png',
-              sizes: {
-                _1600: [161, 161],
-                _1280: [216, 216],
-                _1024: [294, 294],
-                _768: [227, 227],
-                _400: [422, 422],
-                _0: [206, 206],
-              },
-            },
-          },
-          name: 'Водозаборная решетка алюминий',
-          info: {
-            text: '<div>под заказ</div><a href="#">подробнее</a>',
-          },
-          prices: {
-            current: '18 000 р.',
-          },
-        },
-        {
-          sale: '-20%',
-          picture: {
-            single: {
-              path: 'images/short-catalog/2.png',
-              sizes: {
-                _1600: [161, 161],
-                _1280: [216, 216],
-                _1024: [294, 294],
-                _768: [227, 227],
-                _400: [422, 422],
-                _0: [206, 206],
-              },
-            },
-          },
-          name: 'Задний кронштейн аккумулятора',
-          prices: {
-            current: '14 400 р.',
-            old: '18 000 р.',
-          },
-        },
-        {
-          picture: {
-            single: {
-              path: 'images/short-catalog/3.png',
-              sizes: {
-                _1600: [161, 161],
-                _1280: [216, 216],
-                _1024: [294, 294],
-                _768: [227, 227],
-                _400: [422, 422],
-                _0: [206, 206],
-              },
-            },
-          },
-          name: 'Чин-пад видовой карбон',
-          counter: {
-            count: 3,
-          },
-          prices: {
-            current: '38 000 р.',
-          },
-        },
-        {
-          picture: {
-            single: {
-              path: 'images/short-catalog/4.png',
-              sizes: {
-                _1600: [161, 161],
-                _1280: [216, 216],
-                _1024: [294, 294],
-                _768: [227, 227],
-                _400: [422, 422],
-                _0: [206, 206],
-              },
-            },
-          },
-          name: 'Чин-пад стеклоткань',
-          prices: {
-            current: '17 000 р.',
-          },
-        },
-        {
-          sale: '-15%',
-          picture: {
-            single: {
-              path: 'images/short-catalog/5.png',
-              sizes: {
-                _1600: [161, 161],
-                _1280: [216, 216],
-                _1024: [294, 294],
-                _768: [227, 227],
-                _400: [422, 422],
-                _0: [206, 206],
-              },
-            },
-          },
-          name: 'Водозаборная решетка алюминий',
-          prices: {
-            current: '32 300 р.',
-            old: '38 000 р.',
-          },
-        },
-      ],
-      btn: {
-        options: {
-          tag: 'a',
-          label: 'Все запчасти',
-          icons: {
-            right: 'chevron-right',
-          },
-        },
-        attrs: {
-          href: '#',
-        },
-      },
-    };
+    ];
 
   -
     var separator = {
@@ -273,38 +323,6 @@ block config
         icon: 'logo',
       },
       text: 'это путь RidePerformance',
-    };
-
-  -
-    var smallboard = {
-      picture: {
-        multi: {
-          _1600: {
-            path: 'images/smallboard/1xl.jpg',
-            sizes: [1296, 627],
-          },
-          _1280: {
-            path: 'images/smallboard/1lg.jpg',
-            sizes: [1435, 693],
-          },
-          _1024: {
-            path: 'images/smallboard/1md.jpg',
-            sizes: [1207, 584],
-          },
-          _768: {
-            path: 'images/smallboard/1md.jpg',
-            sizes: [951, 460],
-          },
-          _400: {
-            path: 'images/smallboard/1sm.jpg',
-            sizes: [743, 966],
-          },
-          _0: {
-            path: 'images/smallboard/1sm.jpg',
-            sizes: [375, 488],
-          },
-        },
-      },
     };
 
   -
@@ -573,9 +591,9 @@ block config
     var feedback = {
       title: {
         tag: 'h3',
-        label: 'Свяжитесь с нами',
+        label: 'Остались вопросы?',
       },
-      text: 'Поможем разобраться и выбрать то, что вам нужно.',
+      text: 'Пишите нам или нашим партнёрам — подберём модель, комплектацию, рассчитаем сроки и стоимость.',
       telephone: {
         url: 'tel:+79911758377',
         label: '+7 (991) 175-83-77',
@@ -602,10 +620,8 @@ block config
     };
 
 block content
-  +billboard(billboard)
-  +models(models)
-  +short-catalog(shortCatalog)
-  +smallboard(smallboard)
+  +article-preview(articlePreview)._inner
+  +article-content(articleContent)._inner
   +separator(separator)
   +about(about)
   +benefits(benefits)

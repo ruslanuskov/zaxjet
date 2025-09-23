@@ -1,27 +1,46 @@
 mixin article-content(data)
   if data
     section.article-content&attributes(attributes)
-      .container.article-content__container
-        each item in data
-          - var { content, models, list, billboard, btn } = item;
-          .article-content__section(class=billboard ? '_with-billboard' : '')
-            if content || list || btn || billboard
-              .article-content__section-content
-                if content || billboard
-                  .article-content__info
-                    if content
-                      .article-content__text
-                        .rte!=content
-                    if billboard
-                      +small-billboard(billboard).article-content__billboard
-                if list
-                  ul.article-content__list
-                    each subitem in list
-                      li.article-content__list-item!=subitem
-                if btn
-                  - var { options, attrs } = btn;
-                  +btn(options).article-content__btn&attributes(attrs)
-            if models
-              .article-content__models
-                each card in models
-                  +model-subcard(card).article-content__models-item
+      each module in data
+        - var { title, desc, moduleBtn } = module;
+        .article-content__module
+          .container.article-content__container
+            if title
+              - var { tag, label, modificators } = title;
+              #{tag || 'h3'}.article-content__title(class=modificators)!=label
+            if desc
+              .article-content__desc
+                each item in desc
+                  - var { content, models, list, billboard, btn, figure } = item;
+                  .article-content__section(class=billboard ? '_with-billboard' : '')
+                    if content || list || btn || billboard
+                      .article-content__section-content
+                        if content || billboard || figure
+                          .article-content__info
+                            if content || figure
+                              .article-content__text
+                                if content
+                                  .rte!=content
+                                if figure
+                                  - var { picture, label } = figure;
+                                  figure.article-content__figure
+                                    if picture
+                                      +picture(picture)._cover
+                                    if label
+                                      figcaption!=label
+                            if billboard
+                              +small-billboard(billboard).article-content__billboard
+                        if list
+                          ul.article-content__list
+                            each subitem in list
+                              li.article-content__list-item!=subitem
+                        if btn
+                          - var { options, attrs } = btn;
+                          +btn(options).article-content__btn&attributes(attrs)
+                    if models
+                      .article-content__models
+                        each card in models
+                          +model-subcard(card).article-content__models-item
+            if moduleBtn
+              - var { options, attrs } = moduleBtn;
+              +btn(options).article-content__module-btn&attributes(attrs)

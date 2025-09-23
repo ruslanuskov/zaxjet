@@ -1,14 +1,10 @@
 mixin models(data)
   if data
-    - var { logo, text, title, cards, btn } = data;
+    - var { logoText, title, cards, btn } = data;
     section.models&attributes(attributes)
       .container.models__container
-        if logo || text
-          .models__header
-            if logo
-              +logo(logo)._dark.models__logo
-            if text
-              p.models__text!=text
+        if logoText
+          +logo-text(logoText)
         if title || cards || btn
           .models__info
             if title
