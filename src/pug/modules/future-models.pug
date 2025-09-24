@@ -1,0 +1,24 @@
+mixin future-models(data)
+  if data
+    - var { title, cards, socials } = data;
+    section.future-models&attributes(attributes)
+      .container.future-models__container
+        if title
+          - var { tag, label } = title;
+          #{tag || 'h3'}.h3.future-models__title!=label
+        if cards
+          .future-models__content
+            .future-models__list
+              each item in cards
+                - var { status, picture, name } = item;
+                .future-models__item
+                  .future-models__item-content
+                    if picture
+                      .future-models__item-picture
+                        +picture(picture)._contain
+                        if status
+                          .future-models__item-status!=status
+                    if name
+                      h6.future-models__item-name!=name
+        if socials
+          +socials(socials)._option-1.future-models__socials

@@ -127,4 +127,61 @@
       font-size: 2rem;
     }
   }
+  &._option-1 {
+    @include up(md) {
+      gap: 3rem;
+    }
+    @include up(lg) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 3rem;
+      padding: 0;
+    }
+    @include up(xl) {
+    }
+    #{$root}__title {
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 1.5;
+      @include up(md) {
+        text-align: center;
+      }
+      @include up(lg) {
+        height: auto;
+        max-width: none;
+      }
+    }
+    #{$root}__list {
+      @include up(md) {
+        gap: 2.22rem;
+        padding: 0 1.2%;
+      }
+      @include up(lg) {
+        gap: 2.22rem;
+        padding: 0 19.5%;
+      }
+      @include up(xl) {
+        gap: 2.3rem;
+        padding: 0 23.9%;
+      }
+    }
+    #{$root}__link {
+      @include up(md) {
+        height: 9.9rem;
+      }
+      @include up(lg) {
+        height: 9.9rem;
+      }
+    }
+    #{$root}__item._rutube {
+      #{$root}__link {
+        @include up(md) {
+          height: 9.9rem;
+        }
+        @include up(lg) {
+          height: 9.9rem;
+        }
+      }
+    }
+  }
 }
