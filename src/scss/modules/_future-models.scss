@@ -1,0 +1,47 @@
+@use 'sass:math';
+@use '../utils' as *;
+
+.future-models {
+  padding: {
+    top: 2rem;
+    bottom: 4rem;
+  }
+  @include up(md) {
+    padding: {
+      top: 4rem;
+      bottom: 6rem;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8rem;
+  }
+  &__title {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+  &__socials {
+    * + & {
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.4rem;
+    @include up(lg) {
+      flex-direction: row;
+      margin: 0 -1.2rem;
+      flex-wrap: wrap;
+    }
+  }
+  &__item {
+    flex: none;
+    width: 100%;
+    display: flex;
+    @include up(lg) {
+      width: math.div(100%, 3);
+      padding: 0 1.2rem;
+    }
+  }
+}

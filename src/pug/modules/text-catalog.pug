@@ -1,0 +1,11 @@
+mixin text-catalog(data)
+  if data
+    - var { content, btn } = data;
+    section.text-catalog&attributes(attributes)
+      .container
+        .text-catalog__info
+          if content
+            .rte.text-catalog__desc!=content
+          if btn
+            - var { options, attrs } = btn;
+            +btn(options).text-catalog__btn&attributes(attrs)

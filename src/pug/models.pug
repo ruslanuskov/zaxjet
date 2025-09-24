@@ -1,0 +1,143 @@
+extends ./common/wrapper
+include ./modules/text-catalog
+include ./modules/future-models
+include ./modules/feedback
+
+block config
+  - var title = 'Каталог моделей корпусов';
+
+  -
+    var textCatalog = {
+      content: `<h3>Не понятно с чего начать?</h3><p>На стоячем гидроцикле учиться можно всю жизнь. Кто-то выбирает фанрайд и прыжки с волн, кто-то — фристайл с трюками и вращениями. Под каждую задачу подбирается модель и мотор.</p><p>Чтобы понять принцип и этапы сборки, рекомендуем ознакомиться с разделом, посвящённому сборке и выбору моделей.</p><p>Также, если вы хотите собрать собственный кастомный ZaxJet, можете написать нам или нашим партнёрам. Мы поможем с выбором модели, комплектации, просчётом стоимости и сроков сборки.</p>`,
+      btn: {
+        options: {
+          tag: 'a',
+          label: 'Как собрать свой аквабайк?',
+        },
+        attrs: {
+          class: '_outline-primary',
+          href: '#',
+        },
+      },
+    };
+
+  -
+    var futureModels = {
+      title: {
+        tag: 'h3',
+        label: 'В будущем появятся новые модели',
+      },
+      cards: [
+        {
+          status: 'В разработке',
+          picture: {
+            single: {
+              path: 'images/future-models/1.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [472, 203],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: 'Blast',
+        },
+        {
+          status: 'В разработке',
+          picture: {
+            single: {
+              path: 'images/future-models/2.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [472, 203],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: '4Race',
+        },
+        {
+          status: 'В разработке',
+          picture: {
+            single: {
+              path: 'images/future-models/3.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [472, 203],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: 'GSurf',
+        },
+      ],
+      socials: {
+        title: 'Следите за новостями в наших социальных сетях:',
+        btns: [
+          {
+            url: '#',
+            icon: 'rutube',
+            target: '_blank',
+            modificators: '_rutube',
+          },
+          {
+            url: '#',
+            icon: 'youtube',
+            target: '_blank',
+            modificators: '_youtube',
+          },
+          {
+            url: '#',
+            icon: 'vk',
+            target: '_blank',
+            modificators: '_vk',
+          },
+        ],
+      },
+    };
+
+  -
+    var feedback = {
+      title: {
+        tag: 'h3',
+        label: 'Свяжитесь с нами',
+      },
+      text: 'Пишите нам или нашим партнёрам — подберём модель, комплектацию, рассчитаем сроки и стоимость.',
+      telephone: {
+        url: 'tel:+79911758377',
+        label: '+7 (991) 175-83-77',
+      },
+      networks: [
+        {
+          url: '#',
+          icon: 'feed-telegram',
+          target: '_blank',
+          label: 'Telegram',
+        },
+        {
+          url: '#',
+          icon: 'feed-whatsapp',
+          target: '_blank',
+          label: 'WhatsApp',
+        },
+        {
+          url: 'mailto:ask@zaxjet.com',
+          icon: 'feed-email',
+          label: 'ask@zaxjet.com',
+        },
+      ],
+    };
+
+block content
+  +text-catalog(textCatalog)
+  +future-models(futureModels)
+  +feedback(feedback)

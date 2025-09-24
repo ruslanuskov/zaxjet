@@ -1,0 +1,56 @@
+@use '../utils' as *;
+
+.text-catalog {
+  padding: {
+    top: 4rem;
+    bottom: 6rem;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem 0;
+    @include up(xl) {
+      flex-direction: row;
+      align-items: center;
+      gap: 0 7.5rem;
+    }
+  }
+  &__desc {
+    @include up(lg) {
+      width: 77%;
+    }
+    @include up(xl) {
+      flex: 1 1 auto;
+      width: auto;
+    }
+    h3,
+    .h3 {
+      font-size: 2.8rem;
+    }
+  }
+  &__btn {
+    flex: none;
+    width: 100%;
+    @include up(md) {
+      width: fit-content;
+      margin: 0 auto;
+    }
+    @include up(lg) {
+      margin: 0;
+    }
+    &:not(._text, ._text-button) {
+      font-size: 1.6rem;
+      padding: {
+        left: 2rem;
+        right: 2rem;
+      }
+      @include up(md) {
+        font-size: 2rem;
+        padding: {
+          left: 3.2rem;
+          right: 3.2rem;
+        }
+      }
+    }
+  }
+}
