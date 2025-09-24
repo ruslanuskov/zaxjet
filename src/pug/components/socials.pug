@@ -1,0 +1,19 @@
+mixin socials(data)
+  if data
+    - var { title, btns, text } = data;
+    .socials&attributes(attributes)
+      if title
+        h6.socials__title
+          span!=title
+      if btns || text
+        .socials__content
+          if btns
+            ul.socials__list
+              each item in btns
+                - var { url, icon, target, modificators } = item;
+                li.socials__item(class=modificators)
+                  a.socials__link(href=`${url || '#'}` target=target)
+                    if icon
+                      +svg(icon).socials__icon._contain
+          if text
+            p.socials__text!=text

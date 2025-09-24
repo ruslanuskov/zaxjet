@@ -13,6 +13,9 @@
     @include up(md) {
       padding-top: 6rem;
     }
+    @include up(lg) {
+      padding-top: 5.2rem;
+    }
     #{$root}__models-item {
       @include up(lg) {
         width: 57.8%;

@@ -115,6 +115,15 @@
       padding: 2.5rem;
       color: var(--text-color);
       min-height: 22rem;
+      @include transition(background-color);
+      @include hover {
+        &:not(:active) {
+          background-color: rgba(255, 255, 255, 0.5);
+        }
+      }
+      &:active {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
     }
     &-icon {
       flex: none;

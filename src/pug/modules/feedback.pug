@@ -19,7 +19,7 @@ mixin feedback(data)
               each item in networks
                 - var { url, icon, target, label } = item;
                 li.feedback__networks-item
-                  a.feedback__networks-link._link-hover(href=`${url || '#'}` target=target)
+                  a.feedback__networks-link(href=`${url || '#'}` target=target)
                     if icon
                       +svg(icon).feedback__networks-icon
                     if label

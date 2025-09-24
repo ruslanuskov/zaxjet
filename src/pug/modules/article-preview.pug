@@ -1,6 +1,6 @@
 mixin article-preview(data)
   if data
-    - var { title, subtitle, logoText, picture, text } = data;
+    - var { title, subtitle, logoText, picture, text, socials } = data;
     section.article-preview&attributes(attributes)
       .container.article-preview__container
         if title || subtitle
@@ -17,3 +17,5 @@ mixin article-preview(data)
             +picture(picture)._cover
         if text
           p.article-preview__text!=text
+        if socials
+          +socials(socials).article-preview__socials
