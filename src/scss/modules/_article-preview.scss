@@ -129,4 +129,12 @@
       width: 56%;
     }
   }
+  &__socials {
+    * + & {
+      margin-top: 1.1rem;
+      @include up(md) {
+        margin-top: 4.1rem;
+      }
+    }
+  }
 }
