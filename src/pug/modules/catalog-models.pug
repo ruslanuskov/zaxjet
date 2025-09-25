@@ -1,0 +1,12 @@
+mixin catalog-models(data)
+  if data
+    - var { title, cards } = data;
+    section.catalog-models._content&attributes(attributes)
+      .container.catalog-models__container
+        if title
+          - var { tag, label } = title;
+          #{tag || 'h1'}.catalog-models__title!=label
+        if cards
+          .catalog-models__content
+            each item in cards
+              +model-preview(item).catalog-models__item
