@@ -1,0 +1,29 @@
+@use '../utils' as *;
+
+.catalog-models {
+  &__container,
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+  &__container {
+    row-gap: 6rem;
+  }
+  &__title {
+    font-size: 3.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    @include up(md) {
+      text-align: left;
+      font-size: 4.6rem;
+      line-height: 1;
+    }
+  }
+  &__content {
+    row-gap: 8.2rem;
+    @include up(md) {
+      row-gap: 4.9rem;
+    }
+  }
+}

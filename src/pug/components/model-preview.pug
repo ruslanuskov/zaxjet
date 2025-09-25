@@ -1,0 +1,50 @@
+mixin model-preview(data)
+  if data
+    - var { modificators, header, picture, characteristics, content, footer } = data;
+    .model-preview(class=modificators)&attributes(attributes)
+      if picture || characteristics
+        .model-preview__img
+          if picture
+            a.model-preview__picture(href="#")
+              +picture(picture)._contain
+          if characteristics
+            ul.model-preview__characteristics
+              each item in characteristics
+                - var { icon, label } = item;
+                li.model-preview__characteristics-item
+                  if icon
+                    +svg(icon).model-preview__characteristics-icon
+                  if label
+                    .model-preview__characteristics-label!=label
+      if header
+        - var { name, status } = header;
+        .model-preview__header
+          if name
+            h5.h3.model-preview__name
+              a.model-preview__name-link._link-hover(href="#")!=name
+          if status
+            .model-preview__status!=status
+      if content || footer
+        .model-preview__info
+          if content
+            - var { types, text } = content;
+            .model-preview__content
+              if types
+                ul.model-preview__types
+                  each type in types
+                    li.model-preview__types-item!=type
+              if text
+                .model-preview__text!=text
+          if footer
+            - var { prices, btn } = footer;
+            .model-preview__footer
+              if prices
+                - var { current, old } = prices;
+                .model-preview__prices
+                  if current
+                    span.model-preview__prices-current!=current
+                  if old
+                    span.model-preview__prices-old!=old
+              if btn
+                - var { options, attrs } = btn;
+                +btn(options)._primary.model-preview__btn&attributes(attrs)

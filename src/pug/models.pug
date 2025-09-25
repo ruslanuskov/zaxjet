@@ -1,10 +1,289 @@
 extends ./common/wrapper
+include ./modules/catalog-models
 include ./modules/text-catalog
 include ./modules/future-models
 include ./modules/feedback
 
 block config
   - var title = 'Каталог моделей корпусов';
+
+  -
+    var catalogModels = {
+      title: {
+        tag: 'h1',
+        label: title,
+      },
+      cards: [
+        {
+          header: {
+            name: 'RidePro 4.1',
+            status: 'Флагман',
+          },
+          picture: {
+            single: {
+              path: 'images/catalog-models/1.png',
+              sizes: {
+                _1600: [530, 226],
+                _1280: [686, 293],
+                _1024: [945, 403],
+                _768: [738, 315],
+                _400: [743, 289],
+                _0: [375, 146],
+              },
+            },
+          },
+          characteristics: [
+            {
+              icon: 'arrows',
+              label: '<span>Размеры:</span><span>2135 × 748 мм</span>',
+            },
+            {
+              icon: 'weight',
+              label: '<span>Вес корпуса:</span><span>33-44 кг</span>',
+            },
+          ],
+          content: {
+            types: [
+              'Фрирайд',
+              'Эндуро',
+              'Фанрайдинг',
+            ],
+            text: 'Корпус нового поколения, который сочетает в себе уникальный дизайн и инновационные технологические решения. Благодаря легкому корпусу и регулируемым вставкам для ног, этот корпус обеспечивает простоту управления и быстрое прогрессирование, а также превосходную устойчивость и плавучесть.',
+          },
+          footer: {
+            prices: {
+              current: 'от 930 000 р.',
+            },
+            btn: {
+              options: {
+                tag: 'a',
+                label: 'Выбрать',
+                icons: {
+                  right: 'chevron-right',
+                },
+              },
+              attrs: {
+                href: '#',
+              },
+            },
+          },
+        },
+        {
+          modificators: '_reverse',
+          header: {
+            name: '2Style 2.3',
+            status: 'Для перехода во фристайл',
+          },
+          picture: {
+            single: {
+              path: 'images/catalog-models/2.png',
+              sizes: {
+                _1600: [530, 226],
+                _1280: [686, 293],
+                _1024: [945, 403],
+                _768: [738, 315],
+                _400: [743, 289],
+                _0: [375, 146],
+              },
+            },
+          },
+          characteristics: [
+            {
+              icon: 'arrows',
+              label: '<span>Размеры:</span><span>2056 х 770 мм</span>',
+            },
+            {
+              icon: 'weight',
+              label: '<span>Вес корпуса:</span><span>25-28 кг</span>',
+            },
+          ],
+          content: {
+            types: [
+              'Фристайл',
+            ],
+            text: 'Гидроцикл нового поколения, который сочетает в себе уникальный дизайн и инновационные технологические решения. Благодаря легкому корпусу и регулируемым вставкам для ног, этот гидроцикл обеспечивает простоту управления и быстрое прогрессирование.',
+          },
+          footer: {
+            prices: {
+              current: 'от 950 000 р.',
+              old: '1 000 000 р.',
+            },
+            btn: {
+              options: {
+                tag: 'a',
+                label: 'Выбрать',
+                icons: {
+                  right: 'chevron-right',
+                },
+              },
+              attrs: {
+                href: '#',
+              },
+            },
+          },
+        },
+        {
+          modificators: '_reverse',
+          header: {
+            name: '2StylePro 2.4',
+            status: 'Выбор профессиональных райдеров',
+          },
+          picture: {
+            single: {
+              path: 'images/catalog-models/3.png',
+              sizes: {
+                _1600: [530, 226],
+                _1280: [686, 293],
+                _1024: [945, 403],
+                _768: [738, 315],
+                _400: [743, 289],
+                _0: [375, 146],
+              },
+            },
+          },
+          characteristics: [
+            {
+              icon: 'arrows',
+              label: '<span>Размеры:</span><span>2016 х 770</span>',
+            },
+            {
+              icon: 'weight',
+              label: '<span>Вес корпуса:</span><span>25-28 кг</span>',
+            },
+          ],
+          content: {
+            types: [
+              'Фристайл про',
+            ],
+            text: 'Гидроцикл нового поколения, который сочетает в себе уникальный дизайн и инновационные технологические решения. Благодаря легкому корпусу и регулируемым вставкам для ног, этот гидроцикл обеспечивает простоту управления и быстрое прогрессирование.',
+          },
+          footer: {
+            prices: {
+              current: 'от 950 000 р.',
+            },
+            btn: {
+              options: {
+                tag: 'a',
+                label: 'Выбрать',
+                icons: {
+                  right: 'chevron-right',
+                },
+              },
+              attrs: {
+                href: '#',
+              },
+            },
+          },
+        },
+        {
+          header: {
+            name: 'Duck 0.1',
+            status: 'Для молодых и лёгких райдеров до 70 кг',
+          },
+          picture: {
+            single: {
+              path: 'images/catalog-models/4.png',
+              sizes: {
+                _1600: [530, 226],
+                _1280: [686, 293],
+                _1024: [945, 403],
+                _768: [738, 315],
+                _400: [743, 289],
+                _0: [375, 146],
+              },
+            },
+          },
+          characteristics: [
+            {
+              icon: 'arrows',
+              label: '<span>Размеры:</span><span>1835 × 755 мм</span>',
+            },
+            {
+              icon: 'weight',
+              label: '<span>Вес корпуса:</span><span>22-25 кг</span>',
+            },
+          ],
+          content: {
+            types: [
+              'Фристайл',
+              'Фанрайдинг',
+            ],
+            text: 'Гидроцикл нового поколения, который сочетает в себе уникальный дизайн и инновационные технологические решения. Благодаря легкому корпусу и регулируемым вставкам для ног, этот гидроцикл обеспечивает простоту управления и быстрое прогрессирование.',
+          },
+          footer: {
+            prices: {
+              current: 'от 940 000 р.',
+            },
+            btn: {
+              options: {
+                tag: 'a',
+                label: 'Выбрать',
+                icons: {
+                  right: 'chevron-right',
+                },
+              },
+              attrs: {
+                href: '#',
+              },
+            },
+          },
+        },
+        {
+          header: {
+            name: '2Ride 1.2',
+            status: 'Для нижнего фристайла',
+          },
+          picture: {
+            single: {
+              path: 'images/catalog-models/5.png',
+              sizes: {
+                _1600: [530, 226],
+                _1280: [686, 293],
+                _1024: [945, 403],
+                _768: [738, 315],
+                _400: [743, 289],
+                _0: [375, 146],
+              },
+            },
+          },
+          characteristics: [
+            {
+              icon: 'arrows',
+              label: '<span>Размеры:</span><span>2135 × 748 мм</span>',
+            },
+            {
+              icon: 'weight',
+              label: '<span>Вес корпуса:</span><span>33-44 кг</span>',
+            },
+          ],
+          content: {
+            types: [
+              'Нижний фристайл',
+              'Фрирайд',
+              'Фанрайдинг',
+            ],
+            text: 'Гидроцикл нового поколения, который сочетает в себе уникальный дизайн и инновационные технологические решения. Благодаря легкому корпусу и регулируемым вставкам для ног, этот гидроцикл обеспечивает простоту управления и быстрое прогрессирование.',
+          },
+          footer: {
+            prices: {
+              current: 'от 870 000 р.',
+            },
+            btn: {
+              options: {
+                tag: 'a',
+                label: 'Выбрать',
+                icons: {
+                  right: 'chevron-right',
+                },
+              },
+              attrs: {
+                href: '#',
+              },
+            },
+          },
+        },
+      ],
+    };
 
   -
     var textCatalog = {
@@ -138,6 +417,7 @@ block config
     };
 
 block content
+  +catalog-models(catalogModels)
   +text-catalog(textCatalog)
   +future-models(futureModels)
   +feedback(feedback)

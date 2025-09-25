@@ -1,0 +1,243 @@
+@use '../utils' as *;
+
+.model-preview {
+  $root: &;
+
+  display: grid;
+  grid-template-areas:
+    'header'
+    'img'
+    'info';
+  gap: 2rem;
+  @include up(md) {
+    padding: 4rem 2rem;
+    gap: 3rem;
+  }
+  @include up(lg) {
+    gap: 2rem;
+    gap: 3rem 4rem;
+    grid-template-columns: 49.2% 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'img header'
+      'img info';
+  }
+  @include up(xl) {
+    gap: 2.9rem 11rem;
+    min-height: 44.6rem;
+    grid-template-columns: 42.2% 1fr;
+  }
+  &._reverse {
+    @include up(lg) {
+      grid-template-columns: 1fr 49.2%;
+      grid-template-areas:
+        'header img'
+        'info img';
+    }
+    @include up(xl) {
+      grid-template-columns: 1fr 42.2%;
+    }
+  }
+  &__img {
+    display: flex;
+    grid-area: img;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  &__picture {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 auto;
+    padding-bottom: 1rem;
+    order: 1;
+    @include up(md) {
+      padding: 0 9.5% 2.9rem;
+    }
+    @include up(lg) {
+      padding: 0 0 3rem;
+    }
+    picture {
+      overflow: hidden;
+      width: 100%;
+      @include aspect(296, 115);
+      @include up(md) {
+        @include aspect(530, 226);
+      }
+    }
+  }
+  &__characteristics {
+    display: none;
+    order: 2;
+    @include up(md) {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      justify-content: space-between;
+    }
+    * + & {
+      border-top: 0.1rem solid #e7e7e7;
+      margin-top: -0.1rem;
+      padding: {
+        top: 1.6rem;
+        bottom: 1.1rem;
+      }
+      @include up(xl) {
+        padding-top: 1.4rem;
+      }
+    }
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 0 0.4rem;
+    }
+    &-icon {
+      flex: none;
+      width: 2.4rem;
+      height: 2.4rem;
+      color: var(--text-color);
+    }
+    &-label {
+      font-size: 1.6rem;
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0 1rem;
+      span {
+        display: block;
+      }
+    }
+  }
+  &__header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem 2.1rem;
+    @include up(md) {
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+  &__name {
+    margin: -0.75rem 0;
+    font-size: 2.8rem;
+    &-link {
+      color: var(--text-color);
+    }
+  }
+  &__status {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--blue);
+  }
+
+  &__info,
+  &__footer {
+    display: flex;
+    flex-direction: column;
+  }
+  &__info {
+    row-gap: 3rem;
+  }
+  &__content {
+    flex: 1 1 auto;
+    display: none;
+    @include up(md) {
+      row-gap: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__types {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 3rem;
+    &-item {
+      position: relative;
+      padding-left: 1.6rem;
+      font-size: 2rem;
+      &::before {
+        content: '';
+        display: block;
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--text-color);
+      }
+    }
+  }
+  &__footer {
+    flex: none;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+    border-top: 0.1rem solid #e7e7e7;
+    padding-top: 2rem;
+    @include up(md) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-end;
+      border-top: none;
+      padding-top: 0;
+    }
+  }
+  &__img ~ &__info {
+    #{$root}__footer {
+      margin-top: -1.3rem;
+      @include up(md) {
+        margin-top: 0;
+      }
+    }
+  }
+  &__prices {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem 2rem;
+    justify-content: center;
+    @include up(md) {
+      flex: 1 1 auto;
+      min-height: 5.2rem;
+      justify-content: flex-start;
+    }
+    &-current,
+    &-old {
+      font-weight: 500;
+      display: block;
+      width: fit-content;
+      text-align: center;
+      @include up(md) {
+        text-align: left;
+      }
+    }
+    &-current {
+      font-size: 2rem;
+    }
+    &-old {
+      font-size: 1.6rem;
+      opacity: 0.5;
+      text-decoration: line-through;
+      line-height: 1;
+    }
+  }
+  &__btn {
+    height: 5.2rem;
+    flex: none;
+    padding: {
+      top: 0;
+      bottom: 0;
+    }
+    width: 100%;
+    @include up(md) {
+      width: 30.6rem;
+    }
+  }
+}
