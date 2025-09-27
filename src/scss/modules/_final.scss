@@ -1,0 +1,66 @@
+@use 'sass:map';
+@use '../utils' as *;
+
+.final {
+  padding-bottom: 11.2rem;
+  @include up(xl) {
+    padding-top: 12rem;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12rem;
+    @include up(xl) {
+      row-gap: 18.3rem;
+    }
+  }
+  &__content {
+    row-gap: 5rem;
+  }
+  &__content,
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__header {
+    row-gap: 3rem;
+    text-align: center;
+    @include up(md) {
+      width: 90.23%;
+    }
+    @include up(lg) {
+      width: 56.273%;
+    }
+    @include up(xl) {
+      width: 48.457%;
+    }
+  }
+  &__title {
+    font-size: 2.8rem;
+  }
+  &__purchases {
+    width: 100%;
+    @include up(lg) {
+      width: 47.134%;
+    }
+    @include up(xl) {
+      width: 40.5%;
+    }
+    .purchases__wrapper {
+      margin: 0 -#{map.get($indents, sm)};
+      @include up(md) {
+        margin: 0;
+      }
+    }
+    .purchases__title {
+      text-align: center;
+    }
+    .purchases__itog-item {
+      text-align: center;
+      @include up(md) {
+        text-align: left;
+      }
+    }
+  }
+}
