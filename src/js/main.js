@@ -7,6 +7,7 @@ import DetailClass from './classes/detail';
 import TabsClass from './classes/tabs';
 import PopupsClass from './classes/popups';
 import SelectClass from './classes/select';
+import MaskClass from './classes/mask';
 import {
   MEDIA_SM,
   MEDIA_MD,
@@ -40,6 +41,7 @@ class MainClass {
       TabsClass.init();
       PopupsClass.init();
       SelectClass.init();
+      MaskClass.init();
     }, 0);
   }
 
