@@ -1,0 +1,20 @@
+mixin popup(data)
+  .popup&attributes(attributes)
+    button.popup__button-close(type="button" data-fancybox-close)
+      +svg('cross')
+    if data
+      - var { title, text, btnList } = data;
+      .popup__content
+        if title || text
+          .popup__info
+            if title
+              h4.h3.popup__title!=title
+            if text
+              p.popup__text!=text
+        if btnList
+          .popup__btns
+            each item in btnList
+              - var { options, attrs } = item;
+              +btn(options).popup__btns-item&attributes(attrs)
+    else
+      block

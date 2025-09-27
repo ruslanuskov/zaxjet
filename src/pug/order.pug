@@ -1,5 +1,6 @@
 extends ./common/wrapper
 include ./modules/order
+include ./modules/popup
 
 block config
   - var title = 'Оформление заказа';
@@ -8,14 +9,14 @@ block config
     var order = {
       backBtn: {
         options: {
-          tag: 'button',
+          tag: 'a',
           label: 'Назад',
           icons: {
             left: 'chevron-left',
           },
         },
         attrs: {
-          type: 'button',
+          href: '#',
         },
       },
       title: {
@@ -176,5 +177,37 @@ block config
       },
     };
 
+  -
+    var popup = {
+      title: 'Отменить оформление?',
+      text: 'Данные не будут сохранены',
+      btnList: [
+        {
+          options: {
+            tag: 'button',
+            label: 'Да',
+          },
+          attrs: {
+            type: 'button',
+            class: '_primary',
+          },
+        },
+        {
+          options: {
+            tag: 'button',
+            label: 'Нет, продолжить',
+          },
+          attrs: {
+            type: 'button',
+            class: '_secondary',
+            'data-fancybox-close': '',
+          },
+        },
+      ],
+    };
+
 block content
   +order(order)
+
+block popups
+  +popup(popup)#order-cancel
