@@ -5,6 +5,7 @@ import CounterClass from './classes/counter';
 import TooltipClass from './classes/toottip';
 import DetailClass from './classes/detail';
 import TabsClass from './classes/tabs';
+import PopupsClass from './classes/popups';
 import {
   MEDIA_SM,
   MEDIA_MD,
@@ -36,6 +37,7 @@ class MainClass {
       TooltipClass.init();
       DetailClass.init();
       TabsClass.init();
+      PopupsClass.init();
     }, 0);
   }
 

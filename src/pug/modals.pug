@@ -1,0 +1,79 @@
+extends ./common/wrapper
+include ./modules/popup
+
+block config
+  - var title = 'Модальные окна';
+
+  -
+    var orderCancel = {
+      title: 'Отменить оформление?',
+      text: 'Данные не будут сохранены',
+      btnList: [
+        {
+          options: {
+            tag: 'button',
+            label: 'Да',
+          },
+          attrs: {
+            type: 'button',
+            class: '_primary',
+          },
+        },
+        {
+          options: {
+            tag: 'button',
+            label: 'Нет, продолжить',
+          },
+          attrs: {
+            type: 'button',
+            class: '_secondary',
+            'data-fancybox-close': '',
+          },
+        },
+      ],
+    };
+
+  -
+    var basketRemove = {
+      title: 'Уверены что хотите удалить товар из корзины?',
+      text: 'Отменить действие будет нельзя',
+      btnList: [
+        {
+          options: {
+            tag: 'button',
+            label: 'Да',
+          },
+          attrs: {
+            type: 'button',
+            class: '_primary',
+          },
+        },
+        {
+          options: {
+            tag: 'button',
+            label: 'Отменить',
+          },
+          attrs: {
+            type: 'button',
+            class: '_secondary',
+            'data-fancybox-close': '',
+          },
+        },
+      ],
+    };
+
+block content
+  .container._content(style="display: flex; flex-wrap: wrap; gap: 1.6rem;")
+    +btn({
+      tag: 'button',
+      label: 'Отмена оформления',
+    })(type="button" class="_secondary" data-popup="#order-cancel")
+
+    +btn({
+      tag: 'button',
+      label: 'Удаление товара',
+    })(type="button" class="_secondary" data-popup="#basket-remove")
+
+block append popups
+  +popup(orderCancel)#order-cancel
+  +popup(basketRemove)#basket-remove
