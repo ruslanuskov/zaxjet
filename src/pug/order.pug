@@ -69,13 +69,88 @@ block config
           [
             {
               options: {
-                tag: 'input',
+                tag: 'select',
+                listing: [
+                  {
+                    value: '',
+                    label: '',
+                  },
+                  {
+                    value: 'city-1',
+                    label: 'Нижний Новгород',
+                  },
+                  {
+                    value: 'city-2',
+                    label: 'Москва',
+                  },
+                  {
+                    value: 'city-3',
+                    label: 'Санкт-Петербург',
+                  },
+                  {
+                    value: 'city-4',
+                    label: 'Новосибирск',
+                  },
+                  {
+                    value: 'city-5',
+                    label: 'Владивосток',
+                  },
+                  {
+                    value: 'city-6',
+                    label: 'Ростов',
+                  },
+                  {
+                    value: 'city-7',
+                    label: 'Томск',
+                  },
+                ],
               },
               attrs: {
-                type: 'text',
                 name: 'city',
                 placeholder: 'Ваш город',
                 autocomplete: 'off',
+                class: 'js-autocomplete-select',
+              },
+            },
+            {
+              options: {
+                tag: 'select',
+                listing: [
+                  {
+                    value: 'city-1',
+                    label: 'Нижний Новгород',
+                  },
+                  {
+                    value: 'city-2',
+                    label: 'Москва',
+                  },
+                  {
+                    value: 'city-3',
+                    label: 'Санкт-Петербург',
+                  },
+                  {
+                    value: 'city-4',
+                    label: 'Новосибирск',
+                  },
+                  {
+                    value: 'city-5',
+                    label: 'Владивосток',
+                  },
+                  {
+                    value: 'city-6',
+                    label: 'Ростов',
+                  },
+                  {
+                    value: 'city-7',
+                    label: 'Томск',
+                  },
+                ],
+              },
+              attrs: {
+                name: 'city',
+                placeholder: 'Ваш город',
+                autocomplete: 'off',
+                class: 'js-default-select',
               },
             },
           ],

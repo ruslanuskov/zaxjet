@@ -1,9 +1,13 @@
 mixin field(data)
   if data
-    - var { modificators, tag, error } = data;
+    - var { modificators, tag, listing, error } = data;
     .field(class=modificators)
       .field__content
         -attributes.placeholder = attributes.placeholder ? `${attributes.placeholder}${attributes.required ? '*' : ''}` : '';
         #{tag}(class=`field__${tag}`)&attributes(attributes)
+          if listing
+            each item, idx in listing
+              - var { value, label } = item;
+              option(value=value)!=label
       if error
         .field__error!=error

@@ -6,6 +6,7 @@ import TooltipClass from './classes/toottip';
 import DetailClass from './classes/detail';
 import TabsClass from './classes/tabs';
 import PopupsClass from './classes/popups';
+import SelectClass from './classes/select';
 import {
   MEDIA_SM,
   MEDIA_MD,
@@ -38,6 +39,7 @@ class MainClass {
       DetailClass.init();
       TabsClass.init();
       PopupsClass.init();
+      SelectClass.init();
     }, 0);
   }
 
