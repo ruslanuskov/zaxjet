@@ -1,0 +1,180 @@
+extends ./common/wrapper
+include ./modules/order
+
+block config
+  - var title = 'Оформление заказа';
+
+  -
+    var order = {
+      backBtn: {
+        options: {
+          tag: 'button',
+          label: 'Назад',
+          icons: {
+            left: 'chevron-left',
+          },
+        },
+        attrs: {
+          type: 'button',
+        },
+      },
+      title: {
+        tag: 'h1',
+        label: 'Оформление заказа',
+      },
+      subtitle: 'Заполните форму',
+      orderForm: {
+        fields: [
+          [
+            {
+              options: {
+                tag: 'input',
+              },
+              attrs: {
+                type: 'text',
+                name: 'fio',
+                placeholder: 'Фамилия Имя Отчество',
+                autocomplete: 'off',
+                required: true,
+              },
+            },
+            {
+              options: {
+                tag: 'input',
+              },
+              attrs: {
+                type: 'tel',
+                name: 'telephone',
+                placeholder: 'Телефон',
+                autocomplete: 'off',
+                required: true,
+              },
+            },
+            {
+              options: {
+                tag: 'input',
+                error: 'Введите e-mail',
+              },
+              attrs: {
+                type: 'email',
+                name: 'email',
+                placeholder: 'E-mail',
+                autocomplete: 'off',
+                required: true,
+                class: '_error',
+              },
+            },
+          ],
+          [
+            {
+              options: {
+                tag: 'input',
+              },
+              attrs: {
+                type: 'text',
+                name: 'city',
+                placeholder: 'Ваш город',
+                autocomplete: 'off',
+              },
+            },
+          ],
+          [
+            {
+              options: {
+                tag: 'textarea',
+              },
+              attrs: {
+                name: 'comment',
+                placeholder: 'Комментарий',
+              },
+            },
+          ],
+        ],
+        infoBtn: {
+          options: {
+            tag: 'a',
+            label: 'Условия доставки и оплаты',
+            icons: {
+              left: 'info',
+            },
+          },
+          attrs: {
+            href: '#',
+            target: '_blank',
+          },
+        },
+        footer: {
+          checkbox: {
+            options: {
+              label: 'Согласен с использованием персональных данных для обработки обращения'
+            },
+            attrs: {
+              name: 'policy',
+            },
+          },
+          btn: {
+            options: {
+              tag: 'button',
+              label: 'Отправить',
+            },
+            attrs: {
+              type: 'submit',
+              disabled: true,
+            },
+          },
+        },
+      },
+      purchases: {
+        title: 'Корзина',
+        itog: [
+          {
+            label: 'Итого',
+            value: '1 496 800 р.',
+          },
+        ],
+        products: [
+          {
+            picture: {
+              single: {
+                path: 'images/order/1.png',
+                sizes: {
+                  _0: [100, 100],
+                },
+              },
+            },
+            name: 'Корпус для гидроцикла Ride Pro',
+            price: '1 180 000 р.',
+            count: '1 шт.',
+          },
+          {
+            picture: {
+              single: {
+                path: 'images/order/2.png',
+                sizes: {
+                  _0: [100, 100],
+                },
+              },
+            },
+            name: 'Выхлопная труба',
+            price: '270 000 р.',
+            count: '3 шт.',
+          },
+          {
+            picture: {
+              single: {
+                path: 'images/order/3.png',
+                sizes: {
+                  _0: [100, 100],
+                },
+              },
+            },
+            name: 'Кольцо водомета 144',
+            price: '46 800 р.',
+            count: '2 шт.',
+          },
+        ],
+      },
+    };
+
+block content
+  +order(order)

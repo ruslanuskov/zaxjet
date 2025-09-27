@@ -1,0 +1,145 @@
+@use 'sass:map';
+@use '../utils' as *;
+
+.purchases {
+  flex: none;
+  width: 100%;
+  &__wrapper {
+    border-radius: 1rem;
+    background: var(--white);
+    box-shadow: 0 8px 24px 0 rgba(129, 135, 189, 0.15);
+    padding: 2.5rem map.get($indents, sm) 2.4rem;
+    @include up(md) {
+      padding: 4.1rem 6rem 4rem;
+    }
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3.9rem;
+  }
+  &__title {
+    font-size: 2.8rem;
+  }
+  &__itog {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 500;
+      @include up(md) {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+    &-label {
+      text-transform: uppercase;
+      @include up(md) {
+        flex: 1 1 auto;
+      }
+    }
+    &-value {
+      flex: none;
+      @include up(md) {
+        text-align: right;
+      }
+    }
+  }
+  &__content {
+    position: relative;
+    top: 0.1rem;
+    * + & {
+      margin-top: 2.9rem;
+      padding-top: 3.1rem;
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 0.1rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: var(--text-color);
+        opacity: 0.1;
+      }
+    }
+  }
+  &__product {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1.4rem;
+    @include up(md) {
+      gap: 3rem;
+    }
+    &-picture {
+      flex: none;
+      width: 10rem;
+      height: 10rem;
+      picture {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-content {
+      flex: 1 1 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        'name name'
+        'price count';
+      gap: 1.6rem 1.4rem;
+      @include up(md) {
+        gap: 1.6rem 5rem;
+        grid-template-areas:
+          'name count'
+          'price count';
+      }
+    }
+    &-name {
+      font-weight: 600;
+      line-height: 1.5;
+      font-size: 1.6rem;
+      grid-column: span 2;
+      grid-area: name;
+      @include line-clamp(2);
+      @include up(md) {
+        grid-column: auto;
+        max-width: 16rem;
+      }
+      @include up(lg) {
+        max-width: none;
+      }
+    }
+    &-link {
+      color: var(--text-color);
+      display: block;
+      width: fit-content;
+    }
+    &-price {
+      font-size: 1.6rem;
+      font-weight: 500;
+      grid-area: price;
+    }
+    &-count {
+      font-size: 1.6rem;
+      opacity: 0.4;
+      grid-area: count;
+      @include up(md) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        text-align: right;
+      }
+      span {
+        display: block;
+        flex: none;
+      }
+    }
+  }
+}
