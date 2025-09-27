@@ -1,0 +1,18 @@
+mixin final(data)
+  if data
+    - var { title, text, purchases, socials } = data;
+    section.final._content&attributes(attributes)
+      .container.final__container
+        if title || text || purchases
+          .final__content
+            if title || text
+              .final__header
+                if title
+                  - var { tag, label } = title;
+                  #{tag || 'h1'}.h3.final__title!=label
+                if text
+                  p.final__text!=text
+            if purchases
+              +purchases(purchases).final__purchases
+        if socials
+          +socials(socials)._option-2.final__socials

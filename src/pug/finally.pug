@@ -1,0 +1,91 @@
+extends ./common/wrapper
+include ./modules/final
+
+block config
+  - var title = 'Ваш заказ успешно оформлен';
+
+  -
+    var final = {
+      title: {
+        tag: 'h1',
+        label: title,
+      },
+      text: 'Благодарим за выбор нашей компании. В ближайшее время наши менеджеры свяжутся с вами для подтверждения заказа.',
+      purchases: {
+        title: 'Состав заказа',
+        itog: [
+          {
+            label: 'Итого',
+            value: '1 496 800 р.',
+          },
+        ],
+        products: [
+          {
+            picture: {
+              single: {
+                path: 'images/order/1.png',
+                sizes: {
+                  _0: [100, 100],
+                },
+              },
+            },
+            name: 'Корпус для гидроцикла Ride Pro',
+            price: '1 180 000 р.',
+            count: '1 шт.',
+          },
+          {
+            picture: {
+              single: {
+                path: 'images/order/2.png',
+                sizes: {
+                  _0: [100, 100],
+                },
+              },
+            },
+            name: 'Выхлопная труба',
+            price: '270 000 р.',
+            count: '3 шт.',
+          },
+          {
+            picture: {
+              single: {
+                path: 'images/order/3.png',
+                sizes: {
+                  _0: [100, 100],
+                },
+              },
+            },
+            name: 'Кольцо водомета 144',
+            price: '46 800 р.',
+            count: '2 шт.',
+          },
+        ],
+      },
+      socials: {
+        title: 'Мы в соцсетях',
+        btns: [
+          {
+            url: '#',
+            icon: 'rutube',
+            target: '_blank',
+            modificators: '_rutube',
+          },
+          {
+            url: '#',
+            icon: 'youtube',
+            target: '_blank',
+            modificators: '_youtube',
+          },
+          {
+            url: '#',
+            icon: 'vk',
+            target: '_blank',
+            modificators: '_vk',
+          },
+        ],
+        text: 'Смотрите видео захватывающих заездов наших райдеров и следите за новостями',
+      },
+    };
+
+block content
+  +final(final)
