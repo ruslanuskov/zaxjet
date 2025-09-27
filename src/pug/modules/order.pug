@@ -1,0 +1,20 @@
+mixin order(data)
+  - var { backBtn, title, subtitle, orderForm, purchases } = data;
+  section.order._content&attributes(attributes)
+    .container.order__container
+      if backBtn || title
+        .order__header
+          if backBtn
+            - var { options, attrs } = backBtn;
+            +btn(options)._text._gray.order__back-btn.js-back-btn&attributes(attrs)
+          if title
+            - var { tag, label } = title;
+            #{tag || 'h1'}.h2.order__title!=label
+      if subtitle || orderForm || purchases
+        .order__content
+          if subtitle
+            h3.h3.order__subtitle!=subtitle
+          if orderForm
+            +order-form(orderForm).order__form
+          if purchases
+            +purchases(purchases).order__purchases

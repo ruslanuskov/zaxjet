@@ -1,0 +1,57 @@
+@use '../utils' as *;
+
+.order-form {
+  flex: none;
+  width: 100%;
+  row-gap: 3rem;
+  &,
+  &__fields,
+  &__section,
+  &__footer {
+    display: flex;
+    flex-direction: column;
+  }
+  &__fields {
+    row-gap: 3rem;
+  }
+  &__section {
+    row-gap: 2rem;
+  }
+  &__info-btn {
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+  &__footer {
+    row-gap: 2rem;
+  }
+  &__checkbox {
+    @include up(md) {
+      max-width: 60.92%;
+    }
+    @include up(lg) {
+      max-width: 77.603%;
+    }
+    @include up(xl) {
+      max-width: 66.616%;
+    }
+    .checkbox__content {
+      gap: 1.3rem;
+    }
+    .checkbox__label {
+      font-size: 1.6rem;
+    }
+  }
+  &__btn {
+    width: 100%;
+    @include up(md) {
+      width: fit-content;
+      min-width: 40.23%;
+    }
+    @include up(lg) {
+      min-width: 51.247%;
+    }
+    @include up(xl) {
+      min-width: 43.992%;
+    }
+  }
+}

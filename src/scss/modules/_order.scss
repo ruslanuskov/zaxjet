@@ -1,0 +1,46 @@
+@use 'sass:map';
+@use '../utils' as *;
+
+.order {
+  padding: {
+    top: 8.1rem;
+    bottom: 12rem;
+  }
+  &__container,
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+  &__container {
+    row-gap: 6rem;
+  }
+  &__header {
+    row-gap: 3rem;
+  }
+  &__content {
+    display: grid;
+    gap: 4rem;
+    @include up(lg) {
+      grid-template-columns: 1fr 47.1%;
+      gap: 4rem 4.4rem;
+    }
+    @include up(xl) {
+      gap: 4rem 13.4rem;
+      grid-template-columns: 1fr 40.55%;
+    }
+  }
+  &__subtitle {
+    font-size: 2.8rem;
+    @include up(lg) {
+      grid-column: span 2;
+    }
+  }
+  &__purchases {
+    .purchases__wrapper {
+      margin: 0 -#{map.get($indents, sm)};
+      @include up(md) {
+        margin: 0;
+      }
+    }
+  }
+}

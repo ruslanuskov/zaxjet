@@ -1,0 +1,25 @@
+mixin order-form(data)
+  if data
+    - var { fields, infoBtn, footer } = data;
+    form.order-form(autocomplete="off" novalidate="novalidate" method="POST")&attributes(attributes)
+      if fields
+        .order-form__fields
+          each section in fields
+            .order-form__section
+              each item in section
+                - var { options, attrs } = item;
+                -options.modificators = options.modificators ? `${options.modificators} order-form__field` : 'order-form__field';
+                +field(options)&attributes(attrs)
+      if infoBtn
+        - var { options, attrs } = infoBtn;
+        +btn(options)._text._blue.order-form__info-btn&attributes(attrs)
+      if footer
+        - var { checkbox, btn } = footer;
+        .order-form__footer
+          if checkbox
+            - var { options, attrs } = checkbox;
+            -options.modificators = options.modificators ? `${options.modificators} order-form__checkbox` : 'order-form__checkbox';
+            +checkbox(options)&attributes(attrs)
+          if btn
+            - var { options, attrs } = btn;
+            +btn(options)._primary.order-form__btn&attributes(attrs)
