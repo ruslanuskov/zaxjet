@@ -1,0 +1,20 @@
+mixin faq(data)
+  if data
+    - var { title, questions } = data;
+    section.faq._content&attributes(attributes)
+      .container.faq__container
+        if title
+          - var { tag, label } = title;
+          #{tag || 'h1'}.h2.faq__title!=label
+        if questions
+          .faq__content
+            each item, idx in questions
+              - var { title, text } = item;
+              .faq__item
+                if title
+                  .faq__item-trigger.js-accordion-trigger(data-id=`accordion-${idx + 1}`)
+                    h6.faq__item-title!=title
+                    +svg('chevron-down').faq__item-arrow
+                if text
+                  .faq__item-text(id=`accordion-${idx + 1}`)
+                    .rte!=text

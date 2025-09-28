@@ -17,9 +17,11 @@ export default class BasketClass {
   }
 
   toggleSelectedProducts() {
-    this.togglerAll.addEventListener('change', () => {
-      this.toggleAllCheckboxes();
-    });
+    if (this.togglerAll) {
+      this.togglerAll.addEventListener('change', () => {
+        this.toggleAllCheckboxes();
+      });
+    }
 
     document.addEventListener('change', event => {
       const checkbox = event.target.closest(`.${SELECTED_ONE_SELECTOR}`);
