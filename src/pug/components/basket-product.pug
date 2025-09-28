@@ -1,0 +1,48 @@
+mixin basket-product(data)
+  if data
+    - var { checkbox, picture, title, info, footer } = data;
+    .basket-product&attributes(attributes)
+      if checkbox || picture || title || info
+        .basket-product__content
+          if checkbox
+            - var { options, attrs } = checkbox;
+            - var params = options || {}
+            -params.modificators = params.modificators ? `${params.modificators} basket-product__checkbox` : 'basket-product__checkbox';
+            +checkbox(params)&attributes(attrs)
+          if picture
+            a.basket-product__picture(href="#")
+              +picture(picture)._contain
+          if title || info
+            .basket-product__detail
+              if title
+                h6.basket-product__title
+                  a.basket-product__title-link._link-hover(href="#")!=title
+              if info
+                ul.basket-product__info
+                  each item in info
+                    - var { label, value } = item;
+                    li.basket-product__info-item
+                      if label
+                        span.basket-product__info-label!=label
+                      if value
+                        span.basket-product__info-value!=value
+      if footer
+        - var { prices, link, sale, counter } = footer;
+        .basket-product__footer
+          if prices || link || sale
+            .basket-product__price-detail
+              if prices
+                - var { current, old } = prices;
+                .basket-product__prices
+                  if current
+                    span.basket-product__prices-current!=current
+                  if old
+                    span.basket-product__prices-old!=old
+              if sale
+                .basket-product__sale!=sale
+              if link
+                - var { options, attrs } = link;
+                +btn(options).basket-product__link._text._blue&attributes(attrs)
+          if counter
+            .basket-product__counter
+              +counter(counter)._small

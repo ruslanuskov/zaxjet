@@ -13,7 +13,126 @@ block config
         label: 'Корзина',
       },
       count: '6 товаров',
-      cards: [],
+      cards: [
+        {
+          checkbox: {
+            attrs: {
+              name: 'product-1',
+              class: 'js-selected-one',
+            },
+          },
+          picture: {
+            single: {
+              path: 'images/basket/1.png',
+              sizes: {
+                _768: [140, 140],
+                _0: [100, 100],
+              },
+            },
+          },
+          title: 'Корпус для гидроцикла RidePro 4.1',
+          info: [
+            {
+              label: 'Материал:',
+              value: 'карбон',
+            },
+            {
+              label: 'Цвет:',
+              value: 'шашечка Луи',
+            },
+            {
+              label: 'Кит графики:',
+              value: 'хром',
+            },
+            {
+              label: 'Индивидуальная графика:',
+              value: 'да',
+            },
+            {
+              label: 'Цвет матов:',
+              value: 'фиолетовый',
+            },
+            {
+              label: 'Захваты для ног:',
+              value: 'Wimelton',
+            },
+          ],
+          footer: {
+            prices: {
+              current: '1 180 000 р.',
+            },
+            link: {
+              options: {
+                tag: 'a',
+                label: 'Под заказ',
+                icons: {
+                  left: 'info',
+                },
+              },
+              attrs: {
+                href: '#',
+              },
+            },
+            counter: {
+              count: 1,
+            },
+          },
+        },
+        {
+          checkbox: {
+            attrs: {
+              name: 'product-2',
+              class: 'js-selected-one',
+            },
+          },
+          picture: {
+            single: {
+              path: 'images/basket/2.png',
+              sizes: {
+                _768: [140, 140],
+                _0: [100, 100],
+              },
+            },
+          },
+          title: 'Кольцо водомета 144',
+          footer: {
+            prices: {
+              current: '46 800 р.',
+              old: '52 000 р.',
+            },
+            sale: '-10%',
+            counter: {
+              count: 2,
+            },
+          },
+        },
+        {
+          checkbox: {
+            attrs: {
+              name: 'product-3',
+              class: 'js-selected-one',
+            },
+          },
+          picture: {
+            single: {
+              path: 'images/basket/3.png',
+              sizes: {
+                _768: [140, 140],
+                _0: [100, 100],
+              },
+            },
+          },
+          title: 'Выхлопная труба',
+          footer: {
+            prices: {
+              current: '270 000 р.',
+            },
+            counter: {
+              count: 3,
+            },
+          },
+        },
+      ],
       itog: {
         list: [
           {
