@@ -34,7 +34,7 @@ mixin detail(data)
                               +picture(picture)._cover
             if content
               - var { title, code, text, characteristics, settings, status, prices, error, counter } = content;
-              form.detail__content(action="#")
+              form.detail__content(autocomplete="off" novalidate="novalidate" method="POST")
                 if title
                   h1.h3.detail__title!=title
                 if code

@@ -27,6 +27,9 @@
     font-size: 2rem;
     opacity: 0.7;
   }
+  &__info {
+    display: block;
+  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -63,7 +66,7 @@
       position: relative;
       top: -0.1rem;
     }
-    &._hidden {
+    &._lock {
       display: none;
     }
   }
