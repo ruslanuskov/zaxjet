@@ -35,6 +35,7 @@ export default class ModalsClass {
         hideClass: 'f-fadeOut',
         closeButton: false,
         closeExisting: true,
+        dragToClose: false,
         ...options,
       },
     );

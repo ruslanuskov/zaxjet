@@ -1,0 +1,17 @@
+mixin small-product(data)
+  if data
+    - var { picture, name, price, count } = data;
+    .small-product&attributes(attributes)
+      if picture
+        a.small-product__picture(href="#")
+          +picture(picture)._contain
+      if name || price || count
+        .small-product__content
+          if name
+            h6.small-product__name
+              a.small-product__link._link-hover(href="#")!=name
+          if price
+            .small-product__price!=price
+          if count
+            .small-product__count
+              span!=count

@@ -1,3 +1,5 @@
+include ./popup-basket
+
 -
   var logo = {
     url: '/',
@@ -57,6 +59,110 @@
     },
   ];
 
+-
+  var popupBasket = {
+    options: {
+      header: {
+        title: 'Товар добавлен!',
+        subtitle: 'Корзина',
+        sum: '4 850 700 р.',
+        count: '16 шт.',
+      },
+      cards: [
+        {
+          picture: {
+            single: {
+              path: 'images/popup-basket/1.jpg',
+              sizes: {
+                _0: [100, 100],
+              },
+            },
+          },
+          name: 'Корпус для гидроцикла Ride Pro',
+          price: '1 180 000 р.',
+          count: '1 шт.',
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/popup-basket/2.jpg',
+              sizes: {
+                _0: [100, 100],
+              },
+            },
+          },
+          name: 'Выхлопная труба',
+          price: '270 000 р.',
+          count: '3 шт.',
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/popup-basket/3.jpg',
+              sizes: {
+                _0: [100, 100],
+              },
+            },
+          },
+          name: 'Кольцо водомета 144',
+          price: '46 800 р.',
+          count: '2 шт.',
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/popup-basket/4.jpg',
+              sizes: {
+                _0: [100, 100],
+              },
+            },
+          },
+          name: 'Нижний кронштейн рулевой рейки',
+          price: '26 000 р.',
+          count: '1 шт.',
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/popup-basket/5.jpg',
+              sizes: {
+                _0: [100, 100],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминиевая',
+          price: '32 300 р.',
+          count: '1 шт.',
+        },
+      ],
+      footer: [
+        {
+          options: {
+            tag: 'a',
+            label: 'Оформить заказ',
+          },
+          attrs: {
+            href: '#',
+            class: '_primary',
+          },
+        },
+        {
+          options: {
+            tag: 'a',
+            label: 'Перейти в корзину',
+          },
+          attrs: {
+            href: '#',
+            class: '_secondary',
+          },
+        },
+      ],
+    },
+    attrs: {
+      id: 'basket-add',
+    },
+  };
+
 header.header
   .header__panel
     .container.header__container
@@ -87,8 +193,11 @@ header.header
           each item in links
             - var { icon, count, modificators } = item;
             li.header__links-item(class=`${modificators || ''}` + (count > 0 ? `${modificators ? ' ' : ''}_active` : ''))
-              a.header__links-element._link-hover(href="#")
+              a.header__links-element._link-hover(href="#" class=icon === 'basket' ? 'js-basket-btn' : '')
                 if icon
                   +svg(icon).header__links-icon
                 if count
                   .header__links-count!=count
+              if icon === 'basket' && popupBasket
+                - var { options, attrs } = popupBasket;
+                +popup-basket(options)&attributes(attrs)

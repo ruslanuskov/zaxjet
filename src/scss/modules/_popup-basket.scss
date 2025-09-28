@@ -1,0 +1,97 @@
+@use 'sass:map';
+@use '../utils' as *;
+
+.popup-basket {
+  border-radius: 0;
+  flex-direction: column;
+  min-height: 0;
+  padding: 4rem map.get($indents, sm);
+  max-height: 89.2rem;
+  height: 100%;
+  @include up(md) {
+    border-radius: 2rem;
+    max-width: none;
+    padding: {
+      left: 4rem;
+      right: 4rem;
+    }
+  }
+  &__content,
+  &__header,
+  &__footer {
+    display: flex;
+    flex-direction: column;
+  }
+  &__content {
+    flex: 1 1 auto;
+    row-gap: 3rem;
+    justify-content: space-between;
+    min-height: 0;
+  }
+  &__header {
+    row-gap: 2rem;
+  }
+  &__title {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  &__subinfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0 2rem;
+  }
+  &__subtitle {
+    font-size: 2rem;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  &__sum,
+  &__count {
+    flex: none;
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+  &__sum {
+    font-weight: 500;
+  }
+  &__count {
+    opacity: 0.4;
+  }
+  &__cards {
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    &-item {
+      &:first-child {
+        @include up(md) {
+          padding-top: 0;
+        }
+      }
+      &:last-child {
+        @include up(md) {
+          padding-bottom: 0;
+        }
+      }
+      .small-product__content {
+        @include up(md) {
+          column-gap: 1rem;
+        }
+      }
+    }
+    &-item + &-item {
+      @include up(md) {
+        margin-top: 0.75rem;
+      }
+    }
+  }
+  &__footer {
+    flex: none;
+    row-gap: 2rem;
+  }
+  &__btn {
+    width: 100%;
+  }
+}
