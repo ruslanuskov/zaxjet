@@ -1,0 +1,64 @@
+extends ./common/wrapper
+include ./modules/faq
+include ./modules/feedback
+
+block config
+  - var title = 'Частые вопросы';
+
+  -
+    var faq = {
+      title: {
+        tag: 'h1',
+        label: 'Частые вопросы',
+      },
+      questions: [
+        {
+          title: 'Что значит “под заказ”?',
+          text: `<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe animi beatae veritatis consectetur dolor possimus sit maxime blanditiis culpa, officiis, eveniet velit iure vitae excepturi harum doloremque dolore aperiam mollitia. Eius nisi dolorem nostrum commodi pariatur autem voluptatibus, est odio dolore culpa provident sint quasi quod accusantium minus consequatur magnam perferendis architecto mollitia! Quos debitis error, amet quidem, exercitationem cum id beatae possimus dolorem quaerat molestiae animi ipsum asperiores illo labore aliquam tempore, nulla sed earum molestias cupiditate commodi. Vel dignissimos placeat, a eligendi enim neque provident, iusto animi itaque vitae omnis eum dolorum aspernatur corrupti recusandae! Veniam, voluptas id!</p>`,
+        },
+        {
+          title: 'Условия доставки и оплаты',
+          text: `<p>Способ оплаты</p><p>Способ доставки</p><p>Сроки и стоимость</p>`,
+        },
+        {
+          title: 'Что делать, если гидроцикл не заводится?',
+          text: `<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe animi beatae veritatis consectetur dolor possimus sit maxime blanditiis culpa, officiis, eveniet velit iure vitae excepturi harum doloremque dolore aperiam mollitia. Eius nisi dolorem nostrum commodi pariatur autem voluptatibus, est odio dolore culpa provident sint quasi quod accusantium minus consequatur magnam perferendis architecto mollitia! Quos debitis error, amet quidem, exercitationem cum id beatae possimus dolorem quaerat molestiae animi ipsum asperiores illo labore aliquam tempore, nulla sed earum molestias cupiditate commodi. Vel dignissimos placeat, a eligendi enim neque provident, iusto animi itaque vitae omnis eum dolorum aspernatur corrupti recusandae! Veniam, voluptas id!</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe animi beatae veritatis consectetur dolor possimus sit maxime blanditiis culpa, officiis, eveniet velit iure vitae excepturi harum doloremque dolore aperiam mollitia. Eius nisi dolorem nostrum commodi pariatur autem voluptatibus, est odio dolore culpa provident sint quasi quod accusantium minus consequatur magnam perferendis architecto mollitia! Quos debitis error, amet quidem, exercitationem cum id beatae possimus dolorem quaerat molestiae animi ipsum asperiores illo labore aliquam tempore, nulla sed earum molestias cupiditate commodi. Vel dignissimos placeat, a eligendi enim neque provident, iusto animi itaque vitae omnis eum dolorum aspernatur corrupti recusandae! Veniam, voluptas id!</p>`,
+        },
+      ],
+    };
+
+  -
+    var feedback = {
+      title: {
+        tag: 'h3',
+        label: 'Свяжитесь с нами',
+      },
+      text: 'Ответим на любые ваши вопросы',
+      telephone: {
+        url: 'tel:+79911758377',
+        label: '+7 (991) 175-83-77',
+      },
+      networks: [
+        {
+          url: '#',
+          icon: 'feed-telegram',
+          target: '_blank',
+          label: 'Telegram',
+        },
+        {
+          url: '#',
+          icon: 'feed-whatsapp',
+          target: '_blank',
+          label: 'WhatsApp',
+        },
+        {
+          url: 'mailto:ask@zaxjet.com',
+          icon: 'feed-email',
+          label: 'ask@zaxjet.com',
+        },
+      ],
+    };
+
+block content
+  +faq(faq)
+  +feedback(feedback)
