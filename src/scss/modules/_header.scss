@@ -23,7 +23,8 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 100dvw;
+    width: 100%;
+    padding-right: var(--fancybox-scrollbar-compensate);
   }
   &__container {
     display: flex;

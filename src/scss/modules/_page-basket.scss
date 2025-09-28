@@ -1,0 +1,181 @@
+@use '../utils' as *;
+
+.page-basket {
+  &._content {
+    padding-top: 8.1rem;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6.1rem;
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include up(md) {
+      flex-direction: row;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+  }
+  &__title {
+    font-size: 4.6rem;
+    line-height: 1;
+  }
+  &__count {
+    font-size: 2rem;
+    opacity: 0.7;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+  &__controls {
+    display: flex;
+    gap: 1rem 0;
+    flex-direction: column;
+    @include up(md) {
+      align-items: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 1rem 6rem;
+    }
+  }
+  &__selected-all {
+    .checkbox__marker {
+      position: relative;
+      top: -0.1rem;
+    }
+    .checkbox__label {
+      font-weight: 500;
+      font-size: 1.6rem;
+      opacity: 0.3;
+    }
+  }
+  &__remove-btn {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    .btn__icon {
+      width: 1.9rem;
+      height: 1.9rem;
+      position: relative;
+      top: -0.1rem;
+    }
+  }
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 2.4rem;
+    @include up(md) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    * + & {
+      margin-top: 3rem;
+      padding-top: 3.1rem;
+      @include up(md) {
+        padding-top: 4.1rem;
+      }
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 0.1rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: var(--text-color);
+        opacity: 0.1;
+      }
+    }
+  }
+  &__promo {
+    flex: none;
+    width: 100%;
+    display: flex;
+    gap: 0.8rem;
+    @include up(md) {
+      width: 47.1%;
+      margin-top: -1rem;
+      gap: 1rem;
+    }
+    @include up(lg) {
+      width: 38.7%;
+    }
+    @include up(xl) {
+      width: 33.4%;
+    }
+    &-field {
+      flex: 1 1 auto;
+      .field__input {
+        height: 4rem;
+        font-size: 1.6rem;
+      }
+    }
+    &-btn {
+      flex: none;
+      width: 46%;
+      height: 4rem;
+      padding: 0 1rem;
+      font-size: 1.6rem;
+      @include up(md) {
+        width: 49.4%;
+      }
+      @include up(lg) {
+        width: 37.4%;
+      }
+    }
+  }
+  &__itog {
+    flex: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    @include up(md) {
+      margin-left: auto;
+      width: 44%;
+    }
+    @include up(lg) {
+      width: 27.4%;
+    }
+    @include up(xl) {
+      width: 23.6%;
+    }
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 2rem;
+    }
+    &-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.4rem;
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 500;
+    }
+    &-label {
+      flex: 1 1 auto;
+    }
+    &-value {
+      flex: none;
+      @include up(md) {
+        text-align: right;
+      }
+    }
+  }
+  &__btn {
+    width: 100%;
+  }
+  &__empty-result {
+    font-size: 2rem;
+    font-weight: 500;
+    opacity: 0.4;
+    text-align: center;
+    padding: 1.8rem 0 6rem;
+  }
+}

@@ -35,11 +35,11 @@
     @include up(xl) {
       max-width: 66.616%;
     }
-    .checkbox__content {
-      gap: 1.3rem;
-    }
     .checkbox__label {
       font-size: 1.6rem;
+    }
+    .checkbox__marker + .checkbox__label {
+      padding-left: 1.3rem;
     }
   }
   &__btn {

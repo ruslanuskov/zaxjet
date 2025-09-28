@@ -1,0 +1,234 @@
+extends ./common/wrapper
+include ./modules/page-basket
+include ./modules/short-catalog
+include ./modules/models
+include ./modules/feedback
+
+block config
+  - var title = 'Корзина';
+
+  -
+    var pageBasket = {
+      title: {
+        tag: 'h1',
+        label: 'Корзина',
+      },
+      count: '0 товаров',
+    };
+
+  -
+    var shortCatalog = {
+      title: {
+        tag: 'h3',
+        label: 'С этим покупают',
+        attrs: {
+          class: 'h3',
+        },
+      },
+      cards: [
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/1.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [216, 216],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          info: {
+            text: '<div>под заказ</div><a href="#">подробнее</a>',
+          },
+          prices: {
+            current: '18 000 р.',
+          },
+        },
+        {
+          sale: '-20%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/2.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [216, 216],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Задний кронштейн аккумулятора',
+          prices: {
+            current: '14 400 р.',
+            old: '18 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/3.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [216, 216],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Чин-пад видовой карбон',
+          prices: {
+            current: '38 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/4.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [216, 216],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Чин-пад стеклоткань',
+          prices: {
+            current: '17 000 р.',
+          },
+        },
+        {
+          sale: '-15%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/5.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [216, 216],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          prices: {
+            current: '32 300 р.',
+            old: '38 000 р.',
+          },
+        },
+      ],
+    };
+
+  -
+    var models = {
+      title: {
+        tag: 'h3',
+        label: 'Модели ZaxJet',
+        attrs: {
+          class: 'h3 _left-position',
+        },
+      },
+      cards: [
+        {
+          picture: {
+            single: {
+              path: 'images/models/1.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [472, 203],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: 'RidePro',
+          price: 'от 930 000 р.',
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/models/2.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [472, 203],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: '2Style',
+          price: 'от 1 050 000 р.',
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/models/3.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [472, 203],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: '2StylePro',
+          price: 'от 1 050 000 р.',
+        },
+      ],
+    };
+
+  -
+    var feedback = {
+      title: {
+        tag: 'h3',
+        label: 'Остались вопросы?',
+      },
+      text: 'Пишите нам или нашим партнёрам — подберём модель, комплектацию, рассчитаем сроки и стоимость.',
+      telephone: {
+        url: 'tel:+79911758377',
+        label: '+7 (991) 175-83-77',
+      },
+      networks: [
+        {
+          url: '#',
+          icon: 'feed-telegram',
+          target: '_blank',
+          label: 'Telegram',
+        },
+        {
+          url: '#',
+          icon: 'feed-whatsapp',
+          target: '_blank',
+          label: 'WhatsApp',
+        },
+        {
+          url: 'mailto:ask@zaxjet.com',
+          icon: 'feed-email',
+          label: 'ask@zaxjet.com',
+        },
+      ],
+    };
+
+block content
+  +page-basket(pageBasket)
+  +short-catalog(shortCatalog)._inner
+  +models(models)._inner
+  +feedback(feedback)
