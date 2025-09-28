@@ -48,6 +48,12 @@ const extendsConfig = [
           allow: ['warn', 'error'],
         },
       ],
+      'no-param-reassign': [
+        'error',
+        {
+          props: false,
+        },
+      ],
     },
     settings: {
       'import/resolver': {

@@ -11,7 +11,7 @@ mixin page-basket(data)
             if count
               .page-basket__count!=count
         if cards || itog || promo
-          .page-basket__info
+          form.page-basket__info(autocomplete="off" novalidate="novalidate" method="POST")
             if cards
               .page-basket__content
                 .page-basket__controls
@@ -25,7 +25,7 @@ mixin page-basket(data)
                     icons: {
                       left: 'urn',
                     },
-                  })(class="_text _gray page-basket__remove-btn js-remove-btn _hidden")
+                  })(type="button" class="_text _gray page-basket__remove-btn js-remove-btn _lock")
                 .page-basket__listing
                   each item in cards
                     +basket-product(item)

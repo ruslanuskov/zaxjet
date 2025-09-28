@@ -9,6 +9,7 @@ import PopupsClass from './classes/popups';
 import SelectClass from './classes/select';
 import MaskClass from './classes/mask';
 import HeaderClass from './classes/header';
+import BasketClass from './classes/basket';
 import {
   MEDIA_SM,
   MEDIA_MD,
@@ -44,6 +45,7 @@ class MainClass {
       SelectClass.init();
       MaskClass.init();
       HeaderClass.init();
+      BasketClass.init();
     }, 0);
   }
 
