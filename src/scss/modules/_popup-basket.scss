@@ -7,7 +7,7 @@
   min-height: 0;
   padding: 4rem map.get($indents, sm);
   max-height: 89.2rem;
-  height: 100%;
+  height: auto;
   @include up(md) {
     border-radius: 2rem;
     max-width: none;

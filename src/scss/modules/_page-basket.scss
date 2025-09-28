@@ -63,6 +63,17 @@
       position: relative;
       top: -0.1rem;
     }
+    &._hidden {
+      display: none;
+    }
+  }
+  &__listing {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    @include up(md) {
+      row-gap: 0;
+    }
   }
   &__footer {
     display: flex;
@@ -74,7 +85,7 @@
       align-items: flex-start;
     }
     * + & {
-      margin-top: 3rem;
+      margin-top: 2.8rem;
       padding-top: 3.1rem;
       @include up(md) {
         padding-top: 4.1rem;

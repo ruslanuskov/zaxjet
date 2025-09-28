@@ -2,7 +2,7 @@ mixin counter(data)
   if data
     - var { count, min = 1, max = 999, name = 'counter' } = data;
     .counter.js-counter&attributes(attributes)
-      input.counter__input(type="number" name=name autocomplete="off" min=min max=max)
+      input.counter__input(type="number" name=name autocomplete="off" min=min max=max value=count)
       button.counter__btn._minus.js-btn-minus(type="button")
         +svg('minus').counter__icon
       button.counter__btn._plus.js-btn-plus(type="button")

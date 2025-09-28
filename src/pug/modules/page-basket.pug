@@ -11,47 +11,50 @@ mixin page-basket(data)
             if count
               .page-basket__count!=count
         if cards || itog || promo
-          if cards
-            .page-basket__content
-              .page-basket__controls
-                +checkbox({
-                  label: 'Выбрать все',
-                  modificators: 'page-basket__selected-all _all-interect',
-                })(name="selected-all" class="js-selected-all")
-                +btn({
-                  tag: 'button',
-                  label: 'Удалить выбранные',
-                  icons: {
-                    left: 'urn',
-                  },
-                })(class="_text _gray page-basket__remove-btn")
-              .page-basket__listing
-          if itog || promo
-            .page-basket__footer
-              if promo
-                - var { field, btn } = promo;
-                .page-basket__promo
-                  if field
-                    - var { options, attrs } = field;
-                    -options.modificators = options.modificators ? `${options.modificators} page-basket__promo-field` : 'page-basket__promo-field';
-                    +field(options)&attributes(attrs)
-                  if btn
-                    - var { options, attrs } = btn;
-                    +btn(options)._secondary.page-basket__promo-btn&attributes(attrs)
-              if itog
-                - var { list, btn } = itog;
-                .page-basket__itog
-                  if list
-                    ul.page-basket__itog-list
-                      each item in list
-                        - var { label, value } = item;
-                        li.page-basket__itog-item
-                          if label
-                            span.page-basket__itog-label!=label
-                          if value
-                            span.page-basket__itog-value!=value
-                  if btn
-                    - var { options, attrs } = btn;
-                    +btn(options)._primary.page-basket__btn&attributes(attrs)
+          .page-basket__info
+            if cards
+              .page-basket__content
+                .page-basket__controls
+                  +checkbox({
+                    label: 'Выбрать все',
+                    modificators: 'page-basket__selected-all _all-interect',
+                  })(name="selected-all" class="js-selected-all")
+                  +btn({
+                    tag: 'button',
+                    label: 'Удалить выбранные',
+                    icons: {
+                      left: 'urn',
+                    },
+                  })(class="_text _gray page-basket__remove-btn js-remove-btn _hidden")
+                .page-basket__listing
+                  each item in cards
+                    +basket-product(item)
+            if itog || promo
+              .page-basket__footer
+                if promo
+                  - var { field, btn } = promo;
+                  .page-basket__promo
+                    if field
+                      - var { options, attrs } = field;
+                      -options.modificators = options.modificators ? `${options.modificators} page-basket__promo-field` : 'page-basket__promo-field';
+                      +field(options)&attributes(attrs)
+                    if btn
+                      - var { options, attrs } = btn;
+                      +btn(options)._secondary.page-basket__promo-btn&attributes(attrs)
+                if itog
+                  - var { list, btn } = itog;
+                  .page-basket__itog
+                    if list
+                      ul.page-basket__itog-list
+                        each item in list
+                          - var { label, value } = item;
+                          li.page-basket__itog-item
+                            if label
+                              span.page-basket__itog-label!=label
+                            if value
+                              span.page-basket__itog-value!=value
+                    if btn
+                      - var { options, attrs } = btn;
+                      +btn(options)._primary.page-basket__btn&attributes(attrs)
         else
           .page-basket__empty-result В корзине пока пусто
