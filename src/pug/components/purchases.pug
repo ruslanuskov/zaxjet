@@ -19,18 +19,4 @@ mixin purchases(data)
         if products
           .purchases__content
             each item in products
-              - var { picture, name, price, count } = item;
-              .purchases__product
-                if picture
-                  a.purchases__product-picture(href="#")
-                    +picture(picture)._contain
-                if name || price || count
-                  .purchases__product-content
-                    if name
-                      h6.purchases__product-name
-                        a.purchases__product-link._link-hover(href="#")!=name
-                    if price
-                      .purchases__product-price!=price
-                    if count
-                      .purchases__product-count
-                        span!=count
+              +small-product(item)

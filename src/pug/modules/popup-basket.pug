@@ -1,0 +1,30 @@
+include ./popup
+
+mixin popup-basket(data)
+  if data
+    - var { header, cards, footer } = data;
+    +popup.popup-basket&attributes(attributes)
+      .popup-basket__content
+        if header
+          - var { title, subtitle, sum, count } = header;
+          .popup-basket__header
+            if title
+              h5.popup-basket__title!=title
+            if subtitle || sum || count
+              .popup-basket__subinfo
+                if subtitle
+                  h6.popup-basket__subtitle!=subtitle
+                if sum
+                  .popup-basket__sum!=sum
+                if count
+                  .popup-basket__count!=count
+        if cards
+          .popup-basket__cards
+            each item in cards
+              +small-product(item).popup-basket__cards-item
+        if footer
+          .popup-basket__footer
+            each btn in footer
+              - var { options, attrs } = btn;
+              +btn(options).popup-basket__btn&attributes(attrs)
+

@@ -20,11 +20,10 @@
   }
   &__panel {
     background: var(--black);
-    position: sticky;
+    position: fixed;
     left: 0;
     top: 0;
-    padding-right: var(--fancybox-scrollbar-compensate);
-    width: calc(100% + var(--fancybox-scrollbar-compensate, 0));
+    width: 100dvw;
   }
   &__container {
     display: flex;
@@ -236,15 +235,20 @@
     align-items: center;
     gap: 1.4rem;
     flex: none;
+    height: 100%;
     @include up(xl) {
       gap: 2.4rem;
     }
     &-item {
+      display: flex;
+      align-items: center;
+      height: 100%;
       flex: none;
+      position: relative;
       &._question {
         display: none;
         @include up(lg) {
-          display: block;
+          display: flex;
         }
       }
       &._basket {
@@ -277,6 +281,57 @@
       position: relative;
       top: 0.3rem;
       display: none;
+    }
+    .fancybox__container {
+      left: auto;
+      right: 0;
+      bottom: auto;
+      width: 100%;
+      @include up(md) {
+        position: absolute;
+        width: 45rem;
+      }
+      @include up(xl) {
+        right: -0.6rem;
+      }
+    }
+    .fancybox__container,
+    .fancybox__slide::before,
+    .fancybox__backdrop {
+      @each $bp, $size in map.get($sizes, header) {
+        @if map.get($media, $bp) and $bp != 'sm' {
+          @include up($bp) {
+            height: calc(100dvh - $size);
+            top: $size;
+          }
+        } @else {
+          height: 100dvh;
+          top: 0;
+        }
+      }
+    }
+    .fancybox__track {
+      transform: none !important;
+    }
+    .fancybox__slide {
+      transform: none;
+      padding: 0;
+      margin: 0;
+      overflow: visible;
+      @include up(md) {
+        padding-top: 1rem;
+      }
+      @include up(xl) {
+        padding-top: 1.6rem;
+      }
+      &::after {
+        display: none;
+      }
+      &::before {
+        position: fixed;
+        left: 0;
+        width: 100%;
+      }
     }
   }
 }
