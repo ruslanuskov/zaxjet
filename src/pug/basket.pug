@@ -1,0 +1,209 @@
+extends ./common/wrapper
+include ./modules/page-basket
+include ./modules/short-catalog
+include ./modules/feedback
+
+block config
+  - var title = 'Корзина';
+
+  -
+    var pageBasket = {
+      title: {
+        tag: 'h1',
+        label: 'Корзина',
+      },
+      count: '6 товаров',
+      cards: [],
+      itog: {
+        list: [
+          {
+            label: 'ИТОГО',
+            value: '1 496 800 р.',
+          },
+        ],
+        btn: {
+          options: {
+            tag: 'button',
+            label: 'Оформить заказ',
+          },
+          attrs: {
+            type: 'submit',
+          },
+        },
+      },
+      promo: {
+        field: {
+          options: {
+            tag: 'input',
+          },
+          attrs: {
+            type: 'text',
+            name: 'code',
+            placeholder: 'Промокод',
+            autocomplete: 'off',
+          },
+        },
+        btn: {
+          options: {
+            tag: 'button',
+            label: 'Применить',
+          },
+          attrs: {
+            type: 'button',
+            disabled: true,
+          },
+        },
+      },
+    };
+
+  -
+    var shortCatalog = {
+      title: {
+        tag: 'h3',
+        label: 'С этим покупают',
+        attrs: {
+          class: 'h3',
+        },
+      },
+      cards: [
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/1.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [216, 216],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          info: {
+            text: '<div>под заказ</div><a href="#">подробнее</a>',
+          },
+          prices: {
+            current: '18 000 р.',
+          },
+        },
+        {
+          sale: '-20%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/2.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [216, 216],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Задний кронштейн аккумулятора',
+          prices: {
+            current: '14 400 р.',
+            old: '18 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/3.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [216, 216],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Чин-пад видовой карбон',
+          prices: {
+            current: '38 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/4.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [216, 216],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Чин-пад стеклоткань',
+          prices: {
+            current: '17 000 р.',
+          },
+        },
+        {
+          sale: '-15%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/5.png',
+              sizes: {
+                _1600: [161, 161],
+                _1280: [216, 216],
+                _1024: [294, 294],
+                _768: [227, 227],
+                _400: [422, 422],
+                _0: [206, 206],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          prices: {
+            current: '32 300 р.',
+            old: '38 000 р.',
+          },
+        },
+      ],
+    };
+
+  -
+    var feedback = {
+      title: {
+        tag: 'h3',
+        label: 'Остались вопросы?',
+      },
+      text: 'Пишите нам или нашим партнёрам — подберём модель, комплектацию, рассчитаем сроки и стоимость.',
+      telephone: {
+        url: 'tel:+79911758377',
+        label: '+7 (991) 175-83-77',
+      },
+      networks: [
+        {
+          url: '#',
+          icon: 'feed-telegram',
+          target: '_blank',
+          label: 'Telegram',
+        },
+        {
+          url: '#',
+          icon: 'feed-whatsapp',
+          target: '_blank',
+          label: 'WhatsApp',
+        },
+        {
+          url: 'mailto:ask@zaxjet.com',
+          icon: 'feed-email',
+          label: 'ask@zaxjet.com',
+        },
+      ],
+    };
+
+block content
+  +page-basket(pageBasket)
+  +short-catalog(shortCatalog)._inner
+  +feedback(feedback)

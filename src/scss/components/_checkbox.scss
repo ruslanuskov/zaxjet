@@ -115,7 +115,6 @@
   &__content {
     display: flex;
     align-items: center;
-    gap: 1rem;
     user-select: none;
   }
   &__marker {
@@ -150,6 +149,48 @@
     }
     strong {
       font-weight: 500;
+    }
+  }
+  &__marker + &__label {
+    padding-left: 1rem;
+  }
+  &._all-interect {
+    @include hover {
+      input {
+        &[type='checkbox'] {
+          &:not(:disabled) {
+            &:checked {
+              & + #{$root}__content {
+                #{$root}__marker {
+                  opacity: 0.8;
+                }
+              }
+            }
+          }
+        }
+        &[type='radio'] {
+          &:not(:disabled) {
+            &:checked {
+              & + #{$root}__content {
+                #{$root}__marker {
+                  opacity: 0.8;
+                }
+              }
+            }
+          }
+        }
+        &:not(:disabled) {
+          & + #{$root}__content {
+            #{$root}__label {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      #{$root}__marker {
+        opacity: 1;
+        border-color: var(--blue);
+      }
     }
   }
 }
