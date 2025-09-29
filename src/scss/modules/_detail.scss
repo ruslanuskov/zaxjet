@@ -500,7 +500,13 @@
     width: 100%;
     flex: none;
     @include up(md) {
-      width: 30.6rem;
+      width: 48.114%;
+    }
+    @include up(lg) {
+      width: 50.653%;
+    }
+    @include up(xl) {
+      width: 48.12%;
     }
     &-content {
       display: flex;
@@ -519,8 +525,17 @@
     }
     width: 100%;
     &._short {
-      width: 9.8rem;
+      width: 38.79%;
       border-radius: 0.8rem;
+      @include up(md) {
+        width: 37.26%;
+      }
+      @include up(lg) {
+        width: 37.26%;
+      }
+      @include up(xl) {
+        width: 37.26%;
+      }
     }
   }
   &__error {
