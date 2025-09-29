@@ -25,6 +25,15 @@
       }
     }
   }
+  &._in-catalog {
+    padding-top: 4rem;
+    @include up(md) {
+      padding-top: 6rem;
+    }
+    @include up(xl) {
+      padding-bottom: 6rem;
+    }
+  }
   &__container {
     display: flex;
     flex-direction: column;
