@@ -23,7 +23,7 @@
         background: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMS44NTA4IDUuMjI2NzhDMS45MDMwNSA1LjE3NDM5IDEuOTY1MTMgNS4xMzI4MyAyLjAzMzQ2IDUuMTA0NDhDMi4xMDE4IDUuMDc2MTIgMi4xNzUwNiA1LjA2MTUyIDIuMjQ5MDUgNS4wNjE1MkMyLjMyMzA0IDUuMDYxNTIgMi4zOTYzIDUuMDc2MTIgMi40NjQ2NCA1LjEwNDQ4QzIuNTMyOTggNS4xMzI4MyAyLjU5NTA1IDUuMTc0MzkgMi42NDczIDUuMjI2NzhMOC45OTkwNSAxMS41Nzk3TDE1LjM1MDggNS4yMjY3OEMxNS40MDMxIDUuMTc0NDggMTUuNDY1MiA1LjEzMjk5IDE1LjUzMzUgNS4xMDQ2OUMxNS42MDE5IDUuMDc2MzkgMTUuNjc1MSA1LjA2MTgyIDE1Ljc0OTEgNS4wNjE4MkMxNS44MjMgNS4wNjE4MiAxNS44OTYzIDUuMDc2MzkgMTUuOTY0NiA1LjEwNDY5QzE2LjAzMjkgNS4xMzI5OSAxNi4wOTUgNS4xNzQ0OCAxNi4xNDczIDUuMjI2NzhDMTYuMTk5NiA1LjI3OTA4IDE2LjI0MTEgNS4zNDExNyAxNi4yNjk0IDUuNDA5NUMxNi4yOTc3IDUuNDc3ODMgMTYuMzEyMyA1LjU1MTA3IDE2LjMxMjMgNS42MjUwM0MxNi4zMTIzIDUuNjk4OTkgMTYuMjk3NyA1Ljc3MjIzIDE2LjI2OTQgNS44NDA1NkMxNi4yNDExIDUuOTA4ODkgMTYuMTk5NiA1Ljk3MDk4IDE2LjE0NzMgNi4wMjMyOEw5LjM5NzMgMTIuNzczM0M5LjM0NTA1IDEyLjgyNTcgOS4yODI5OCAxMi44NjcyIDkuMjE0NjQgMTIuODk1NkM5LjE0NjMgMTIuOTIzOSA5LjA3MzA0IDEyLjkzODUgOC45OTkwNSAxMi45Mzg1QzguOTI1MDYgMTIuOTM4NSA4Ljg1MTggMTIuOTIzOSA4Ljc4MzQ2IDEyLjg5NTZDOC43MTUxMyAxMi44NjcyIDguNjUzMDUgMTIuODI1NyA4LjYwMDggMTIuNzczM0wxLjg1MDggNi4wMjMyOEMxLjc5ODQyIDUuOTcxMDMgMS43NTY4NiA1LjkwODk1IDEuNzI4NSA1Ljg0MDYyQzEuNzAwMTQgNS43NzIyOCAxLjY4NTU1IDUuNjk5MDIgMS42ODU1NSA1LjYyNTAzQzEuNjg1NTUgNS41NTEwNCAxLjcwMDE0IDUuNDc3NzggMS43Mjg1IDUuNDA5NDRDMS43NTY4NiA1LjM0MTEgMS43OTg0MiA1LjI3OTAzIDEuODUwOCA1LjIyNjc4WiIgZmlsbD0iIzIxMjUyOSIvPgo8L3N2Zz4K')
           left top / 100% 100% no-repeat;
         opacity: 0.3;
-        @include transition(transform);
+        @include transition((transform, opacity));
       }
       &:not(.rtl) {
         &::after {
@@ -34,6 +34,7 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+        @include transition(opacity);
       }
     }
     &.input-active {
@@ -55,6 +56,108 @@
   &._error {
     .ts-control {
       border-color: var(--red) !important;
+    }
+  }
+  &._sort {
+    width: 100%;
+    &.single {
+      .ts-control {
+        background: none;
+        border-radius: 0.8rem;
+        padding: 0 3.8rem 0 1.4rem !important;
+        height: 4rem;
+        border: none;
+        z-index: 11;
+        transition: none;
+        &::after {
+          width: 1.6rem;
+          height: 1.6rem;
+          opacity: 1;
+          margin-top: -0.8rem;
+        }
+      }
+    }
+    @include hover {
+      &:not(.dropdown-active) {
+        .ts-control {
+          &::after {
+            opacity: 0.7;
+          }
+          .item {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+    &.dropdown-active {
+      box-shadow: 0 8px 24px 0 rgba(129, 135, 189, 0.08);
+      .ts-control {
+        border-radius: 0.8rem 0.8rem 0 0;
+        background-color: var(--white);
+      }
+    }
+    .ts-dropdown {
+      &.single {
+        margin: 0;
+        border-radius: 0 0 0.8rem 0.8rem;
+      }
+      .option,
+      .optgroup-header,
+      .no-results,
+      .create {
+        padding: 0.8rem 1.4rem;
+      }
+    }
+    .ts-control,
+    .ts-control input,
+    .ts-dropdown {
+      font-size: 1.6rem;
+    }
+    .ts-dropdown-content {
+      max-height: 20rem;
+    }
+  }
+  &._search {
+    &.single {
+      .ts-control {
+        border-radius: 0.8rem;
+        height: 4rem;
+        &::after {
+          background: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMy4yMTA4IDExLjYzNjlDMTQuMzAwMSAxMC4xNTA0IDE0Ljc4OCA4LjMwNzQyIDE0LjU3NjkgNi40NzY2NkMxNC4zNjU3IDQuNjQ1OSAxMy40NzExIDIuOTYyMzcgMTIuMDcyIDEuNzYyODlDMTAuNjcyOSAwLjU2MzQwNSA4Ljg3MjQ4IC0wLjA2MzU3NzEgNy4wMzA5NSAwLjAwNzM4MDIyQzUuMTg5NDIgMC4wNzgzMzc1IDMuNDQyNTkgMC44NDIwMDEgMi4xMzk5NCAyLjE0NTU5QzAuODM3MjgxIDMuNDQ5MTggMC4wNzQ4NjY5IDUuMTk2NTUgMC4wMDUyMjczNSA3LjAzODEzQy0wLjA2NDQxMjIgOC44Nzk3MSAwLjU2Mzg1OCAxMC42Nzk3IDEuNzY0MzQgMTIuMDc3OUMyLjk2NDgzIDEzLjQ3NjIgNC42NDkgMTQuMzY5NiA2LjQ3OTkxIDE0LjU3OTRDOC4zMTA4MiAxNC43ODkyIDEwLjE1MzQgMTQuMyAxMS42MzkxIDEzLjIwOTZIMTEuNjM4QzExLjY3MTggMTMuMjU0NiAxMS43MDc4IDEzLjI5NzQgMTEuNzQ4MyAxMy4zMzlMMTYuMDc5NSAxNy42NzAyQzE2LjI5MDUgMTcuODgxMyAxNi41NzY2IDE4IDE2Ljg3NTEgMTguMDAwMUMxNy4xNzM1IDE4LjAwMDIgMTcuNDU5NyAxNy44ODE4IDE3LjY3MDggMTcuNjcwOEMxNy44ODE5IDE3LjQ1OTkgMTguMDAwNiAxNy4xNzM3IDE4LjAwMDcgMTYuODc1M0MxOC4wMDA4IDE2LjU3NjggMTcuODgyMyAxNi4yOTA2IDE3LjY3MTQgMTYuMDc5NUwxMy4zNDAxIDExLjc0ODJDMTMuMjk5OSAxMS43MDc1IDEzLjI1NjcgMTEuNjcxIDEzLjIxMDggMTEuNjM2OVpNMTMuNTAxIDcuMzEyMzdDMTMuNTAxIDguMTI0OTIgMTMuMzQxIDguOTI5NTIgMTMuMDMgOS42ODAyMkMxMi43MTkxIDEwLjQzMDkgMTIuMjYzMyAxMS4xMTMgMTEuNjg4NyAxMS42ODc2QzExLjExNDIgMTIuMjYyMiAxMC40MzIxIDEyLjcxNzkgOS42ODEzNyAxMy4wMjg5QzguOTMwNjYgMTMuMzM5OCA4LjEyNjA3IDEzLjQ5OTkgNy4zMTM1MSAxMy40OTk5QzYuNTAwOTYgMTMuNDk5OSA1LjY5NjM2IDEzLjMzOTggNC45NDU2NiAxMy4wMjg5QzQuMTk0OTUgMTIuNzE3OSAzLjUxMjg1IDEyLjI2MjIgMi45MzgyOSAxMS42ODc2QzIuMzYzNzIgMTEuMTEzIDEuOTA3OTYgMTAuNDMwOSAxLjU5NzAxIDkuNjgwMjJDMS4yODYwNSA4LjkyOTUyIDEuMTI2MDEgOC4xMjQ5MiAxLjEyNjAxIDcuMzEyMzdDMS4xMjYwMSA1LjY3MTM0IDEuNzc3OTEgNC4wOTc1MyAyLjkzODI5IDIuOTM3MTVDNC4wOTg2NyAxLjc3Njc2IDUuNjcyNDggMS4xMjQ4NyA3LjMxMzUxIDEuMTI0ODdDOC45NTQ1NCAxLjEyNDg3IDEwLjUyODQgMS43NzY3NiAxMS42ODg3IDIuOTM3MTVDMTIuODQ5MSA0LjA5NzUzIDEzLjUwMSA1LjY3MTM0IDEzLjUwMSA3LjMxMjM3WiIgZmlsbD0iIzIxMjUyOSIvPgo8L3N2Zz4K')
+            left top / 100% 100% no-repeat;
+        }
+      }
+    }
+    &.full {
+      .ts-control {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+    &.dropdown-active {
+      .ts-control {
+        &::after {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    }
+    .ts-dropdown {
+      .option,
+      .optgroup-header,
+      .no-results,
+      .create {
+        padding: 0.8rem 1.4rem;
+      }
+    }
+    .ts-control,
+    .ts-control input,
+    .ts-dropdown {
+      font-size: 1.6rem;
+    }
+    .ts-dropdown-content {
+      max-height: 20rem;
     }
   }
 }
@@ -110,9 +213,15 @@
     &[data-selectable] {
       opacity: 0.6;
     }
-    &.active {
+    @include hover {
       opacity: 1;
       color: var(--link);
+    }
+    &.active {
+      &:not(._sort &) {
+        opacity: 1;
+        color: var(--link);
+      }
     }
   }
 }

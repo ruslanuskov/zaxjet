@@ -42,7 +42,52 @@ block config
           attrs: {
             name: 'sort',
             autocomplete: 'off',
-            class: 'js-default-select',
+            class: 'js-sort-select _sort',
+          },
+        },
+        search: {
+          options: {
+            tag: 'select',
+            listing: [
+              {
+                value: '',
+                label: '',
+              },
+              {
+                value: 'search-1',
+                label: 'Нижний кронштейн рулевой колонки',
+              },
+              {
+                value: 'search-2',
+                label: 'Выхлопная труба',
+              },
+              {
+                value: 'search-3',
+                label: 'Замок капота',
+              },
+              {
+                value: 'search-4',
+                label: 'Чин-пад видовой карбон',
+              },
+              {
+                value: 'search-5',
+                label: 'Водозаборная решетка алюминий ',
+              },
+              {
+                value: 'search-6',
+                label: 'Чин-пад стеклоткань',
+              },
+              {
+                value: 'search-7',
+                label: 'Гибкий шланг рулевой системы',
+              },
+            ],
+          },
+          attrs: {
+            name: 'search',
+            placeholder: 'Поиск',
+            autocomplete: 'off',
+            class: 'js-autocomplete-select _search',
           },
         },
       },
