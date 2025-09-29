@@ -172,4 +172,16 @@
       margin-top: 4rem;
     }
   }
+  &__empty-result {
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    opacity: 0.4;
+    @include up(md) {
+      padding-top: 4rem;
+    }
+    @include up(lg) {
+      padding-top: 2rem;
+    }
+  }
 }
