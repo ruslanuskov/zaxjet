@@ -1,0 +1,179 @@
+@use '../utils' as *;
+
+.filter {
+  $root: &;
+
+  padding: 3.6rem 0;
+  position: fixed;
+  z-index: $z-index + 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--white);
+  box-shadow: 0 8px 24px 0 rgba(129, 135, 189, 0.15);
+  display: none;
+  @include up(md) {
+    width: 49.22%;
+  }
+  @include up(lg) {
+    display: block !important;
+    position: relative;
+    z-index: auto;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background: none;
+    box-shadow: none;
+  }
+  &__button-close {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: rgba(16, 16, 18, 0.07);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 1.2rem;
+    right: 1.2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    @include transition(background-color);
+    @include up(lg) {
+      display: none;
+    }
+    @include hover {
+      &:not(:active) {
+        background-color: rgba(16, 16, 18, 0.05);
+      }
+    }
+    &:active {
+      background-color: rgba(16, 16, 18, 0.04);
+    }
+    svg {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+  &__content {
+    flex: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+  }
+  &__sections {
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: {
+      left: 3.6rem;
+      right: 3.6rem;
+    }
+    @include up(lg) {
+      overflow: visible;
+      padding: 0;
+    }
+    &-item + &-item {
+      margin-top: 3rem;
+    }
+    &-item {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1.65rem;
+    }
+    &-title {
+      font-size: 2.8rem;
+      margin-top: -0.7rem;
+    }
+  }
+  &__param + &__param {
+    margin-top: 0.9rem;
+  }
+  &__param {
+    display: block;
+    width: fit-content;
+    position: relative;
+    input {
+      position: absolute;
+      opacity: 0;
+      appearance: none;
+    }
+    &-content {
+      display: flex;
+      align-items: center;
+      gap: 0 0.8rem;
+      font-size: 2rem;
+      line-height: 1.5;
+      color: var(--text-color);
+      cursor: pointer;
+      @include transition((opacity, color));
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+        flex: none;
+        display: none;
+      }
+      span {
+        display: block;
+      }
+    }
+    input:disabled + &-content {
+      cursor: not-allowed;
+      opacity: 0.3;
+    }
+    input:checked + &-content {
+      svg {
+        display: block;
+      }
+    }
+    @include hover {
+      input:not(:disabled) + #{$root}__param-content {
+        color: var(--link-hover);
+      }
+    }
+  }
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    row-gap: 3rem;
+    padding: {
+      left: 3.6rem;
+      right: 3.4rem;
+    }
+    @include up(lg) {
+      padding: {
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+  &__sections + &__footer {
+    padding-top: 3rem;
+  }
+  &__btn-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    width: 100%;
+    @include up(md) {
+      width: 81.17%;
+    }
+    @include up(lg) {
+      width: 100%;
+    }
+  }
+  &__btn {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    height: 4rem;
+  }
+  &__count {
+    font-size: 1.6rem;
+    color: var(--grey-80);
+  }
+}

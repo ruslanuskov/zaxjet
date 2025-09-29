@@ -10,9 +10,18 @@ mixin catalog(data)
           .catalog__info
             if filter
               .catalog__sidebar
+                +filter(filter)
             .catalog__content
               if filter || panel
                 .catalog__panel
+                  if filter
+                    +btn({
+                      tag: 'button',
+                      label: 'Все фильтры',
+                      icons: {
+                        left: 'chevron-left',
+                      },
+                    })(type="button" class="_primary-white js-filter-btn catalog__filter-btn")
               if cards || pagination
                 .catalog__list
                   .catalog__list-content

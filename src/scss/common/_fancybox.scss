@@ -18,6 +18,9 @@ html {
     --fancybox-bg: rgba(0, 0, 0, 0.25);
     &._mobinav {
       z-index: $z-index - 1;
+    }
+    &._mobinav,
+    &._filter {
       @include up(lg) {
         visibility: hidden !important;
       }
@@ -56,8 +59,8 @@ html {
   }
   &__content {
     padding: 0;
-    .is-compact &:not(._mobinav &),
-    .has-iframe &:not(._mobinav &) {
+    .is-compact &:not(._mobinav &, ._filter &),
+    .has-iframe &:not(._mobinav &, ._filter &) {
       height: auto !important;
     }
   }
