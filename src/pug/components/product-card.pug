@@ -27,10 +27,11 @@ mixin product-card(data)
               .product-card__counter
                 +counter(counter)._small
               +btn({
+                tag: 'a',
                 icons: {
                   left: 'basket',
                 },
-              })(type="button" class="_secondary product-card__btn _short" data-tippy-content="перейти в корзину")
+              })(href="#" class="_secondary product-card__btn _short" data-tippy-content="перейти в корзину")
             else
               +btn({
                 label: 'В корзину',

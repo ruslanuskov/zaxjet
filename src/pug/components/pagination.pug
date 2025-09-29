@@ -1,0 +1,22 @@
+mixin pagination(data)
+  if data
+    - var { loadBtn, pages } = data;
+    .pagination&attributes(attributes)
+      if loadBtn
+        - var { options, attrs } = loadBtn;
+        +btn(options).pagination__load-btn&attributes(attrs)
+      if pages
+        ul.pagination__pages
+          each item in pages
+            - var { icon, text, disabled, active, modificators } = item;
+            li.pagination__pages-item(class=modificators)
+              #{disabled || active ? 'button' : 'a'}(
+                type=disabled || active ? 'button' : undefined
+                href=!disabled && !active ? '#' : undefined
+                class=`pagination__pages-btn${active ? ' _active' : ''}${disabled ? ' _disabled' : ''}`
+                disabled=disabled
+              )
+                if icon
+                  +svg(icon)
+                else if text
+                  span!=text

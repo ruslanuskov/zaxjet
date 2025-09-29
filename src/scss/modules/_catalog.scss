@@ -1,0 +1,115 @@
+@use 'sass:math';
+@use '../utils' as *;
+
+.catalog {
+  &._content {
+    padding-top: 8.1rem;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6rem;
+  }
+  &__title {
+    &.h2 {
+      font-size: 4.6rem;
+      line-height: 1;
+    }
+  }
+  &__info {
+    @include up(lg) {
+      display: flex;
+      align-items: flex-start;
+      gap: 0 2.7rem;
+    }
+    @include up(xl) {
+      gap: 0 4.55rem;
+    }
+  }
+  &__sidebar {
+    width: 100%;
+    flex: none;
+    @include up(lg) {
+      width: 22.402%;
+    }
+    @include up(xl) {
+      width: 19.291%;
+    }
+  }
+  &__content {
+    flex: 1 1 auto;
+  }
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    @include up(md) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  &__list {
+    padding: 0 7.773%;
+    @include up(md) {
+      padding: 0;
+    }
+    @include up(lg) {
+      padding: 0 5.2%;
+    }
+    @include up(xl) {
+      padding: 0;
+    }
+    &-content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 5.95rem;
+      @include up(md) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 -0.15rem;
+      }
+      @include up(lg) {
+        margin: 0;
+      }
+    }
+    &-item {
+      @include up(md) {
+        width: math.div(100%, 3);
+      }
+      @include up(xl) {
+        width: math.div(100%, 4);
+      }
+      .product-card__content,
+      .product-card__footer {
+        @include up(md) {
+          margin: {
+            left: -0.85rem;
+            right: -0.85rem;
+          }
+        }
+        @include up(lg) {
+          margin: {
+            left: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+  &__pagination {
+    margin: {
+      left: -9.1%;
+      right: -9.1%;
+    }
+    @include up(md) {
+      margin: {
+        left: 0;
+        right: 0;
+      }
+    }
+    * + & {
+      margin-top: 4rem;
+    }
+  }
+}
