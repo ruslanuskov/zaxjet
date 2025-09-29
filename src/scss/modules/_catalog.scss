@@ -38,6 +38,15 @@
   }
   &__content {
     flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 6rem;
+    @include up(md) {
+      row-gap: 4rem;
+    }
+    @include up(lg) {
+      row-gap: 6rem;
+    }
   }
   &__panel {
     display: flex;
@@ -48,9 +57,35 @@
       align-items: center;
       justify-content: space-between;
     }
+    &-sort {
+      width: fit-content;
+      max-width: 100%;
+      order: 3;
+      @include up(md) {
+        order: 2;
+      }
+      .ts-wrapper {
+        min-width: 25.2rem;
+      }
+    }
+    &-search {
+      order: 2;
+      width: 100%;
+      @include up(md) {
+        order: 3;
+        width: 37.357%;
+      }
+      @include up(lg) {
+        width: 30.99%;
+      }
+      @include up(xl) {
+        width: 25.988%;
+      }
+    }
   }
   &__filter-btn {
     width: 100%;
+    order: 1;
     gap: 0 1.6rem;
     height: 6rem;
     flex: none;

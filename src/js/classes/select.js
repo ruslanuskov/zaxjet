@@ -2,11 +2,13 @@ import TomSelect from 'tom-select';
 
 const DEFAULT_SELECT_SELECTOR = 'js-default-select';
 const AUTOCOMPLETE_SELECT_SELECTOR = 'js-autocomplete-select';
+const SORT_SELECT_SELECTOR = 'js-sort-select';
 
 export default class SelectClass {
   static init() {
     this.initDefaultSelect();
     this.initAutocompleteSelect();
+    this.initSortSelect();
   }
 
   static initDefaultSelect() {
@@ -29,7 +31,20 @@ export default class SelectClass {
     if (!selects.length) return;
 
     selects.forEach(item => {
-      this.initTomSelect(item);
+      this.initTomSelect(item, {
+        openOnFocus: false,
+      });
+    });
+  }
+
+  static initSortSelect() {
+    const select = document.querySelector(`.${SORT_SELECT_SELECTOR}`);
+
+    if (!select) return;
+
+    this.initTomSelect(select, {
+      hideSelected: true,
+      controlInput: null,
     });
   }
 

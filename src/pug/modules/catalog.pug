@@ -19,9 +19,19 @@ mixin catalog(data)
                       tag: 'button',
                       label: 'Все фильтры',
                       icons: {
-                        left: 'chevron-left',
+                        left: 'filter-fill',
                       },
                     })(type="button" class="_primary-white js-filter-btn catalog__filter-btn")
+                  if panel
+                    - var { sort, search } = panel;
+                    if sort
+                      - var { options, attrs } = sort;
+                      -options.modificators = options.modificators ? `${options.modificators} catalog__panel-sort` : 'catalog__panel-sort';
+                      +field(options)&attributes(attrs)
+                    if search
+                      - var { options, attrs } = search;
+                      -options.modificators = options.modificators ? `${options.modificators} catalog__panel-search` : 'catalog__panel-search';
+                      +field(options)&attributes(attrs)
               if cards || pagination
                 .catalog__list
                   .catalog__list-content
