@@ -1,9 +1,608 @@
 extends ./common/wrapper
+include ./modules/catalog
 include ./modules/models
 include ./modules/feedback
 
 block config
   - var title = 'Мотор и запчасти';
+
+  -
+    var catalog = {
+      title: {
+        tag: 'h1',
+        label: 'Мотор и запчасти',
+      },
+      panel: {
+        sort: {
+          options: {
+            tag: 'select',
+            listing: [
+              {
+                value: 'sort-1',
+                label: 'Порядок по умолчанию',
+              },
+              {
+                value: 'sort-2',
+                label: 'По возрастанию цены',
+              },
+              {
+                value: 'sort-3',
+                label: 'По убыванию цены',
+              },
+              {
+                value: 'sort-4',
+                label: 'По популярности',
+              },
+              {
+                value: 'sort-5',
+                label: 'По новизне',
+              },
+            ],
+          },
+          attrs: {
+            name: 'sort',
+            autocomplete: 'off',
+            class: 'js-default-select',
+          },
+        },
+      },
+      filter: {
+        section: [],
+        btns: [
+          {
+            options: {
+              tag: 'button',
+              label: 'Найти',
+            },
+            attrs: {
+              type: 'submit',
+              class: '_outline-primary',
+            },
+          },
+          {
+            options: {
+              tag: 'button',
+              label: 'Сбросить',
+            },
+            attrs: {
+              type: 'reset',
+              class: '_secondary',
+            },
+          },
+        ],
+        count: 'Найдено: 1678 ',
+      },
+      cards: [
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/7.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Нижний кронштейн рулевой колонки',
+          prices: {
+            current: '26 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/8.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Выхлопная труба',
+          counter: {
+            count: 3,
+          },
+          prices: {
+            current: '90 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/9.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Замок капота',
+          prices: {
+            current: '38 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/3.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Чин-пад видовой карбон',
+          prices: {
+            current: '38 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/1.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          info: {
+            text: '<div>под заказ</div><a href="#">подробнее</a>',
+          },
+          prices: {
+            current: '18 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/4.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Чин-пад стеклоткань',
+          prices: {
+            current: '17 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/10.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Гибкий шланг рулевой системы',
+          prices: {
+            current: '7 500 р.',
+          },
+        },
+        {
+          sale: '-15%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/5.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          prices: {
+            current: '32 300 р.',
+            old: '38 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/11.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Водозаборная решетка карбон',
+          prices: {
+            current: '38 000 р.',
+          },
+        },
+        {
+          sale: '-20%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/2.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Задний кронштейн аккумулятора',
+          prices: {
+            current: '14 400 р.',
+            old: '18 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/12.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Плита карбон видовой Луи',
+          prices: {
+            current: '15 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/13.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Кольцо водомета 144',
+          counter: {
+            count: 2,
+          },
+          prices: {
+            current: '26 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/14.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Воздухозабор карбон',
+          prices: {
+            current: '20 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/15.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Передний захват ног для фрирайда',
+          prices: {
+            current: '15 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/4.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Чин-пад карбон в цвет',
+          info: {
+            text: '<div>под заказ</div><a href="#">подробнее</a>',
+          },
+          prices: {
+            current: '25 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/6.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Захваты для ног',
+          info: {
+            text: '<div>под заказ</div><a href="#">подробнее</a>',
+          },
+          prices: {
+            current: '39 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/7.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Нижний кронштейн рулевой колонки',
+          prices: {
+            current: '26 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/8.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Выхлопная труба',
+          counter: {
+            count: 3,
+          },
+          prices: {
+            current: '90 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/9.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Замок капота',
+          prices: {
+            current: '38 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/3.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Чин-пад видовой карбон',
+          prices: {
+            current: '38 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/1.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          info: {
+            text: '<div>под заказ</div><a href="#">подробнее</a>',
+          },
+          prices: {
+            current: '18 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/4.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Чин-пад стеклоткань',
+          prices: {
+            current: '17 000 р.',
+          },
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/short-catalog/10.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Гибкий шланг рулевой системы',
+          prices: {
+            current: '7 500 р.',
+          },
+        },
+        {
+          sale: '-15%',
+          picture: {
+            single: {
+              path: 'images/short-catalog/5.png',
+              sizes: {
+                _1600: [160, 160],
+                _1280: [212, 212],
+                _1024: [279, 279],
+                _768: [220, 220],
+                _400: [423, 423],
+                _0: [207, 207],
+              },
+            },
+          },
+          name: 'Водозаборная решетка алюминий',
+          prices: {
+            current: '32 300 р.',
+            old: '38 000 р.',
+          },
+        },
+      ],
+      pagination: {
+        loadBtn: {
+          options: {
+            tag: 'button',
+            label: 'Показать ещё',
+          },
+          attrs: {
+            type: 'button',
+            class: '_secondary',
+          },
+        },
+        pages: [
+          {
+            icon: 'chevron-left',
+            disabled: true,
+          },
+          {
+            text: '1',
+            active: true,
+          },
+          {
+            text: '2',
+          },
+          {
+            text: '3',
+          },
+          {
+            text: '4',
+            modificators: '_hidden',
+          },
+          {
+            text: '5',
+            modificators: '_hidden',
+          },
+          {
+            text: '...',
+          },
+          {
+            text: '19',
+          },
+          {
+            icon: 'chevron-right',
+          },
+        ],
+      },
+    };
 
   -
     var models = {
@@ -114,5 +713,6 @@ block config
     };
 
 block content
+  +catalog(catalog)
   +models(models)._in-catalog
   +feedback(feedback)._questions

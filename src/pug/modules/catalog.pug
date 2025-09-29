@@ -1,0 +1,22 @@
+mixin catalog(data)
+  if data
+    - var { title, panel, filter, cards, pagination } = data;
+    section.catalog._content&attributes(attributes)
+      .container.catalog__container
+        if title
+          - var { tag, label } = title;
+          #{tag || 'h1'}.h2.catalog__title!=label
+        if panel || filter || cards || pagination
+          .catalog__info
+            if filter
+              .catalog__sidebar
+            .catalog__content
+              if filter || panel
+                .catalog__panel
+              if cards || pagination
+                .catalog__list
+                  .catalog__list-content
+                    each item in cards
+                      +product-card(item).catalog__list-item
+                  if pagination
+                    +pagination(pagination).catalog__pagination
