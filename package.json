@@ -15,7 +15,7 @@
   },
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "vite build && node ./pretty-html.js",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -31,16 +31,19 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.4",
+    "fs-extra": "^11.3.2",
     "globals": "^16.3.0",
     "imagemin-svgo": "^11.0.1",
     "imagemin-webp": "^8.0.0",
+    "js-beautify": "^1.15.4",
     "postcss-combine-media-query": "^2.0.0",
     "prettier": "^3.6.2",
     "sass": "^1.92.1",
     "vite": "^7.1.5",
     "vite-plugin-clean-css": "^0.0.3",
     "vite-plugin-restart": "^1.0.0",
-    "vituum": "^1.2.0"
+    "vituum": "^1.2.0",
+    "vkbeautify": "^0.99.3"
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",

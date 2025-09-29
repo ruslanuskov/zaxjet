@@ -42,9 +42,6 @@ export default defineConfig({
       globals: {
         devmode: envs.devmode,
       },
-      options: {
-        pretty: !envs.devmode,
-      },
     }),
     cleanCss(),
     spritemap(`${envs.paths.source}/svgsprite/*.svg`, {
