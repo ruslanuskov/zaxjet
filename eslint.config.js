@@ -54,6 +54,12 @@ const extendsConfig = [
           props: false,
         },
       ],
+      'import/extensions': [
+        'error',
+        {
+          js: 'ignorePackages',
+        },
+      ],
     },
     settings: {
       'import/resolver': {
