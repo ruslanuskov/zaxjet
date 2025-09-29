@@ -1,0 +1,368 @@
+extends ./common/wrapper
+include ./modules/catalog
+include ./modules/models
+include ./modules/feedback
+
+block config
+  - var title = 'Мотор и запчасти';
+
+  -
+    var catalog = {
+      title: {
+        tag: 'h1',
+        label: 'Мотор и запчасти',
+      },
+      panel: {
+        sort: {
+          options: {
+            tag: 'select',
+            listing: [
+              {
+                value: 'sort-1',
+                label: 'Порядок по умолчанию',
+              },
+              {
+                value: 'sort-2',
+                label: 'По возрастанию цены',
+              },
+              {
+                value: 'sort-3',
+                label: 'По убыванию цены',
+              },
+              {
+                value: 'sort-4',
+                label: 'По популярности',
+              },
+              {
+                value: 'sort-5',
+                label: 'По новизне',
+              },
+            ],
+          },
+          attrs: {
+            name: 'sort',
+            autocomplete: 'off',
+            class: 'js-sort-select _sort',
+          },
+        },
+        search: {
+          options: {
+            tag: 'select',
+            listing: [
+              {
+                value: '',
+                label: '',
+              },
+              {
+                value: 'search-1',
+                label: 'Нижний кронштейн рулевой колонки',
+              },
+              {
+                value: 'search-2',
+                label: 'Выхлопная труба',
+              },
+              {
+                value: 'search-3',
+                label: 'Замок капота',
+              },
+              {
+                value: 'search-4',
+                label: 'Чин-пад видовой карбон',
+              },
+              {
+                value: 'search-5',
+                label: 'Водозаборная решетка алюминий ',
+              },
+              {
+                value: 'search-6',
+                label: 'Чин-пад стеклоткань',
+              },
+              {
+                value: 'search-7',
+                label: 'Гибкий шланг рулевой системы',
+              },
+            ],
+          },
+          attrs: {
+            name: 'search',
+            placeholder: 'Поиск',
+            autocomplete: 'off',
+            class: 'js-autocomplete-select _search',
+          },
+        },
+      },
+      filter: {
+        sections: [
+          {
+            name: 'Модели',
+            params: [
+              {
+                label: 'RidePro',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                },
+              },
+              {
+                label: '2Style',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                },
+              },
+              {
+                label: '2StylePro',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                },
+              },
+              {
+                label: 'Duck',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                },
+              },
+              {
+                label: '2Ride',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                  checked: true,
+                },
+              },
+              {
+                label: '4Race',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                  disabled: true,
+                },
+              },
+              {
+                label: 'GSurf',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                  disabled: true,
+                },
+              },
+              {
+                label: 'Blast',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                  disabled: true,
+                },
+              },
+            ],
+          },
+          {
+            name: 'Категории',
+            params: [
+              {
+                label: 'Мотор и запчасти',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Водомет',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Водослив',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Детали корпуса',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Расходники',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Топливная система',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Управление',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                  checked: true,
+                },
+              },
+              {
+                label: 'Электрика',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Мерч',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+            ],
+          },
+        ],
+        btns: [
+          {
+            options: {
+              tag: 'button',
+              label: 'Найти',
+            },
+            attrs: {
+              type: 'submit',
+              class: '_outline-primary',
+            },
+          },
+          {
+            options: {
+              tag: 'button',
+              label: 'Сбросить',
+            },
+            attrs: {
+              type: 'reset',
+              class: '_secondary',
+            },
+          },
+        ],
+        count: 'Найдено: 1678 ',
+      },
+    };
+
+  -
+    var models = {
+      title: {
+        tag: 'h3',
+        label: 'Модели ZaxJet',
+        attrs: {
+          class: 'h2',
+        },
+      },
+      cards: [
+        {
+          picture: {
+            single: {
+              path: 'images/models/1.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [472, 203],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: 'RidePro',
+          price: 'от 930 000 р.',
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/models/2.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [472, 203],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: '2Style',
+          price: 'от 1 050 000 р.',
+        },
+        {
+          picture: {
+            single: {
+              path: 'images/models/3.png',
+              sizes: {
+                _1600: [406, 157],
+                _1280: [472, 203],
+                _1024: [705, 273],
+                _768: [555, 215],
+                _400: [743, 320],
+                _0: [375, 161],
+              },
+            },
+          },
+          name: '2StylePro',
+          price: 'от 1 050 000 р.',
+        },
+      ],
+      btn: {
+        options: {
+          tag: 'a',
+          label: 'Все модели',
+          icons: {
+            right: 'chevron-right',
+          },
+        },
+        attrs: {
+          href: '#',
+        },
+      },
+    };
+
+  -
+    var feedback = {
+      title: {
+        tag: 'h3',
+        label: 'Остались вопросы?',
+      },
+      text: 'Пишите нам или нашим партнёрам — подберём модель, комплектацию, рассчитаем сроки и стоимость.',
+      telephone: {
+        url: 'tel:+79911758377',
+        label: '+7 (991) 175-83-77',
+      },
+      networks: [
+        {
+          url: '#',
+          icon: 'feed-telegram',
+          target: '_blank',
+          label: 'Telegram',
+        },
+        {
+          url: '#',
+          icon: 'feed-whatsapp',
+          target: '_blank',
+          label: 'WhatsApp',
+        },
+        {
+          url: 'mailto:ask@zaxjet.com',
+          icon: 'feed-email',
+          label: 'ask@zaxjet.com',
+        },
+      ],
+    };
+
+block content
+  +catalog(catalog)
+  +models(models)._in-catalog
+  +feedback(feedback)._questions
