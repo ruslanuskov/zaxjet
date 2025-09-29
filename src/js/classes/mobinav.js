@@ -42,7 +42,6 @@ export default class MobinavClass {
       ModalsClass.showModal(this.mobinav, {
         mainClass: '_mobinav',
         autoFocus: false,
-        dragToClose: false,
         on: {
           close: () => {
             this.btn.classList.remove(ACTIVE_CLASS);

@@ -1,0 +1,33 @@
+mixin filter(data)
+  if data
+    - var { sections, btns, count } = data;
+    .filter.js-filter#filter&attributes(attributes)
+      button.filter__button-close(type="button" data-fancybox-close)
+        +svg('cross')
+      form.filter__content(autocomplete="off" novalidate="novalidate" method="POST")
+        if sections
+          .filter__sections
+            each section in sections
+              - var { name, params } = section;
+              .filter__sections-item
+                if name
+                  h5.h3.filter__sections-title!=name
+                if params
+                  .filter__sections-list
+                    each item in params
+                      - var { label, attrs } = item;
+                      label.filter__param
+                        input(type="checkbox")&attributes(attrs)
+                        span.filter__param-content
+                          +svg('small-cross')
+                          if label
+                            span!=label
+        if btns || count
+          .filter__footer
+            if btns
+              .filter__btn-list
+                each btn in btns
+                  - var { options, attrs } = btn;
+                  +btn(options).filter__btn&attributes(attrs)
+            if count
+              .filter__count!=count

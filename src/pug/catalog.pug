@@ -47,7 +47,142 @@ block config
         },
       },
       filter: {
-        section: [],
+        sections: [
+          {
+            name: 'Модели',
+            params: [
+              {
+                label: 'RidePro',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                },
+              },
+              {
+                label: '2Style',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                },
+              },
+              {
+                label: '2StylePro',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                },
+              },
+              {
+                label: 'Duck',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                },
+              },
+              {
+                label: '2Ride',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                  checked: true,
+                },
+              },
+              {
+                label: '4Race',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                  disabled: true,
+                },
+              },
+              {
+                label: 'GSurf',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                  disabled: true,
+                },
+              },
+              {
+                label: 'Blast',
+                attrs: {
+                  type: 'checkbox',
+                  name: 'models',
+                  disabled: true,
+                },
+              },
+            ],
+          },
+          {
+            name: 'Категории',
+            params: [
+              {
+                label: 'Мотор и запчасти',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Водомет',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Водослив',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Детали корпуса',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Расходники',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Топливная система',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Управление',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                  checked: true,
+                },
+              },
+              {
+                label: 'Электрика',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+              {
+                label: 'Мерч',
+                attrs: {
+                  type: 'radio',
+                  name: 'categories',
+                },
+              },
+            ],
+          },
+        ],
         btns: [
           {
             options: {

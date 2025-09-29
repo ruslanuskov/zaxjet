@@ -49,6 +49,31 @@
       justify-content: space-between;
     }
   }
+  &__filter-btn {
+    width: 100%;
+    gap: 0 1.6rem;
+    height: 6rem;
+    flex: none;
+    @include up(md) {
+      width: fit-content;
+    }
+    @include up(lg) {
+      display: none;
+    }
+    &:not(._text, ._text-button) {
+      padding: 1rem;
+    }
+    .btn__icon {
+      width: 3.8rem;
+      height: 3.8rem;
+      color: var(--blue);
+    }
+    .btn__text {
+      @include up(md) {
+        display: none;
+      }
+    }
+  }
   &__list {
     padding: 0 7.773%;
     @include up(md) {

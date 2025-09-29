@@ -11,6 +11,7 @@ import MaskClass from './classes/mask';
 import HeaderClass from './classes/header';
 import BasketClass from './classes/basket';
 import AccordionClass from './classes/accordion';
+import CatalogClass from './classes/catalog';
 import {
   MEDIA_SM,
   MEDIA_MD,
@@ -48,6 +49,7 @@ class MainClass {
       HeaderClass.init();
       BasketClass.init();
       AccordionClass.init();
+      CatalogClass.init();
     }, 0);
   }
 
